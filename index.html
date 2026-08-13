@@ -6,7 +6,7 @@
 <meta name="description" content="ТОВ Інтертехкорм — прямий імпорт та оптове постачання білкових кормових інгредієнтів із країн Європейського Союзу.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-shV3iGTnAOlp5BspI1l+HNl+bkZY6l9xhEAcdu3ZnLw='; style-src 'self' 'sha256-nusrXl2IFkPD4gH9lCv0pCPjvG3k5ZK2d4jj4Q/vLYg=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-shV3iGTnAOlp5BspI1l+HNl+bkZY6l9xhEAcdu3ZnLw='; style-src 'self' 'sha256-YtKL6Dw5WE4c4uv6edGRNzNyCTi96GtlSpr26MnkEvU=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Intertexkorm — кормові білкові інгредієнти</title>
 <link rel="icon" href="img/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -355,7 +355,15 @@
   @media (max-width:600px){
     .modal{ padding:40px 22px 30px; border-radius:0; }
     .modal-overlay{ padding:0; align-items:stretch; }
-    .modal{ min-height:100%; }
+    .modal-overlay.open:not(.email-overlay){ display:block; }
+    .modal-overlay:not(.email-overlay){
+      background:#fafaf8; -webkit-backdrop-filter:none; backdrop-filter:none;
+      overscroll-behavior:contain; -webkit-overflow-scrolling:touch;
+    }
+    .modal-overlay:not(.email-overlay) .modal{
+      min-height:100%; background:#fafaf8; box-shadow:none;
+      animation:none; opacity:1; transform:none; isolation:isolate;
+    }
   }
 
   .email-modal{ max-width:560px; padding:42px; }
