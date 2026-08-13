@@ -1,2 +1,8 @@
-# intertexkorm-website
-Website for Intertexkorm feed protein ingredients
+# Intertexkorm
+
+Односторінковий сайт компанії Intertexkorm із каталогом кормових білкових інгредієнтів ACTIPRO Plasma та ACTIPRO Hemoglobin.
+
+## Локальний запуск
+
+Відкрийте `index.html` у браузері. Для розробки також можна запустити будь-який локальний HTTP-сервер у корені проєкту.
+

@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ТОВ Інтертехкорм — прямий імпорт та оптове постачання білкових кормових інгредієнтів із країн Європейського Союзу.">
+<meta name="theme-color" content="#154B3D">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-dxpKCcQBAOYAgJC9AxAHC3gzMINGaUdLBMuMQPlhRbY='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'">
+<title>Intertexkorm — кормові білкові інгредієнти</title>
+<link rel="icon" href="img/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Work+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+
+  /* ============================================================
+     ДИЗАЙН-ТОКЕНЫ
+     Палитра ушла от "офисного синего + острые углы" к тёплому
+     нейтральному холсту и глубокому зелёному — цвету, который в
+     европейском agri/biotech-брендинге читается как "органический
+     белок, лабораторная точность", а не "корпоративный шаблон".
+     ============================================================ */
+  :root{
+    --bg:            #FAFAF8;   /* тёплый нейтральный холст */
+    --bg-panel:      #F2F0E9;   /* мягкая панель под секции */
+    --bg-panel-2:    #ECE9DF;   /* панель плотнее, для контраста */
+    --ink:           #14181A;   /* текст, тёплый почти-чёрный */
+    --ink-soft:      #5B6560;   /* приглушённый текст */
+    --accent:        #154B3D;   /* глубокий зелёный — основной акцент */
+    --accent-dark:   #0E362C;   /* hover / нажатое состояние */
+    --accent-soft:   #D8E4DD;   /* светлый акцент / подложки */
+    --accent-2:      #B98A46;   /* тёплое золото — точечный акцент */
+    --line:          #E4E1D6;   /* тёплые тонкие разделители */
+
+    --radius-sm:  10px;
+    --radius-md:  16px;
+    --radius-lg:  22px;
+    --radius-pill: 999px;
+
+    --shadow-sm: 0 1px 2px rgba(20,20,15,.05), 0 1px 1px rgba(20,20,15,.04);
+    --shadow-md: 0 12px 28px -14px rgba(20,20,15,.18);
+    --shadow-lg: 0 30px 60px -24px rgba(20,20,15,.28);
+
+    --font-display:'Fraunces', serif;
+    --font-body:'Work Sans', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1, h2, h3{
+    font-family:var(--font-display);
+    font-weight:500;
+    line-height:1.12;
+    letter-spacing:-0.015em;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+  img{ display:block; max-width:100%; }
+  button{ font-family:inherit; cursor:pointer; }
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+  .skip-link{
+    position:fixed; left:16px; top:12px; z-index:1000; padding:10px 16px;
+    background:var(--ink); color:#fff; border-radius:var(--radius-pill);
+    transform:translateY(-180%); transition:transform .2s ease;
+  }
+  .skip-link:focus{ transform:translateY(0); }
+
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+
+  /* Тихая подпись над мини-таблицами в модалках товара (без линий/обводки) */
+  .table-label{
+    display:block;
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:16px;
+  }
+
+  /* Зернистая текстура — визуальный мотив розпилювального сушіння */
+  .grain{
+    background-image: radial-gradient(circle at 1px 1px, rgba(21,75,61,.35) 1.3px, transparent 0);
+    background-size: 15px 15px;
+  }
+
+  /* ---------- Scroll-reveal ---------- */
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,250,248,0.72);
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  header.scrolled{ border-bottom-color:var(--line); box-shadow:0 8px 24px -20px rgba(20,20,15,.3); }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; max-width:1180px; margin:0 auto; gap:20px;
+  }
+  .logo{ display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:19px; font-weight:600; letter-spacing:-0.01em; }
+  .logo-img{ height:60px; width:auto; display:block; }
+  .nav-links{ display:flex; gap:30px; font-size:14px; color:var(--ink-soft); }
+  .nav-links a{ position:relative; padding-bottom:3px; }
+  .nav-links a::after{ content:""; position:absolute; left:0; right:100%; bottom:0; height:1px; background:var(--accent); transition:right .25s ease; }
+  .nav-links a:hover{ color:var(--ink); }
+  .nav-links a:hover::after{ right:0; }
+  .nav-actions{ display:flex; align-items:center; gap:16px; flex-shrink:0; }
+
+  .lang-switch{ display:flex; gap:2px; border:1px solid var(--line); border-radius:var(--radius-pill); overflow:hidden; padding:2px; }
+  .lang-switch button{
+    background:none; border:none; padding:6px 12px; font-size:12px; font-family:var(--font-mono);
+    letter-spacing:0.03em; color:var(--ink-soft); border-radius:var(--radius-pill); transition:background .2s, color .2s;
+  }
+  .lang-switch button.active{ background:var(--accent); color:#fff; }
+  .lang-switch button:not(.active):hover{ background:var(--bg-panel); }
+
+  .nav-cta{
+    font-size:13.5px; padding:10px 20px; background:var(--ink); color:#fff; border-radius:var(--radius-pill);
+    transition:background .2s ease, transform .2s ease; white-space:nowrap;
+  }
+  .nav-cta:hover{ background:var(--accent); transform:translateY(-1px); }
+
+  @media (max-width:860px){ .nav-links{ display:none; } }
+  @media (max-width:600px){
+    .nav{ padding:12px 16px; gap:10px; }
+    .logo-img{ height:44px; }
+    .nav-actions{ gap:8px; }
+    .lang-switch button{ padding:6px 9px; }
+    .nav-cta{ font-size:12.5px; padding:9px 13px; }
+  }
+  @media (max-width:360px){
+    .logo-img{ height:38px; }
+    .nav-cta{ padding:8px 11px; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:64px 0 96px; overflow:hidden; }
+  .hero .ruler{ margin-bottom:30px; }
+  .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center; }
+  @media (max-width:920px){ .hero-grid{ grid-template-columns:1fr; gap:48px; } }
+
+  .hero h1{ font-size:clamp(38px, 4.8vw, 58px); margin-bottom:22px; }
+  .hero h1 em{ font-style:italic; color:var(--accent); }
+  .hero-copy > p{ max-width:480px; color:var(--ink-soft); font-size:17px; margin-bottom:32px; }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:15px 28px; font-size:14.5px; font-weight:500; letter-spacing:0.01em; border-radius:var(--radius-pill); transition:all .25s cubic-bezier(.2,.7,.2,1); }
+  .btn-primary{ background:var(--accent); color:#fff; box-shadow:var(--shadow-sm); }
+  .btn-primary:hover{ background:var(--accent-dark); transform:translateY(-2px); box-shadow:var(--shadow-md); }
+  .btn-secondary{ border:1px solid var(--line); color:var(--ink); background:#fff; }
+  .btn-secondary:hover{ border-color:var(--ink); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
+
+  /* Мини-каталог прямо у Hero — товар видно на першому екрані */
+  .hero-products{ border-top:1px solid var(--line); }
+  .hero-products-label{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); padding:18px 0 2px; }
+  .hero-product-row{
+    display:flex; align-items:center; justify-content:space-between; gap:16px; width:100%;
+    background:none; border:none; border-bottom:1px solid var(--line); padding:17px 4px;
+    text-align:left; transition:padding-left .25s ease, color .25s ease; border-radius:var(--radius-sm);
+  }
+  .hero-product-row:hover{ padding-left:12px; color:var(--accent); background:var(--bg-panel); }
+  .hero-product-row .hpr-name{ display:flex; align-items:baseline; gap:12px; font-family:var(--font-display); font-size:17.5px; color:var(--ink); }
+  .hero-product-row:hover .hpr-name{ color:var(--accent-dark); }
+  .hero-product-row .hpr-num{ font-family:var(--font-mono); font-size:11.5px; color:var(--accent); letter-spacing:0.05em; }
+  .hero-product-row .hpr-arrow{ font-size:13.5px; color:var(--ink-soft); transition:transform .25s ease; }
+  .hero-product-row:hover .hpr-arrow{ transform:translateX(4px); color:var(--accent); }
+
+  /* Візуальна композиція hero */
+  .hero-visual{
+    position:relative; aspect-ratio:1/1.02; border-radius:var(--radius-lg);
+    overflow:hidden; box-shadow:var(--shadow-lg);
+    background:
+      radial-gradient(circle at 75% 18%, rgba(21,75,61,.35), transparent 55%),
+      radial-gradient(circle at 15% 85%, rgba(185,138,70,.28), transparent 50%),
+      linear-gradient(165deg, #fff 30%, var(--bg-panel) 100%);
+  }
+  .hero-visual .grain{ position:absolute; inset:0; opacity:.55; mix-blend-mode:multiply; }
+  .hero-visual-tag{
+    position:absolute; left:24px; bottom:24px; right:24px; max-width:250px;
+    background:rgba(255,255,255,0.88); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.6); border-radius:var(--radius-md);
+    padding:18px 20px; box-shadow:var(--shadow-md);
+  }
+  .hero-visual-tag .hvt-label{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:7px; }
+  .hero-visual-tag p{ font-size:13px; color:var(--ink-soft); line-height:1.55; }
+
+  /* ---------- Products — головний елемент сайту ---------- */
+  .products{ padding:96px 0; }
+  .products-head{ display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:52px; gap:24px; flex-wrap:wrap; }
+  .products-head h2{ font-size:34px; }
+  .products-head p{ color:var(--ink-soft); max-width:360px; font-size:15px; }
+  .product-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  @media (max-width:780px){ .product-grid{ grid-template-columns:1fr; } }
+
+  .product-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden;
+    transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s cubic-bezier(.2,.7,.2,1), border-color .35s ease;
+    cursor:pointer; text-align:left; width:100%; display:flex; flex-direction:column; box-shadow:var(--shadow-sm);
+  }
+  .product-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--accent-soft); }
+  .product-visual{
+    aspect-ratio:16/10; position:relative; overflow:hidden;
+    background:
+      radial-gradient(circle at 82% 12%, rgba(21,75,61,.30), transparent 55%),
+      radial-gradient(circle at 10% 90%, rgba(185,138,70,.22), transparent 50%),
+      linear-gradient(150deg, var(--bg-panel) 10%, #fff 100%);
+  }
+  .product-visual .grain{ position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply; transition:transform .6s ease; }
+  .product-card:hover .product-visual .grain{ transform:scale(1.06); }
+  .product-visual .pv-tag{
+    position:absolute; top:18px; left:18px; background:rgba(255,255,255,.9); backdrop-filter:blur(6px);
+    font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent-dark);
+    padding:7px 12px; border-radius:var(--radius-pill);
+  }
+  .product-body{ padding:30px 30px 28px; display:flex; flex-direction:column; gap:16px; flex:1; }
+  .product-body h3{ font-size:24px; }
+  .product-body > p.product-desc{ color:var(--ink-soft); font-size:14.5px; }
+  .product-chips{ display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 4px; }
+  .chip{ font-size:12.5px; color:var(--accent-dark); background:var(--accent-soft); padding:7px 12px; border-radius:var(--radius-pill); }
+  .product-price{ display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:20px; margin-top:auto; font-size:14px; }
+  .product-price strong{ font-family:var(--font-display); font-size:19px; font-weight:500; }
+  .product-link{
+    color:#fff; font-size:13.5px; font-weight:500; background:var(--ink);
+    padding:10px 18px; border-radius:var(--radius-pill); transition:background .25s ease, transform .25s ease;
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .product-card:hover .product-link{ background:var(--accent); transform:translateX(2px); }
+
+  /* ---------- Advantages ---------- */
+  .advantages{ padding:96px 0; background:var(--bg-panel); }
+  .advantages-head{ max-width:520px; margin-bottom:52px; }
+  .advantages-head h2{ font-size:32px; margin-bottom:14px; }
+  .advantages-head p{ color:var(--ink-soft); font-size:15px; }
+  .advantages-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; }
+  @media (max-width:920px){ .advantages-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:540px){ .advantages-grid{ grid-template-columns:1fr; } }
+  .advantage{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-md); padding:28px 24px;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .advantage:hover{ transform:translateY(-5px); box-shadow:var(--shadow-md); }
+  .advantage-mark{ width:9px; height:9px; border-radius:50%; background:var(--accent); margin-bottom:18px; }
+  .advantage h3{ font-size:16.5px; margin-bottom:9px; font-weight:600; font-family:var(--font-body); }
+  .advantage p{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; }
+
+  /* ---------- About ---------- */
+  .about{ padding:88px 0; }
+  .about-grid{ display:grid; grid-template-columns:1fr 1.4fr; gap:64px; }
+  .about h2{ font-size:30px; }
+  .about-text p{ color:var(--ink-soft); max-width:560px; margin-bottom:16px; font-size:15px; }
+  .about-text p:last-child{ margin-bottom:0; }
+  @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; gap:24px; } }
+
+  /* ---------- Certificates ---------- */
+  .certs{ padding:0 0 96px; }
+  .certs-inner{ display:grid; grid-template-columns:1fr 1.6fr; gap:48px; align-items:start; }
+  @media (max-width:760px){ .certs-inner{ grid-template-columns:1fr; gap:20px; } }
+  .certs h2{ font-size:28px; margin-bottom:12px; }
+  .certs-lede{ color:var(--ink-soft); font-size:14.5px; max-width:320px; }
+  .certs-note{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius-md); padding:24px 28px;
+    font-size:13.5px; color:var(--ink-soft); line-height:1.65;
+  }
+  .certs-note strong{ color:var(--ink); font-family:var(--font-mono); font-weight:500; }
+
+  /* ---------- Modal (карточка товара) ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(20,24,20,0.6); backdrop-filter:blur(3px);
+    display:none; align-items:flex-start; justify-content:center; z-index:200;
+    padding:48px 20px; overflow-y:auto;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal{
+    background:var(--bg); max-width:880px; width:100%; border-radius:var(--radius-lg); position:relative;
+    padding:48px 44px 44px; animation:modalIn .25s cubic-bezier(.2,.7,.2,1); box-shadow:var(--shadow-lg);
+  }
+  @keyframes modalIn{ from{ opacity:0; transform:translateY(12px) scale(.98);} to{ opacity:1; transform:translateY(0) scale(1);} }
+  .modal-close{
+    position:absolute; top:22px; right:22px; width:38px; height:38px; border-radius:50%;
+    border:1px solid var(--line); background:var(--bg); font-size:16px; color:var(--ink-soft);
+    display:flex; align-items:center; justify-content:center; transition:background .2s, color .2s, transform .2s;
+  }
+  .modal-close:hover{ background:var(--ink); color:#fff; transform:rotate(90deg); }
+
+  @media (max-width:600px){
+    .modal{ padding:40px 22px 30px; border-radius:0; }
+    .modal-overlay{ padding:0; align-items:stretch; }
+    .modal{ min-height:100%; }
+  }
+
+  .spec-head{ max-width:680px; margin-bottom:40px; }
+  .spec-head h2{ font-size:30px; margin-bottom:16px; }
+  .spec-lede{ color:var(--ink-soft); font-size:15px; }
+  .spec-copy{ display:grid; gap:22px; }
+  .spec-copy h3{
+    color:var(--accent); font-family:var(--font-mono); font-size:12px; font-weight:500;
+    letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px;
+  }
+  .spec-copy p + p{ margin-top:10px; }
+
+  .spec-features{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:var(--radius-md); overflow:hidden; margin-bottom:48px;
+  }
+  .spec-feature{ background:#fff; padding:22px 18px; }
+  .spec-feature-num{ display:block; font-family:var(--font-mono); font-size:12px; color:var(--accent); margin-bottom:10px; letter-spacing:0.05em; }
+  .spec-feature p{ font-size:13.5px; line-height:1.5; }
+  @media (max-width:760px){ .spec-features{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:460px){ .spec-features{ grid-template-columns:1fr; } }
+
+  .spec-tables{ display:grid; grid-template-columns:1fr 1fr; gap:40px 48px; margin-bottom:40px; }
+  .spec-table-wide{ grid-column:1 / -1; }
+  @media (max-width:700px){ .spec-tables{ grid-template-columns:1fr; } }
+
+  .spec-table{ width:100%; border-collapse:collapse; font-size:14px; }
+  .spec-table td{ padding:11px 0; border-bottom:1px solid var(--line); }
+  .spec-table td:first-child{ color:var(--ink-soft); }
+  .spec-table td:last-child{ text-align:right; font-family:var(--font-mono); font-weight:500; }
+  .spec-table tr:last-child td{ border-bottom:none; }
+
+  .spec-amino-grid{ display:grid; grid-template-columns:1fr auto; column-gap:18px; font-size:13.5px; }
+  .spec-amino-grid span{ padding:8px 0; border-bottom:1px solid var(--line); }
+  .spec-amino-grid span:nth-child(odd){ color:var(--ink-soft); }
+  .spec-amino-grid span:nth-child(even){ font-family:var(--font-mono); font-weight:500; text-align:right; }
+  @media (min-width:600px){ .spec-amino-grid{ grid-template-columns:1fr auto 1fr auto; } }
+
+  .spec-footer{ display:grid; grid-template-columns:1fr 1fr; gap:28px; padding-top:28px; border-top:1px solid var(--line); }
+  @media (max-width:560px){ .spec-footer{ grid-template-columns:1fr; } }
+  .spec-footer-label{ display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+  .spec-footer p{ color:var(--ink-soft); font-size:14px; }
+
+  .spec-empty{ color:var(--ink-soft); font-size:14.5px; padding:20px 0 4px; }
+  .spec-note{ color:var(--ink-soft); font-size:13px; padding-top:20px; margin-top:20px; border-top:1px solid var(--line); }
+
+  /* ---------- Contact ---------- */
+  .contact{ padding:96px 0; }
+  .contact-inner{
+    display:grid; grid-template-columns:1.2fr 1fr; gap:56px;
+    background:var(--ink); color:#fff; border-radius:var(--radius-lg); padding:64px; box-shadow:var(--shadow-lg);
+  }
+  @media (max-width:760px){ .contact-inner{ grid-template-columns:1fr; padding:40px 28px; } }
+  .contact h2{ font-size:32px; margin-bottom:16px; color:#fff; }
+  .contact > .contact-inner > div:first-child p{ color:rgba(255,255,255,.68); max-width:440px; margin-bottom:8px; }
+  .contact-list{ list-style:none; display:flex; flex-direction:column; gap:18px; }
+  .contact-list li{ display:flex; flex-direction:column; gap:2px; padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,.16); }
+  .contact-list .label{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,.5); }
+  .contact-list .value{ font-size:17px; }
+  .contact-list a.value{ transition:color .2s ease; }
+  .contact-list a.value:hover{ color:var(--accent-2); }
+
+  /* ---------- Footer ---------- */
+  footer{ border-top:1px solid var(--line); padding:28px 0; }
+  .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:13px; color:var(--ink-soft); }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .product-card, .modal, .advantage, .btn{ transition:none; animation:none; }
+  }
+</style>
+</head>
+<body id="top">
+
+<a class="skip-link" href="#main" data-i18n="skip_content">Перейти до основного вмісту</a>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="#top" aria-label="Intertexkorm — на початок сторінки">
+      <img src="img/logo.png" alt="Інтертехкорм" class="logo-img" width="223" height="60">
+    </a>
+    <nav class="nav-links" aria-label="Основна навігація" data-i18n-aria-label="main_nav_label">
+      <a href="#products" data-i18n="nav_products">Товари</a>
+      <a href="#advantages" data-i18n="nav_advantages">Переваги</a>
+      <a href="#about" data-i18n="nav_about">Про нас</a>
+      <a href="#contact" data-i18n="nav_contact">Контакти</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Вибір мови" data-i18n-aria-label="language_label">
+        <button type="button" data-lang="ua" lang="uk" aria-pressed="true">UA</button>
+        <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="#contact" class="nav-cta" data-i18n="nav_cta">Зв'язатися</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+
+    <div class="hero-copy reveal">
+      <h1 id="hero-title">Високоякісні<br>білкові інгредієнти<br>для сучасного<br><em>тваринництва</em></h1>
+      <p data-i18n="hero_desc">ТОВ Інтертехкорм постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.</p>
+
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-primary" data-i18n="hero_btn1">Дивитись товари</a>
+        <a href="#contact" class="btn btn-secondary" data-i18n="hero_btn2">Написати нам</a>
+      </div>
+
+      <div class="hero-products">
+        <div class="hero-products-label" data-i18n="hero_products_label">У каталозі</div>
+
+        <button type="button" class="hero-product-row" data-modal="modal-1" aria-haspopup="dialog" aria-controls="modal-1">
+          <span class="hpr-name"><span class="hpr-num">01</span> <span data-i18n="product1_name">ACTIPRO Plasma</span></span>
+          <span class="hpr-arrow" data-i18n="learn_more">Дізнатись більше →</span>
+        </button>
+        <button type="button" class="hero-product-row" data-modal="modal-2" aria-haspopup="dialog" aria-controls="modal-2">
+          <span class="hpr-name"><span class="hpr-num">02</span> <span data-i18n="product2_name">ACTIPRO Hemoglobin</span></span>
+          <span class="hpr-arrow" data-i18n="learn_more">Дізнатись більше →</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="grain"></div>
+      <div class="hero-visual-tag">
+        <span class="hvt-label" data-i18n="hero_visual_label">Гранульована текстура</span>
+        <p data-i18n="hero_visual_text">Дрібнодисперсний порошок — характерна ознака якісного розпилювального сушіння тваринного білка.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="products-head reveal">
+      <div>
+        <h2 data-i18n="products_title">Наші товари</h2>
+      </div>
+      <p data-i18n="products_desc">Натисніть на товар, щоб побачити докладний склад і характеристики.</p>
+    </div>
+
+    <div class="product-grid">
+
+      <button type="button" class="product-card reveal" data-modal="modal-1" aria-haspopup="dialog" aria-controls="modal-1">
+        <div class="product-visual">
+          <div class="grain"></div>
+          <span class="pv-tag" data-i18n="product1_label">Товар 01</span>
+        </div>
+        <div class="product-body">
+          <h3 data-i18n="product1_name">ACTIPRO Plasma</h3>
+          <p class="product-desc" data-i18n="product1_desc">Функціональний білковий інгредієнт у формі порошку з гелеутворювальними, водозв’язувальними та емульгувальними властивостями.</p>
+          <div class="product-chips">
+            <span class="chip" data-i18n="p1_chip1">70% протеїну</span>
+            <span class="chip" data-i18n="p1_chip2">Висока засвоюваність</span>
+            <span class="chip" data-i18n="p1_chip3">Розпилювальне сушіння</span>
+          </div>
+          <div class="product-price">
+            <strong data-i18n="price_default">Ціна за запитом</strong>
+            <span class="product-link" data-i18n="learn_more_short">Детальніше →</span>
+          </div>
+        </div>
+      </button>
+
+      <button type="button" class="product-card reveal" data-modal="modal-2" aria-haspopup="dialog" aria-controls="modal-2">
+        <div class="product-visual">
+          <div class="grain"></div>
+          <span class="pv-tag" data-i18n="product2_label">Товар 02</span>
+        </div>
+        <div class="product-body">
+          <h3 data-i18n="product2_name">ACTIPRO Hemoglobin</h3>
+          <p class="product-desc" data-i18n="product2_desc">Концентроване джерело легкозасвоюваного тваринного білка, органічного заліза та незамінних амінокислот.</p>
+          <div class="product-chips">
+            <span class="chip" data-i18n="p2_chip1">92% протеїну</span>
+            <span class="chip" data-i18n="p2_chip2">Низький фосфор</span>
+            <span class="chip" data-i18n="p2_chip3">Багато заліза</span>
+          </div>
+          <div class="product-price">
+            <strong data-i18n="price_default">Ціна за запитом</strong>
+            <span class="product-link" data-i18n="learn_more_short">Детальніше →</span>
+          </div>
+        </div>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ADVANTAGES ===== -->
+<section class="advantages" id="advantages">
+  <div class="wrap">
+    <div class="advantages-head reveal">
+      <h2 data-i18n="adv_title">Чому обирають нас</h2>
+      <p data-i18n="adv_desc">Коротко про те, що стоїть за кожною поставкою.</p>
+    </div>
+
+    <div class="advantages-grid">
+      <div class="advantage reveal">
+        <div class="advantage-mark"></div>
+        <h3 data-i18n="adv1_title">Якість, що вимірюється</h3>
+        <p data-i18n="adv1_desc">Кожна партія супроводжується показниками білка, вологи та мікробіології — а не лише обіцянками.</p>
+      </div>
+      <div class="advantage reveal">
+        <div class="advantage-mark"></div>
+        <h3 data-i18n="adv2_title">Особистий контакт</h3>
+        <p data-i18n="adv2_desc">На зв'язку з клієнтом на кожному етапі, без довгих ланцюжків менеджерів.</p>
+      </div>
+      <div class="advantage reveal">
+        <div class="advantage-mark"></div>
+        <h3 data-i18n="adv3_title">Розпилювальне сушіння</h3>
+        <p data-i18n="adv3_desc">Технологія, що зберігає амінокислотний профіль і засвоюваність сировини.</p>
+      </div>
+      <div class="advantage reveal">
+        <div class="advantage-mark"></div>
+        <h3 data-i18n="adv4_title">Відповідність регламентам ЄС</h3>
+        <p data-i18n="adv4_desc">Продукція супроводжується документацією згідно з чинним законодавством ЄС щодо кормової сировини.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <h2 data-i18n="about_title">Хто ми</h2>
+    </div>
+    <div class="about-text reveal">
+      <p data-i18n="about_p1">Компанія здійснює активну зовнішньоекономічну діяльність у сфері торгівлі сільськогосподарською продукцією. Основним напрямом діяльності є прямий імпорт із країн Європейського Союзу та оптове постачання високоякісної плазми й гемоглобіну крові великої рогатої худоби, що використовуються у виробництві кормів для тварин. Нашими клієнтами є виробники комбікормів, тваринницькі комплекси та підприємства агропромислового сектору.</p>
+      <p data-i18n="about_p2">Працюємо напряму з перевіреними європейськими виробниками, контролюємо супровідні документи кожної партії та підтримуємо особистий контакт із клієнтом на всіх етапах постачання.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CERTIFICATES ===== -->
+<section class="certs" id="certs">
+  <div class="wrap certs-inner reveal">
+    <div>
+      <h2 data-i18n="certs_title">Сертифікати та відповідність</h2>
+      <p class="certs-lede" data-i18n="certs_desc">Продукція супроводжується технічною документацією та номерами дозволу.</p>
+    </div>
+    <div class="certs-note" data-i18n="certs_note">
+      ACTIPRO Plasma та ACTIPRO Hemoglobin виробляються відповідно до Регламенту Комісії (ЄС)
+      № 142/2011 і підпадають під правила TSE; номери дозволу — VEOS NV 1435/2-734,
+      VAPRAN FR 22183001. Документація по кожному товару доступна за запитом.
+    </div>
+  </div>
+</section>
+
+<!-- ===== Модальне вікно: ACTIPRO Plasma ===== -->
+<div class="modal-overlay" id="modal-1" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-1-title" tabindex="-1">
+    <button type="button" class="modal-close" data-close aria-label="Закрити" data-i18n-aria-label="close_modal">✕</button>
+
+    <div class="spec-head">
+      <h2 id="modal-1-title" data-i18n="product1_name">ACTIPRO Plasma</h2>
+
+      <div class="spec-lede spec-copy">
+        <div>
+          <h3 data-i18n="pet_food_title">Pet Food</h3>
+          <p data-i18n="p1_petfood_p1">ACTIPRO Plasma — функціональний білковий інгредієнт у формі порошку, отриманий методом розпилювального сушіння. У виробництві вологих кормів для домашніх тварин плазма сприяє формуванню стабільної текстури завдяки гелеутворювальним, водозв’язувальним та емульгувальним властивостям.</p>
+          <p data-i18n="p1_petfood_p2">У сухих кормах продукт може використовуватися як джерело високоякісного тваринного білка та природних імуноглобулінів. ACTIPRO Plasma також сприяє підвищенню смакової привабливості корму.</p>
+        </div>
+        <div>
+          <h3 data-i18n="livestock_feed_title">Корми для продуктивних тварин</h3>
+          <p data-i18n="p1_livestock_p1">ACTIPRO Plasma є джерелом легкозасвоюваного тваринного білка та природних біоактивних компонентів. Продукт використовується у кормових рецептурах для підвищення смакової привабливості та підтримки здоров’я кишечника.</p>
+          <p data-i18n="p1_livestock_p2">Завдяки природному вмісту біоактивних глікопротеїнів та імуноглобулінів (IgG) плазмовий порошок може бути функціональним компонентом сучасних кормових програм.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-features">
+      <div class="spec-feature">
+        <span class="spec-feature-num">01</span>
+        <p data-i18n="p1_feat1">70 ± 2% сирого протеїну — високозасвоюване джерело тваринного білка</p>
+      </div>
+
+      <div class="spec-feature">
+        <span class="spec-feature-num">02</span>
+        <p data-i18n="p1_feat2">Покращує смакову привабливість корму та підтримує здоров'я травної системи</p>
+      </div>
+
+      <div class="spec-feature">
+        <span class="spec-feature-num">03</span>
+        <p data-i18n="p1_feat3">Незворотний гелеутворювач для вологих кормів домашніх тварин</p>
+      </div>
+
+      <div class="spec-feature">
+        <span class="spec-feature-num">04</span>
+        <p data-i18n="p1_feat4">Виробляється методом розпилювального сушіння відповідно до Регламенту (ЄС) № 142/2011</p>
+      </div>
+    </div>
+
+    <div class="spec-tables">
+
+      <div class="spec-table-block">
+        <span class="table-label" data-i18n="p1_table1_title">Хімічний склад (% від маси)</span>
+
+        <table class="spec-table">
+          <tbody>
+            <tr><td data-i18n="row_moisture">Вологість</td><td>6 ± 2%</td></tr>
+            <tr><td data-i18n="row_protein">Сирий протеїн</td><td>70 ± 2%</td></tr>
+            <tr><td data-i18n="row_ash">Сира зола</td><td>17 ± 2%</td></tr>
+            <tr><td data-i18n="row_fat">Сирий жир</td><td>2 ± 0,5%</td></tr>
+            <tr><td data-i18n="row_fiber">Сира клітковина</td><td>1 ± 0,5%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="spec-table-block">
+        <span class="table-label" data-i18n="p1_table_energy_title">Енергетична цінність (МДж/кг)</span>
+
+        <table class="spec-table">
+          <tbody>
+            <tr><td data-i18n="row_gross_energy">Валова енергія</td><td>18,5 ± 0,2</td></tr>
+            <tr><td data-i18n="row_me_dogcat">Обмінна енергія (собаки/коти)</td><td>11,5 ± 0,2</td></tr>
+            <tr><td data-i18n="row_me_poultry">Обмінна енергія (птиця)</td><td>11,7 ± 0,2</td></tr>
+            <tr><td data-i18n="row_me_pig">Обмінна енергія (свині)</td><td>11,7 ± 0,2</td></tr>
+            <tr><td data-i18n="row_net_energy_pig">Чиста енергія (свині)</td><td>6,6 ± 0,2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="spec-table-block">
+        <span class="table-label" data-i18n="p1_table2_title">Мінеральний склад</span>
+
+        <table class="spec-table">
+          <tbody>
+            <tr><td data-i18n="row_ca">Кальцій (Ca)</td><td>0,09%</td></tr>
+            <tr><td data-i18n="row_p">Фосфор (P)</td><td>0,12%</td></tr>
+            <tr><td data-i18n="row_na">Натрій (Na)</td><td>6,00%</td></tr>
+            <tr><td data-i18n="row_cl">Хлор (Cl)</td><td>3,75%</td></tr>
+            <tr><td data-i18n="row_k">Калій (K)</td><td>0,43%</td></tr>
+            <tr><td data-i18n="row_s">Сірка (S)</td><td>0,20%</td></tr>
+            <tr><td data-i18n="row_mg">Магній (Mg)</td><td>0,02%</td></tr>
+            <tr><td data-i18n="row_fe">Залізо (Fe)</td><td>80 ppm</td></tr>
+            <tr><td data-i18n="row_zn">Цинк (Zn)</td><td>12 ppm</td></tr>
+            <tr><td data-i18n="row_mn">Марганець (Mn)</td><td>3–5 ppm</td></tr>
+            <tr><td data-i18n="row_cu">Мідь (Cu)</td><td>1–3 ppm</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="spec-table-block">
+        <span class="table-label" data-i18n="p1_table_micro_title">Мікробіологічні показники</span>
+        <table class="spec-table">
+          <tbody>
+            <tr><td data-i18n="row_salmonella">Сальмонела</td><td data-i18n="val_absent">відсутня в 25 г</td></tr>
+            <tr><td data-i18n="row_tapc">Загальна кількість аеробних мікроорганізмів</td><td data-i18n="val_tapc">&lt; 500 000 КУО/г</td></tr>
+            <tr><td data-i18n="row_entero">Ентеробактерії</td><td data-i18n="val_entero">&lt; 10 КУО/г</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="spec-table-block spec-table-wide">
+        <span class="table-label" data-i18n="p1_table3_title">Амінокислотний склад (г на 100 г білка, %)</span>
+
+        <div class="spec-amino-grid" id="amino-grid-1"></div>
+      </div>
+
+    </div>
+
+    <div class="spec-footer">
+      <div>
+        <span class="spec-footer-label" data-i18n="appearance_label">Фізичні властивості</span>
+        <p data-i18n="p1_appearance_text">
+          Форма — порошок. Колір — бежевий.
+          pH — 7,5–9,5.
+          Розчинність білка у пепсин-HCl — понад 98%.
+          Насипна густина — 0,55 г/см³.
+        </p>
+      </div>
+
+      <div>
+        <span class="spec-footer-label" data-i18n="packaging_label">Пакування та зберігання</span>
+        <p data-i18n="p1_packaging_text">
+          Крафт-мішки харчового класу по 20 кг із поліетиленовим вкладишем.
+          Термін зберігання — 1 рік від дати виробництва в оригінальній упаковці при
+          температурі 10–30°C у сухих умовах (відносна вологість &lt;70%).
+        </p>
+      </div>
+    </div>
+
+    <p class="spec-note" data-i18n="p1_labeling_text">
+      Маркування: суха плазма крові великої рогатої худоби (SDBP) / продукт із бичачої
+      крові, позиція 9.8.1 Каталогу кормових матеріалів (68/2013/EEC). Підпадає під правила
+      TSE. Номери дозволу: VEOS NV 1435/2-734, VAPRAN FR 22183001. Застосування: корми для
+      собак, котів, декоративних птахів, тхорів і норки; для свиней, телят, птиці, риби та
+      ракоподібних застосування в ЄС заборонено згідно з Регламентом (ЄС) № 999/2001.
+      Необхідно завжди перевіряти місцеві вимоги до маркування та використання.
+    </p>
+  </div>
+</div>
+
+<!-- ===== Модальне вікно: ACTIPRO Hemoglobin ===== -->
+<div class="modal-overlay" id="modal-2" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-2-title" tabindex="-1">
+    <button type="button" class="modal-close" data-close aria-label="Закрити" data-i18n-aria-label="close_modal">✕</button>
+
+    <div class="spec-head">
+      <h2 id="modal-2-title" data-i18n="product2_name">ACTIPRO Hemoglobin</h2>
+
+      <div class="spec-lede spec-copy">
+        <div>
+          <h3 data-i18n="pet_food_title">Pet Food</h3>
+          <p data-i18n="p2_petfood_p1">ACTIPRO Hemoglobin — концентроване джерело легкозасвоюваного тваринного білка, отримане методом розпилювального сушіння. Продукт характеризується високим вмістом органічного заліза, низьким рівнем фосфору та містить незамінні амінокислоти.</p>
+          <p data-i18n="p2_petfood_p2">Гемоглобіновий порошок може використовуватися у рецептурах сухих кормів як білковий інгредієнт, а у виробництві вологих кормів — як компонент, що надає продукту характерного кольору.</p>
+        </div>
+        <div>
+          <h3 data-i18n="livestock_feed_title">Корми для продуктивних тварин</h3>
+          <p data-i18n="p2_livestock_p1">ACTIPRO Hemoglobin використовується як високозасвоюване джерело тваринного білка та органічного заліза. Продукт містить незамінні амінокислоти, характеризується низьким вмістом фосфору та біогенних амінів.</p>
+          <p data-i18n="p2_livestock_p2">Високий вміст біодоступного заліза робить гемоглобіновий порошок цінним компонентом кормових раціонів, зокрема для тварин із підвищеною потребою в залізі.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-features">
+      <div class="spec-feature">
+        <span class="spec-feature-num">01</span>
+        <p data-i18n="p2_feat1">Дуже високий вміст протеїну — близько 92%, з високою засвоюваністю</p>
+      </div>
+
+      <div class="spec-feature">
+        <span class="spec-feature-num">02</span>
+        <p data-i18n="p2_feat2">Низький вміст фосфору та високий вміст органічного заліза</p>
+      </div>
+
+      <div class="spec-feature">
+        <span class="spec-feature-num">03</span>
+        <p data-i18n="p2_feat3">Підходить для раціонів собак, котів, декоративних птахів, тхорів та норки</p>
+      </div>
+
+      <div class="spec-feature">
+        <span class="spec-feature-num">04</span>
+        <p data-i18n="p2_feat4">Виробляється методом розпилювального сушіння відповідно до Регламенту (ЄС) № 142/2011 та підпадає під правила TSE</p>
+      </div>
+    </div>
+
+    <div class="spec-tables">
+
+      <div class="spec-table-block">
+        <span class="table-label" data-i18n="p2_table1_title">Хімічний склад (% від маси)</span>
+        <table class="spec-table">
+          <tbody>
+            <tr><td data-i18n="row_moisture">Вологість</td><td>6 ± 2%</td></tr>
+            <tr><td data-i18n="row_protein">Сирий протеїн</td><td>92 ± 2%</td></tr>
+            <tr><td data-i18n="row_ash">Сира зола</td><td>4 ± 1%</td></tr>
+            <tr><td data-i18n="row_fat">Сирий жир</td><td>0,4 ± 0,2%</td></tr>
+            <tr><td data-i18n="row_fiber">Сира клітковина</td><td>0,5 ± 0,4%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="spec-table-block">
+        <span class="table-label" data-i18n="p2_table_energy_title">Енергетична цінність (МДж/кг)</span>
+        <table class="spec-table">
+          <tbody>
+            <tr><td data-i18n="row_gross_energy">Валова енергія</td><td>22,1 ± 0,2</td></tr>
+            <tr><td data-i18n="row_me_dogcat">Обмінна енергія (собаки/коти)</td><td>13,2 ± 0,2</td></tr>
+            <tr><td data-i18n="row_me_poultry">Обмінна енергія (птиця)</td><td>14,4 ± 0,2</td></tr>
+            <tr><td data-i18n="row_me_pig">Обмінна енергія (свині)</td><td>19,1 ± 0,2</td></tr>
+            <tr><td data-i18n="row_net_energy_pig">Чиста енергія (свині)</td><td>11,4 ± 0,2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="spec-table-block">
+        <span class="table-label" data-i18n="p2_table2_title">Мінеральний склад</span>
+        <table class="spec-table">
+          <tbody>
+            <tr><td data-i18n="row_ca">Кальцій (Ca)</td><td>0,02%</td></tr>
+            <tr><td data-i18n="row_p">Фосфор (P)</td><td>0,30%</td></tr>
+            <tr><td data-i18n="row_na">Натрій (Na)</td><td>0,70%</td></tr>
+            <tr><td data-i18n="row_cl">Хлор (Cl)</td><td>0,75%</td></tr>
+            <tr><td data-i18n="row_k">Калій (K)</td><td>1,00%</td></tr>
+            <tr><td data-i18n="row_s">Сірка (S)</td><td>0,05%</td></tr>
+            <tr><td data-i18n="row_mg">Магній (Mg)</td><td>0,02%</td></tr>
+            <tr><td data-i18n="row_fe">Залізо (Fe)</td><td>2850 ppm</td></tr>
+            <tr><td data-i18n="row_zn">Цинк (Zn)</td><td>15–25 ppm</td></tr>
+            <tr><td data-i18n="row_mn">Марганець (Mn)</td><td>1–3 ppm</td></tr>
+            <tr><td data-i18n="row_cu">Мідь (Cu)</td><td>2–8 ppm</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="spec-table-block">
+        <span class="table-label" data-i18n="p2_table_micro_title">Мікробіологічні показники</span>
+        <table class="spec-table">
+          <tbody>
+            <tr><td data-i18n="row_salmonella">Сальмонела</td><td data-i18n="val_absent">відсутня в 25 г</td></tr>
+            <tr><td data-i18n="row_tapc">Загальна кількість аеробних мікроорганізмів</td><td data-i18n="val_tapc">&lt; 500 000 КУО/г</td></tr>
+            <tr><td data-i18n="row_entero">Ентеробактерії</td><td data-i18n="val_entero">&lt; 10 КУО/г</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="spec-table-block spec-table-wide">
+        <span class="table-label" data-i18n="p2_table3_title">Амінокислотний склад (г на 100 г білка, %)</span>
+        <div class="spec-amino-grid" id="amino-grid-2"></div>
+      </div>
+
+    </div>
+
+    <div class="spec-footer">
+      <div>
+        <span class="spec-footer-label" data-i18n="appearance_label">Фізичні властивості</span>
+        <p data-i18n="p2_appearance_text">
+          Форма — порошок. Колір — червонувато-коричневий. pH — 8–10.
+          Розчинність білка в пепсин-HCl — понад 98%. Густина — 0,55 г/см³.
+        </p>
+      </div>
+
+      <div>
+        <span class="spec-footer-label" data-i18n="packaging_label">Пакування та зберігання</span>
+        <p data-i18n="p2_packaging_text">
+          Крафт-мішки по 25 кг харчового класу з поліетиленовим вкладишем або біг-беги
+          по 900 кг.
+          Термін зберігання — 2 роки від дати виробництва в оригінальній упаковці при
+          температурі 10–30°C у сухих умовах (відносна вологість &lt;70%).
+        </p>
+      </div>
+    </div>
+
+    <p class="spec-note" data-i18n="p2_labeling_text">
+      Маркування: сухий гемоглобіновий порошок із крові великої рогатої худоби / продукт із
+      бичачої крові, позиція 9.8.1 Каталогу кормових матеріалів (68/2013/EEC). Підпадає під
+      правила TSE. Номери дозволу: VEOS NV 1435/2-734, VAPRAN FR 22183001. Застосування:
+      корми для собак, котів, декоративних птахів, тхорів і норки; для свиней, телят, птиці,
+      риби та ракоподібних застосування в ЄС заборонено згідно з Регламентом (ЄС) № 999/2001.
+      Необхідно завжди перевіряти місцеві вимоги до маркування та використання.
+    </p>
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-inner reveal">
+      <div>
+        <h2 data-i18n="contact_title">Зв'яжіться з нами</h2>
+        <p data-i18n="contact_desc">Відповімо протягом дня. Пишіть або телефонуйте — як зручніше.</p>
+      </div>
+      <ul class="contact-list">
+        <li>
+          <span class="label" data-i18n="contact_phone_label">Телефон</span>
+          <a class="value" href="tel:+380504468800">+380 (50) 446 88 00</a>
+        </li>
+        <li>
+          <span class="label" data-i18n="contact_email_label">Пошта</span>
+          <a class="value" href="mailto:Intertexbuh@ukr.net">Intertexbuh@ukr.net</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Intertexkorm</span>
+    <span data-i18n="footer_note">Зроблено з турботою</span>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   ПЕРЕВОДЫ — UA / EN
+   Архитектура ключей:
+   - row_* / table*_title / appearance_label / packaging_label — общие ярлыки;
+   - p1_* / p2_* — контент, уникальный для конкретного товара;
+   - amino1 / amino2 — отдельные массивы аминокислот, каждый рисуется
+     в свою постоянную DOM-сетку (#amino-grid-1 / #amino-grid-2),
+     поэтому переключение языка или открытие любой модалки никогда
+     не путает и не сбрасывает данные другого товара.
+   ============================================================ */
+const translations = {
+  ua: {
+    nav_about:"Про нас", nav_products:"Товари", nav_advantages:"Переваги", nav_contact:"Контакти", nav_cta:"Зв'язатись",
+    skip_content:"Перейти до основного вмісту", main_nav_label:"Основна навігація",
+    language_label:"Вибір мови", close_modal:"Закрити",
+    page_title:"Intertexkorm — кормові білкові інгредієнти",
+    page_description:"ТОВ Інтертехкорм — прямий імпорт та оптове постачання білкових кормових інгредієнтів із країн Європейського Союзу.",
+
+    hero_title_lines:["Високоякісні", "білкові інгредієнти", "для сучасного"],
+    hero_title_em:"тваринництва",
+    hero_desc:"ТОВ Інтертехкорм постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.",
+    hero_btn1:"Дивитись товари", hero_btn2:"Написати нам",
+    hero_products_label:"У каталозі",
+    hero_visual_label:"Гранульована текстура",
+    hero_visual_text:"Дрібнодисперсний порошок — характерна ознака якісного розпилювального сушіння тваринного білка.",
+
+    about_title:"Хто ми",
+    about_p1:"Компанія здійснює активну зовнішньоекономічну діяльність у сфері торгівлі сільськогосподарською продукцією. Основним напрямом діяльності є прямий імпорт із країн Європейського Союзу та оптове постачання високоякісної плазми й гемоглобіну крові великої рогатої худоби, що використовуються у виробництві кормів для тварин. Нашими клієнтами є виробники комбікормів, тваринницькі комплекси та підприємства агропромислового сектору.",
+    about_p2:"Працюємо напряму з перевіреними європейськими виробниками, контролюємо супровідні документи кожної партії та підтримуємо особистий контакт із клієнтом на всіх етапах постачання.",
+
+    products_title:"Наші товари",
+    products_desc:"Натисніть на товар, щоб побачити докладний склад і характеристики.",
+
+    product1_label:"Товар 01", product1_name:"ACTIPRO Plasma",
+    product1_desc:"Функціональний білковий інгредієнт у формі порошку з гелеутворювальними, водозв’язувальними та емульгувальними властивостями.",
+
+    product2_label:"Товар 02", product2_name:"ACTIPRO Hemoglobin",
+    product2_desc:"Концентроване джерело легкозасвоюваного тваринного білка, органічного заліза та незамінних амінокислот.",
+
+    price_default:"Ціна за запитом", learn_more:"Дізнатись більше →", learn_more_short:"Детальніше →",
+
+    p1_chip1:"70% протеїну", p1_chip2:"Висока засвоюваність", p1_chip3:"Розпилювальне сушіння",
+    p2_chip1:"92% протеїну", p2_chip2:"Низький фосфор", p2_chip3:"Багато заліза",
+
+    adv_title:"Чому обирають нас", adv_desc:"Коротко про те, що стоїть за кожною поставкою.",
+    adv1_title:"Якість, що вимірюється", adv1_desc:"Кожна партія супроводжується показниками білка, вологи та мікробіології — а не лише обіцянками.",
+    adv2_title:"Особистий контакт", adv2_desc:"На зв'язку з клієнтом на кожному етапі, без довгих ланцюжків менеджерів.",
+    adv3_title:"Розпилювальне сушіння", adv3_desc:"Технологія, що зберігає амінокислотний профіль і засвоюваність сировини.",
+    adv4_title:"Відповідність регламентам ЄС", adv4_desc:"Продукція супроводжується документацією згідно з чинним законодавством ЄС щодо кормової сировини.",
+
+    certs_title:"Сертифікати та відповідність",
+    certs_desc:"Продукція супроводжується технічною документацією та номерами дозволу.",
+    certs_note:"ACTIPRO Plasma та ACTIPRO Hemoglobin виробляються відповідно до Регламенту Комісії (ЄС) № 142/2011 і підпадають під правила TSE; номери дозволу — VEOS NV 1435/2-734, VAPRAN FR 22183001. Документація по кожному товару доступна за запитом.",
+
+    row_protein:"Сирий протеїн", row_moisture:"Вологість", row_ash:"Сира зола",
+    row_fat:"Сирий жир", row_fiber:"Сира клітковина",
+    row_ca:"Кальцій (Ca)", row_p:"Фосфор (P)", row_na:"Натрій (Na)", row_cl:"Хлор (Cl)",
+    row_k:"Калій (K)", row_s:"Сірка (S)", row_mg:"Магній (Mg)", row_fe:"Залізо (Fe)",
+    row_zn:"Цинк (Zn)", row_mn:"Марганець (Mn)", row_cu:"Мідь (Cu)",
+    row_salmonella:"Сальмонела", row_entero:"Ентеробактерії", val_absent:"відсутня в 25 г",
+    appearance_label:"Фізичні властивості", packaging_label:"Пакування та зберігання",
+    pet_food_title:"Pet Food", livestock_feed_title:"Корми для продуктивних тварин",
+
+    p1_table1_title:"Хімічний склад (% від маси)",
+    p1_table_energy_title:"Енергетична цінність (МДж/кг)",
+    p1_table2_title:"Мінеральний склад",
+    p1_table3_title:"Амінокислотний склад (г на 100 г білка, %)",
+    p1_table_micro_title:"Мікробіологічні показники",
+    p1_petfood_p1:"ACTIPRO Plasma — функціональний білковий інгредієнт у формі порошку, отриманий методом розпилювального сушіння. У виробництві вологих кормів для домашніх тварин плазма сприяє формуванню стабільної текстури завдяки гелеутворювальним, водозв’язувальним та емульгувальним властивостям.",
+    p1_petfood_p2:"У сухих кормах продукт може використовуватися як джерело високоякісного тваринного білка та природних імуноглобулінів. ACTIPRO Plasma також сприяє підвищенню смакової привабливості корму.",
+    p1_livestock_p1:"ACTIPRO Plasma є джерелом легкозасвоюваного тваринного білка та природних біоактивних компонентів. Продукт використовується у кормових рецептурах для підвищення смакової привабливості та підтримки здоров’я кишечника.",
+    p1_livestock_p2:"Завдяки природному вмісту біоактивних глікопротеїнів та імуноглобулінів (IgG) плазмовий порошок може бути функціональним компонентом сучасних кормових програм.",
+    p1_feat1:"70 ± 2% сирого протеїну — високозасвоюване джерело тваринного білка",
+    p1_feat2:"Покращує смакову привабливість корму та підтримує здоров'я травної системи",
+    p1_feat3:"Незворотний гелеутворювач для вологих кормів домашніх тварин",
+    p1_feat4:"Виробляється методом розпилювального сушіння відповідно до Регламенту (ЄС) № 142/2011",
+    p1_appearance_text:"Форма — порошок. Колір — бежевий. pH — 7,5–9,5. Розчинність білка у пепсин-HCl — понад 98%. Насипна густина — 0,55 г/см³.",
+    p1_packaging_text:"Крафт-мішки харчового класу по 20 кг із поліетиленовим вкладишем. Термін зберігання — 1 рік від дати виробництва в оригінальній упаковці при температурі 10–30°C у сухих умовах (відносна вологість <70%).",
+    p1_labeling_text:"Маркування: суха плазма крові великої рогатої худоби (SDBP) / продукт із бичачої крові, позиція 9.8.1 Каталогу кормових матеріалів (68/2013/EEC). Підпадає під правила TSE. Номери дозволу: VEOS NV 1435/2-734, VAPRAN FR 22183001. Застосування: корми для собак, котів, декоративних птахів, тхорів і норки; для свиней, телят, птиці, риби та ракоподібних застосування в ЄС заборонено згідно з Регламентом (ЄС) № 999/2001. Необхідно завжди перевіряти місцеві вимоги до маркування та використання.",
+
+    p2_petfood_p1:"ACTIPRO Hemoglobin — концентроване джерело легкозасвоюваного тваринного білка, отримане методом розпилювального сушіння. Продукт характеризується високим вмістом органічного заліза, низьким рівнем фосфору та містить незамінні амінокислоти.",
+    p2_petfood_p2:"Гемоглобіновий порошок може використовуватися у рецептурах сухих кормів як білковий інгредієнт, а у виробництві вологих кормів — як компонент, що надає продукту характерного кольору.",
+    p2_livestock_p1:"ACTIPRO Hemoglobin використовується як високозасвоюване джерело тваринного білка та органічного заліза. Продукт містить незамінні амінокислоти, характеризується низьким вмістом фосфору та біогенних амінів.",
+    p2_livestock_p2:"Високий вміст біодоступного заліза робить гемоглобіновий порошок цінним компонентом кормових раціонів, зокрема для тварин із підвищеною потребою в залізі.",
+    p2_feat1:"Дуже високий вміст протеїну — близько 92%, з високою засвоюваністю",
+    p2_feat2:"Низький вміст фосфору та високий вміст органічного заліза",
+    p2_feat3:"Підходить для раціонів собак, котів, декоративних птахів, тхорів та норки",
+    p2_feat4:"Виробляється методом розпилювального сушіння відповідно до Регламенту (ЄС) № 142/2011 та підпадає під правила TSE",
+    p2_table1_title:"Хімічний склад (% від маси)",
+    p2_table_energy_title:"Енергетична цінність (МДж/кг)",
+    p2_table2_title:"Мінеральний склад",
+    p2_table3_title:"Амінокислотний склад (г на 100 г білка, %)",
+    p2_table_micro_title:"Мікробіологічні показники",
+    row_gross_energy:"Валова енергія", row_me_dogcat:"Обмінна енергія (собаки/коти)",
+    row_me_poultry:"Обмінна енергія (птиця)", row_me_pig:"Обмінна енергія (свині)", row_net_energy_pig:"Чиста енергія (свині)",
+    row_tapc:"Загальна кількість аеробних мікроорганізмів",
+    val_tapc:"< 500 000 КУО/г", val_entero:"< 10 КУО/г",
+    p2_appearance_text:"Форма — порошок. Колір — червонувато-коричневий. pH — 8–10. Розчинність білка в пепсин-HCl — понад 98%. Густина — 0,55 г/см³.",
+    p2_packaging_text:"Крафт-мішки по 25 кг харчового класу з поліетиленовим вкладишем або біг-беги по 900 кг. Термін зберігання — 2 роки від дати виробництва в оригінальній упаковці при температурі 10–30°C у сухих умовах (відносна вологість <70%).",
+    p2_labeling_text:"Маркування: сухий гемоглобіновий порошок із крові великої рогатої худоби / продукт із бичачої крові, позиція 9.8.1 Каталогу кормових матеріалів (68/2013/EEC). Підпадає під правила TSE. Номери дозволу: VEOS NV 1435/2-734, VAPRAN FR 22183001. Застосування: корми для собак, котів, декоративних птахів, тхорів і норки; для свиней, телят, птиці, риби та ракоподібних застосування в ЄС заборонено згідно з Регламентом (ЄС) № 999/2001. Необхідно завжди перевіряти місцеві вимоги до маркування та використання.",
+
+    contact_title:"Зв'яжіться з нами", contact_desc:"Відповімо протягом дня. Пишіть або телефонуйте — як зручніше.",
+    contact_phone_label:"Телефон", contact_email_label:"Пошта", footer_note:"Зроблено з турботою",
+
+    amino1: [
+      ["Лейцин", "9.1%"], ["Лізин", "8.1%"], ["Валін", "6.3%"], ["Аргінін", "5.6%"],
+      ["Фенілаланін", "5.4%"], ["Треонін", "5.2%"], ["Ізолейцин", "3.6%"],
+      ["Гістидин", "3.3%"], ["Триптофан", "1.6%"], ["Метіонін", "1.0%"],
+      ["Тирозин", "5.0%"], ["Гліцин", "3.4%"], ["Цистин", "3.4%"]
+    ],
+    amino2: [
+      ["Лейцин", "13.4%"], ["Лізин", "9.3%"], ["Валін", "9.2%"], ["Фенілаланін", "7.1%"],
+      ["Гістидин", "6.9%"], ["Треонін", "4.0%"], ["Аргінін", "3.8%"], ["Триптофан", "1.5%"],
+      ["Метіонін", "0.7%"], ["Ізолейцин", "0.6%"],
+      ["Гліцин", "4.5%"], ["Тирозин", "2.4%"], ["Цистин", "0.9%"]
+    ],
+  },
+
+  en: {
+    nav_about:"About", nav_products:"Products", nav_advantages:"Why us", nav_contact:"Contact", nav_cta:"Contact us",
+    skip_content:"Skip to main content", main_nav_label:"Main navigation",
+    language_label:"Language", close_modal:"Close",
+    page_title:"Intertexkorm — Feed Protein Ingredients",
+    page_description:"Intertexkorm imports and supplies premium feed protein ingredients directly from European Union manufacturers.",
+
+    hero_title_lines:["Premium", "Protein Ingredients", "for Modern"],
+    hero_title_em:"Animal Nutrition",
+    hero_desc:"Ltd Intertexkorm supplies animal-protein-based feed raw materials. We choose every product ourselves and stay in touch with every client.",
+    hero_btn1:"View products", hero_btn2:"Message us",
+    hero_products_label:"In the catalog",
+    hero_visual_label:"Granular texture",
+    hero_visual_text:"A fine, free-flowing powder — the hallmark of properly spray-dried animal protein.",
+
+    about_title:"Who we are",
+    about_p1:"Company is actively engaged in international trade within the agricultural sector. Our core business is the direct import of premium bovine blood plasma and blood hemoglobin from the European Union, supplying high-quality protein ingredients for animal feed production. Our customers include feed manufacturers, livestock producers, and companies operating across the agricultural industry.",
+    about_p2:"We work directly with trusted European manufacturers, verify the documentation supplied with every batch, and stay personally involved with each client throughout the delivery process.",
+
+    products_title:"Our products",
+    products_desc:"Click a product to see its full composition and specifications.",
+
+    product1_label:"Product 01", product1_name:"ACTIPRO Plasma",
+    product1_desc:"A functional powdered protein ingredient with gelling, water-binding and emulsifying properties.",
+
+    product2_label:"Product 02", product2_name:"ACTIPRO Hemoglobin",
+    product2_desc:"A concentrated source of highly digestible animal protein, organic iron and essential amino acids.",
+
+    price_default:"Price on request", learn_more:"Learn more →", learn_more_short:"Details →",
+
+    p1_chip1:"70% protein", p1_chip2:"Highly digestible", p1_chip3:"Spray-dried",
+    p2_chip1:"92% protein", p2_chip2:"Low phosphorus", p2_chip3:"Iron-rich",
+
+    adv_title:"Why choose us", adv_desc:"A short look at what stands behind every shipment.",
+    adv1_title:"Quality you can measure", adv1_desc:"Every batch comes with protein, moisture and microbiology figures — not just promises.",
+    adv2_title:"Personal contact", adv2_desc:"In touch with the client at every step, without long chains of managers.",
+    adv3_title:"Spray-drying technology", adv3_desc:"A process that preserves the amino acid profile and digestibility of the raw material.",
+    adv4_title:"EU regulation compliant", adv4_desc:"Products come with documentation in line with current EU feed material legislation.",
+
+    certs_title:"Certificates & compliance",
+    certs_desc:"Products are backed by technical documentation and approval numbers.",
+    certs_note:"ACTIPRO Plasma and ACTIPRO Hemoglobin are produced in accordance with Commission Regulation (EC) No 142/2011 and are subject to TSE rules; approval numbers: VEOS NV 1435/2-734, VAPRAN FR 22183001. Documentation for each product is available on request.",
+
+    row_protein:"Crude protein", row_moisture:"Moisture", row_ash:"Crude ash",
+    row_fat:"Crude fat", row_fiber:"Crude fiber",
+    row_ca:"Calcium (Ca)", row_p:"Phosphorus (P)", row_na:"Sodium (Na)", row_cl:"Chlorine (Cl)",
+    row_k:"Potassium (K)", row_s:"Sulfur (S)", row_mg:"Magnesium (Mg)", row_fe:"Iron (Fe)",
+    row_zn:"Zinc (Zn)", row_mn:"Manganese (Mn)", row_cu:"Copper (Cu)",
+    row_salmonella:"Salmonella", row_entero:"Enterobacteriaceae", val_absent:"absent in 25 g",
+    appearance_label:"Physical Properties", packaging_label:"Packaging & storage",
+    pet_food_title:"Pet Food", livestock_feed_title:"Feed for production animals",
+
+    p1_table1_title:"Proximate Composition (% as is)",
+    p1_table_energy_title:"Energy Density (MJ/kg as is)",
+    p1_table2_title:"Mineral Content",
+    p1_table3_title:"Amino Acid Profile (g per 100 g protein, %)",
+    p1_table_micro_title:"Microbiological Standards",
+    p1_petfood_p1:"ACTIPRO Plasma is a functional powdered protein ingredient produced by spray drying. In wet pet food production, plasma helps form a stable texture through its gelling, water-binding and emulsifying properties.",
+    p1_petfood_p2:"In dry food, the product can be used as a source of high-quality animal protein and natural immunoglobulins. ACTIPRO Plasma also helps improve feed palatability.",
+    p1_livestock_p1:"ACTIPRO Plasma is a source of highly digestible animal protein and natural bioactive components. It is used in feed formulations to improve palatability and support intestinal health.",
+    p1_livestock_p2:"Its natural content of bioactive glycoproteins and immunoglobulins (IgG) makes plasma powder a functional component of modern feeding programs.",
+    p1_feat1:"70 ± 2% crude protein — a highly digestible animal protein source",
+    p1_feat2:"Improves feed palatability and supports gut health",
+    p1_feat3:"An irreversible gelling agent for wet pet food applications",
+    p1_feat4:"Spray-dried in accordance with Commission Regulation (EC) No 142/2011",
+    p1_appearance_text:"Form: powder. Colour: beige. pH: 7.5–9.5. Protein solubility in pepsin-HCl: over 98%. Bulk density: 0.55 g/cm³.",
+    p1_packaging_text:"20 kg food-processing kraft bags with a polyethylene liner. Shelf life: 1 year from production date, stored in the original packaging at 10–30°C in dry conditions (<70% relative humidity).",
+    p1_labeling_text:"Labeling: spray-dried bovine plasma (SDBP) / bovine blood product, No. 9.8.1 in the Catalogue of Feed Materials (68/2013/EEC). Subject to TSE rules. Approval numbers: VEOS NV 1435/2-734, VAPRAN FR 22183001. Applications: dogs, cats, pet birds, ferrets and mink; not permitted in the EU for pigs, calves, poultry, fish or crustaceans under Regulation (EC) No 999/2001. National legislation regarding labeling and usage should always be verified.",
+
+    p2_petfood_p1:"ACTIPRO Hemoglobin is a concentrated source of highly digestible animal protein produced by spray drying. It has a high organic iron content, a low phosphorus level and contains essential amino acids.",
+    p2_petfood_p2:"Hemoglobin powder can be used as a protein ingredient in dry food formulations and as a component that gives wet food its characteristic colour.",
+    p2_livestock_p1:"ACTIPRO Hemoglobin is used as a highly digestible source of animal protein and organic iron. It contains essential amino acids and has low levels of phosphorus and biogenic amines.",
+    p2_livestock_p2:"The high content of bioavailable iron makes hemoglobin powder a valuable feed component, particularly for animals with increased iron requirements.",
+    p2_feat1:"Very high protein content — around 92%, with high digestibility",
+    p2_feat2:"Low in phosphorus, rich in organic iron",
+    p2_feat3:"Suitable for dog, cat, pet bird, ferret and mink diets",
+    p2_feat4:"Spray-dried in accordance with Commission Regulation (EC) No 142/2011 and subject to TSE rules",
+    p2_table1_title:"Proximate Composition (% as is)",
+    p2_table_energy_title:"Energy Density (MJ/kg as is)",
+    p2_table2_title:"Mineral Content",
+    p2_table3_title:"Amino Acid Profile (g per 100 g protein, %)",
+    p2_table_micro_title:"Microbiological Standards",
+    row_gross_energy:"Gross Energy", row_me_dogcat:"Metabolizable Energy (Dog/Cat)",
+    row_me_poultry:"Metabolizable Energy (Poultry)", row_me_pig:"Metabolizable Energy (Pig)", row_net_energy_pig:"Net Energy (Pig)",
+    row_tapc:"Total aerobic plate count",
+    val_tapc:"< 500,000 cfu/g", val_entero:"< 10 cfu/g",
+    p2_appearance_text:"Form: powder. Colour: red-brown. pH: 8–10. Protein solubility in pepsin-HCl: over 98%. Density: 0.55 g/cm³.",
+    p2_packaging_text:"25 kg food-processing kraft bags with a polyethylene liner or 900 kg big bags. Shelf life: 2 years from production date, stored in the original packaging at 10–30°C in dry conditions (<70% relative humidity).",
+    p2_labeling_text:"Labeling: spray-dried bovine hemoglobin / bovine blood product, No. 9.8.1 in the Catalogue of Feed Materials (68/2013/EEC). Subject to TSE rules. Approval numbers: VEOS NV 1435/2-734, VAPRAN FR 22183001. Applications: dogs, cats, pet birds, ferrets and mink; not permitted in the EU for pigs, calves, poultry, fish or crustaceans under Regulation (EC) No 999/2001. National legislation regarding labeling and usage should always be verified.",
+
+    contact_title:"Get in touch", contact_desc:"We reply within a day. Write or call — whichever suits you.",
+    contact_phone_label:"Phone", contact_email_label:"Email", footer_note:"Made with care",
+
+    amino1: [
+      ["Leucine", "9.1%"], ["Lysine", "8.1%"], ["Valine", "6.3%"], ["Arginine", "5.6%"],
+      ["Phenylalanine", "5.4%"], ["Threonine", "5.2%"], ["Isoleucine", "3.6%"],
+      ["Histidine", "3.3%"], ["Tryptophan", "1.6%"], ["Methionine", "1.0%"],
+      ["Tyrosine", "5.0%"], ["Glycine", "3.4%"], ["Cystine", "3.4%"]
+    ],
+    amino2: [
+      ["Leucine", "13.4%"], ["Lysine", "9.3%"], ["Valine", "9.2%"], ["Phenylalanine", "7.1%"],
+      ["Histidine", "6.9%"], ["Threonine", "4.0%"], ["Arginine", "3.8%"], ["Tryptophan", "1.5%"],
+      ["Methionine", "0.7%"], ["Isoleucine", "0.6%"],
+      ["Glycine", "4.5%"], ["Tyrosine", "2.4%"], ["Cystine", "0.9%"]
+    ],
+  }
+};
+
+function renderAmino(lang, product){
+  const grid = document.getElementById('amino-grid-' + product);
+  if(!grid) return;
+  grid.replaceChildren();
+  const amino = translations[lang]['amino' + product] || [];
+  amino.forEach(([name, val]) => {
+    const s1 = document.createElement('span');
+    s1.textContent = name;
+    const s2 = document.createElement('span');
+    s2.textContent = val;
+    grid.appendChild(s1);
+    grid.appendChild(s2);
+  });
+}
+
+function renderHeroTitle(dict){
+  const title = document.getElementById('hero-title');
+  title.replaceChildren();
+  dict.hero_title_lines.forEach(line => {
+    title.append(document.createTextNode(line), document.createElement('br'));
+  });
+  const emphasis = document.createElement('em');
+  emphasis.textContent = dict.hero_title_em;
+  title.appendChild(emphasis);
+}
+
+function applyLang(lang){
+  const safeLang = Object.hasOwn(translations, lang) ? lang : 'ua';
+  const dict = translations[safeLang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(typeof dict[key] === 'string') el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-aria-label');
+    if(typeof dict[key] === 'string') el.setAttribute('aria-label', dict[key]);
+  });
+  renderHeroTitle(dict);
+  renderAmino(safeLang, 1);
+  renderAmino(safeLang, 2);
+  document.documentElement.lang = (safeLang === 'ua') ? 'uk' : safeLang;
+  document.title = dict.page_title;
+  document.querySelector('meta[name="description"]').setAttribute('content', dict.page_description);
+  document.querySelectorAll('.lang-switch button').forEach(b=>{
+    const isActive = b.getAttribute('data-lang') === safeLang;
+    b.classList.toggle('active', isActive);
+    b.setAttribute('aria-pressed', String(isActive));
+  });
+}
+
+document.querySelectorAll('.lang-switch button').forEach(btn=>{
+  btn.addEventListener('click', ()=> applyLang(btn.getAttribute('data-lang')));
+});
+
+/* Модальные окна — срабатывает на любом элементе с data-modal:
+   карточки товаров И мини-строки в hero используют один и тот же механизм */
+let modalTrigger = null;
+document.querySelectorAll('[data-modal]').forEach(trigger=>{
+  trigger.addEventListener('click', ()=>{
+    const overlay = document.getElementById(trigger.getAttribute('data-modal'));
+    if(!overlay) return;
+    modalTrigger = trigger;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    overlay.querySelector('[data-close]').focus();
+  });
+});
+document.querySelectorAll('.modal-overlay').forEach(overlay=>{
+  overlay.addEventListener('click', (e)=>{
+    if(e.target === overlay) closeModal(overlay);
+  });
+  overlay.querySelector('[data-close]').addEventListener('click', ()=> closeModal(overlay));
+});
+function closeModal(overlay){
+  overlay.classList.remove('open');
+  overlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  if(modalTrigger){
+    modalTrigger.focus();
+    modalTrigger = null;
+  }
+}
+document.addEventListener('keydown', (e)=>{
+  const openOverlay = document.querySelector('.modal-overlay.open');
+  if(!openOverlay) return;
+  if(e.key === 'Escape'){
+    closeModal(openOverlay);
+  }
+  if(e.key === 'Tab'){
+    const focusable = [...openOverlay.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')]
+      .filter(el => !el.hasAttribute('disabled'));
+    if(!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if(e.shiftKey && document.activeElement === first){
+      e.preventDefault();
+      last.focus();
+    } else if(!e.shiftKey && document.activeElement === last){
+      e.preventDefault();
+      first.focus();
+    }
+  }
+});
+
+/* Header: тінь/межа зʼявляється лише після прокрутки */
+const headerEl = document.querySelector('header');
+window.addEventListener('scroll', ()=>{
+  headerEl.classList.toggle('scrolled', window.scrollY > 8);
+}, { passive:true });
+
+/* Scroll-reveal: секції та картки плавно зʼявляються при прокрутці */
+if('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.12, rootMargin:'0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el=> el.classList.add('in-view'));
+}
+
+applyLang('ua');
+</script>
+
+</body>
+</html>
