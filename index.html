@@ -6,7 +6,7 @@
 <meta name="description" content="ТОВ Інтертехкорм — прямий імпорт та оптове постачання білкових кормових інгредієнтів із країн Європейського Союзу.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-Hc07WC2tVCVPZjhbwS/q8ZxGaihWYB5UKa9Iqiz+yxY='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-6UvI5JDPE/vZzpVH61gA8EgUGCr+MQMgonQ1QXn8zks='; style-src 'self' 'sha256-DST2FqGjmmpqLcyAK2TqOQPdMEtGbn3cxg/tm5ARmmY=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Intertexkorm — кормові білкові інгредієнти</title>
 <link rel="icon" href="img/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,6 +58,8 @@
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
+  body.modal-open{ overflow:hidden; }
+  .clipboard-field{ position:fixed; opacity:0; pointer-events:none; }
 
   h1, h2, h3{
     font-family:var(--font-display);
@@ -116,7 +118,7 @@
   header.scrolled{ border-bottom-color:var(--line); box-shadow:0 8px 24px -20px rgba(20,20,15,.3); }
   .nav{
     display:flex; align-items:center; justify-content:space-between;
-    padding:18px 32px; max-width:1180px; margin:0 auto; gap:20px;
+    position:relative; padding:18px 32px; max-width:1180px; margin:0 auto; gap:20px;
   }
   .logo{ display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:19px; font-weight:600; letter-spacing:-0.01em; }
   .logo-img{ height:60px; width:auto; display:block; }
@@ -134,6 +136,16 @@
   .header-phone{ color:var(--ink); font-weight:600; }
   .header-email{ font-size:11.5px; }
   .nav-actions{ display:flex; align-items:center; gap:16px; flex-shrink:0; }
+  .mobile-menu-toggle{
+    display:none; width:42px; height:42px; padding:10px; flex-shrink:0;
+    border:1px solid var(--line); border-radius:50%; background:var(--bg); color:var(--ink);
+    align-items:center; justify-content:center; flex-direction:column; gap:4px;
+  }
+  .mobile-menu-toggle span{ width:18px; height:2px; border-radius:2px; background:currentColor; transition:transform .2s, opacity .2s; }
+  .mobile-menu-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+  .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .mobile-menu-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+  .mobile-lang-switch{ display:none; }
 
   .lang-switch{ display:flex; gap:2px; border:1px solid var(--line); border-radius:var(--radius-pill); overflow:hidden; padding:2px; }
   .lang-switch button{
@@ -153,14 +165,27 @@
     .nav-links{ gap:18px; }
     .header-email{ display:none; }
   }
-  @media (max-width:860px){ .nav-links{ display:none; } }
+  @media (max-width:860px){
+    .mobile-menu-toggle{ display:flex; }
+    .nav-links{
+      display:flex; position:absolute; top:calc(100% + 8px); left:20px; right:20px;
+      flex-direction:column; gap:2px; padding:10px; background:rgba(250,250,248,.98);
+      border:1px solid var(--line); border-radius:var(--radius-md); box-shadow:var(--shadow-lg);
+      opacity:0; visibility:hidden; pointer-events:none; transform:translateY(-8px);
+      transition:opacity .2s, visibility .2s, transform .2s;
+    }
+    .nav-links.open{ opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0); }
+    .nav-links a{ padding:12px 14px; border-radius:var(--radius-sm); color:var(--ink); }
+    .nav-links a:hover{ background:var(--bg-panel); }
+    .nav-links a::after{ display:none; }
+  }
   @media (max-width:600px){
     .nav{ padding:12px 16px; gap:10px; }
     .logo-img{ height:44px; }
     .header-contacts{ font-size:11.5px; }
-    .nav-actions{ gap:8px; }
-    .lang-switch button{ padding:6px 9px; }
-    .nav-cta{ display:none; }
+    .nav-actions{ display:none; }
+    .mobile-lang-switch{ display:flex; align-self:flex-start; margin:6px 14px 4px; }
+    .mobile-lang-switch button{ padding:6px 12px; }
   }
   @media (max-width:360px){
     .nav{ padding-inline:12px; gap:8px; }
@@ -191,6 +216,7 @@
   .hero-product-row{
     display:flex; align-items:center; justify-content:space-between; gap:16px; width:100%;
     background:none; border:none; border-bottom:1px solid var(--line); padding:17px 4px;
+    color:var(--ink); font:inherit; -webkit-appearance:none; appearance:none;
     text-align:left; transition:padding-left .25s ease, color .25s ease; border-radius:var(--radius-sm);
   }
   .hero-product-row:hover{ padding-left:12px; color:var(--accent); background:var(--bg-panel); }
@@ -231,6 +257,7 @@
     background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden;
     transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s cubic-bezier(.2,.7,.2,1), border-color .35s ease;
     cursor:pointer; text-align:left; width:100%; display:flex; flex-direction:column; box-shadow:var(--shadow-sm);
+    color:var(--ink); font:inherit; -webkit-appearance:none; appearance:none; -webkit-tap-highlight-color:transparent;
   }
   .product-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--accent-soft); }
   .product-visual{
@@ -420,11 +447,15 @@
     <a class="logo" href="#top" aria-label="Intertexkorm — на початок сторінки">
       <img src="img/logo.png" alt="Інтертехкорм" class="logo-img" width="223" height="60">
     </a>
-    <nav class="nav-links" aria-label="Основна навігація" data-i18n-aria-label="main_nav_label">
+    <nav class="nav-links" id="main-navigation" aria-label="Основна навігація" data-i18n-aria-label="main_nav_label">
       <a href="#products" data-i18n="nav_products">Товари</a>
       <a href="#advantages" data-i18n="nav_advantages">Переваги</a>
       <a href="#about" data-i18n="nav_about">Про нас</a>
       <a href="#contact" data-i18n="nav_contact">Контакти</a>
+      <div class="lang-switch mobile-lang-switch" role="group" aria-label="Вибір мови" data-i18n-aria-label="language_label">
+        <button type="button" data-lang="ua" lang="uk" aria-pressed="true">UA</button>
+        <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      </div>
     </nav>
     <div class="header-contacts" aria-label="Контактні дані">
       <a class="header-contact header-phone" href="tel:+380504468800" aria-label="Зателефонувати: +380 50 446 88 00">+380 (50) 446 88 00</a>
@@ -437,6 +468,9 @@
       </div>
       <a href="#contact" class="nav-cta" data-i18n="nav_cta">Зв'язатися</a>
     </div>
+    <button type="button" class="mobile-menu-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Відкрити меню" data-i18n-aria-label="menu_open">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -940,7 +974,7 @@ const translations = {
   ua: {
     nav_about:"Про нас", nav_products:"Товари", nav_advantages:"Переваги", nav_contact:"Контакти", nav_cta:"Зв'язатись",
     skip_content:"Перейти до основного вмісту", main_nav_label:"Основна навігація",
-    language_label:"Вибір мови", close_modal:"Закрити",
+    language_label:"Вибір мови", close_modal:"Закрити", menu_open:"Відкрити меню", menu_close:"Закрити меню",
     page_title:"Intertexkorm — кормові білкові інгредієнти",
     page_description:"ТОВ Інтертехкорм — прямий імпорт та оптове постачання білкових кормових інгредієнтів із країн Європейського Союзу.",
 
@@ -1050,7 +1084,7 @@ const translations = {
   en: {
     nav_about:"About", nav_products:"Products", nav_advantages:"Why us", nav_contact:"Contact", nav_cta:"Contact us",
     skip_content:"Skip to main content", main_nav_label:"Main navigation",
-    language_label:"Language", close_modal:"Close",
+    language_label:"Language", close_modal:"Close", menu_open:"Open menu", menu_close:"Close menu",
     page_title:"Intertexkorm — Feed Protein Ingredients",
     page_description:"Intertexkorm imports and supplies premium feed protein ingredients directly from European Union manufacturers.",
 
@@ -1206,11 +1240,49 @@ function applyLang(lang){
     b.classList.toggle('active', isActive);
     b.setAttribute('aria-pressed', String(isActive));
   });
+  const menuButton = document.querySelector('.mobile-menu-toggle');
+  if(menuButton){
+    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-label', isOpen ? dict.menu_close : dict.menu_open);
+  }
 }
 
 document.querySelectorAll('.lang-switch button').forEach(btn=>{
-  btn.addEventListener('click', ()=> applyLang(btn.getAttribute('data-lang')));
+  btn.addEventListener('click', ()=>{
+    applyLang(btn.getAttribute('data-lang'));
+    setMobileMenu(false);
+  });
 });
+
+/* Мобільна навігація: доступна з клавіатури та закривається після вибору розділу. */
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const mobileNavigation = document.getElementById('main-navigation');
+function setMobileMenu(open){
+  mobileNavigation.classList.toggle('open', open);
+  mobileMenuToggle.setAttribute('aria-expanded', String(open));
+  const lang = document.documentElement.lang === 'en' ? 'en' : 'ua';
+  mobileMenuToggle.setAttribute('aria-label', open ? translations[lang].menu_close : translations[lang].menu_open);
+}
+mobileMenuToggle.addEventListener('click', ()=>{
+  setMobileMenu(mobileMenuToggle.getAttribute('aria-expanded') !== 'true');
+});
+mobileNavigation.querySelectorAll('a[href^="#"]').forEach(link=>{
+  link.addEventListener('click', ()=> setMobileMenu(false));
+});
+document.addEventListener('click', (event)=>{
+  if(mobileMenuToggle.getAttribute('aria-expanded') === 'true' && !event.target.closest('.nav')){
+    setMobileMenu(false);
+  }
+});
+document.addEventListener('keydown', (event)=>{
+  if(event.key === 'Escape' && mobileMenuToggle.getAttribute('aria-expanded') === 'true'){
+    setMobileMenu(false);
+    mobileMenuToggle.focus();
+  }
+});
+window.addEventListener('resize', ()=>{
+  if(window.innerWidth > 860) setMobileMenu(false);
+}, { passive:true });
 
 /* Надійний вибір пошти для Windows: веб-пошта не потребує налаштованого mailto. */
 document.querySelectorAll('[data-email-trigger]').forEach(trigger=>{
@@ -1220,7 +1292,7 @@ document.querySelectorAll('[data-email-trigger]').forEach(trigger=>{
     modalTrigger = trigger;
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('modal-open');
     overlay.querySelector('[data-close]').focus();
   });
 });
@@ -1237,8 +1309,7 @@ document.querySelector('[data-copy-email]').addEventListener('click', async ()=>
     const field = document.createElement('textarea');
     field.value = email;
     field.setAttribute('readonly', '');
-    field.style.position = 'fixed';
-    field.style.opacity = '0';
+    field.className = 'clipboard-field';
     document.body.appendChild(field);
     field.select();
     document.execCommand('copy');
@@ -1258,7 +1329,7 @@ document.querySelectorAll('[data-modal]').forEach(trigger=>{
     modalTrigger = trigger;
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('modal-open');
     overlay.querySelector('[data-close]').focus();
   });
 });
@@ -1271,7 +1342,7 @@ document.querySelectorAll('.modal-overlay').forEach(overlay=>{
 function closeModal(overlay){
   overlay.classList.remove('open');
   overlay.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
+  document.body.classList.remove('modal-open');
   if(modalTrigger){
     modalTrigger.focus();
     modalTrigger = null;
