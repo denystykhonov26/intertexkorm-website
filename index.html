@@ -125,6 +125,14 @@
   .nav-links a::after{ content:""; position:absolute; left:0; right:100%; bottom:0; height:1px; background:var(--accent); transition:right .25s ease; }
   .nav-links a:hover{ color:var(--ink); }
   .nav-links a:hover::after{ right:0; }
+  .header-contacts{
+    display:flex; flex-direction:column; align-items:flex-end; gap:2px;
+    font-size:12px; line-height:1.35; white-space:nowrap;
+  }
+  .header-contact{ color:var(--ink-soft); transition:color .2s ease; }
+  .header-contact:hover{ color:var(--accent); }
+  .header-phone{ color:var(--ink); font-weight:600; }
+  .header-email{ font-size:11.5px; }
   .nav-actions{ display:flex; align-items:center; gap:16px; flex-shrink:0; }
 
   .lang-switch{ display:flex; gap:2px; border:1px solid var(--line); border-radius:var(--radius-pill); overflow:hidden; padding:2px; }
@@ -141,17 +149,24 @@
   }
   .nav-cta:hover{ background:var(--accent); transform:translateY(-1px); }
 
+  @media (max-width:1000px){
+    .nav-links{ gap:18px; }
+    .header-email{ display:none; }
+  }
   @media (max-width:860px){ .nav-links{ display:none; } }
   @media (max-width:600px){
     .nav{ padding:12px 16px; gap:10px; }
     .logo-img{ height:44px; }
+    .header-contacts{ font-size:11.5px; }
     .nav-actions{ gap:8px; }
     .lang-switch button{ padding:6px 9px; }
-    .nav-cta{ font-size:12.5px; padding:9px 13px; }
+    .nav-cta{ display:none; }
   }
   @media (max-width:360px){
-    .logo-img{ height:38px; }
-    .nav-cta{ padding:8px 11px; }
+    .nav{ padding-inline:12px; gap:8px; }
+    .logo-img{ height:34px; }
+    .header-contacts{ font-size:10.5px; }
+    .lang-switch button{ padding:5px 7px; }
   }
 
   /* ---------- Hero ---------- */
@@ -393,6 +408,10 @@
       <a href="#about" data-i18n="nav_about">Про нас</a>
       <a href="#contact" data-i18n="nav_contact">Контакти</a>
     </nav>
+    <div class="header-contacts" aria-label="Контактні дані">
+      <a class="header-contact header-phone" href="tel:+380504468800" aria-label="Зателефонувати: +380 50 446 88 00">+380 (50) 446 88 00</a>
+      <a class="header-contact header-email" href="mailto:Intertexbuh@ukr.net">Intertexbuh@ukr.net</a>
+    </div>
     <div class="nav-actions">
       <div class="lang-switch" role="group" aria-label="Вибір мови" data-i18n-aria-label="language_label">
         <button type="button" data-lang="ua" lang="uk" aria-pressed="true">UA</button>
