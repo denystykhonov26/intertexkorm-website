@@ -6,7 +6,7 @@
 <meta name="description" content="ТОВ Інтертехкорм — прямий імпорт та оптове постачання білкових кормових інгредієнтів із країн Європейського Союзу.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-v+BoZEmq4f0KaOoxA2mZ+ojL2fDauiFt5/H2RZ5z5jQ='; style-src 'self' 'sha256-DST2FqGjmmpqLcyAK2TqOQPdMEtGbn3cxg/tm5ARmmY=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-shV3iGTnAOlp5BspI1l+HNl+bkZY6l9xhEAcdu3ZnLw='; style-src 'self' 'sha256-nusrXl2IFkPD4gH9lCv0pCPjvG3k5ZK2d4jj4Q/vLYg=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Intertexkorm — кормові білкові інгредієнти</title>
 <link rel="icon" href="img/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -287,6 +287,14 @@
     display:inline-flex; align-items:center; gap:6px;
   }
   .product-card:hover .product-link{ background:var(--accent); transform:translateX(2px); }
+  @media (max-width:780px){
+    .product-card{ background:#fff; isolation:isolate; }
+    .product-visual .pv-tag{
+      background:#fff; border-color:var(--line);
+      -webkit-backdrop-filter:none; backdrop-filter:none;
+    }
+    .product-body{ position:relative; z-index:1; background:#fff; }
+  }
 
   /* ---------- Advantages ---------- */
   .advantages{ padding:96px 0; background:var(--bg-panel); }
@@ -954,7 +962,7 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <span data-i18n="footer_copyright">© 2026 Intertexkorm</span>
+    <span data-i18n="footer_copyright">© 2026 Intertehkorm</span>
     <span data-i18n="footer_note">Зроблено з турботою</span>
   </div>
 </footer>
@@ -975,7 +983,7 @@ const translations = {
     nav_about:"Про нас", nav_products:"Товари", nav_advantages:"Переваги", nav_contact:"Контакти", nav_cta:"Зв'язатись",
     skip_content:"Перейти до основного вмісту", main_nav_label:"Основна навігація",
     language_label:"Вибір мови", close_modal:"Закрити", menu_open:"Відкрити меню", menu_close:"Закрити меню",
-    logo_home_label:"Intertexkorm — на початок сторінки", footer_copyright:"© 2026 Intertexkorm",
+    logo_home_label:"Intertexkorm — на початок сторінки", footer_copyright:"© 2026 Intertehkorm",
     page_title:"Intertexkorm — кормові білкові інгредієнти",
     page_description:"ТОВ Інтертехкорм — прямий імпорт та оптове постачання білкових кормових інгредієнтів із країн Європейського Союзу.",
 
