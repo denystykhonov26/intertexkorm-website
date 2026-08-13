@@ -6,7 +6,7 @@
 <meta name="description" content="ТОВ Інтертехкорм — прямий імпорт та оптове постачання білкових кормових інгредієнтів із країн Європейського Союзу.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-dxpKCcQBAOYAgJC9AxAHC3gzMINGaUdLBMuMQPlhRbY='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-Hc07WC2tVCVPZjhbwS/q8ZxGaihWYB5UKa9Iqiz+yxY='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'">
 <title>Intertexkorm — кормові білкові інгредієнти</title>
 <link rel="icon" href="img/logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -323,6 +323,24 @@
     .modal{ min-height:100%; }
   }
 
+  .email-modal{ max-width:560px; padding:42px; }
+  .email-modal h2{ font-size:30px; margin:0 48px 10px 0; }
+  .email-modal > p{ color:var(--ink-soft); margin-bottom:24px; }
+  .email-actions{ display:grid; gap:10px; }
+  .email-option{
+    display:flex; align-items:center; justify-content:space-between; width:100%;
+    padding:14px 18px; border:1px solid var(--line); border-radius:var(--radius-sm);
+    background:var(--bg); color:var(--ink); font-size:14px; text-align:left;
+    transition:border-color .2s, background .2s, transform .2s;
+  }
+  .email-option:hover{ border-color:var(--accent); background:var(--accent-soft); transform:translateY(-1px); }
+  .email-option::after{ content:"→"; color:var(--accent); }
+  .email-copy-status{ min-height:24px; margin-top:12px; color:var(--accent); font-size:13px; }
+  @media (max-width:600px){
+    .email-overlay{ padding:16px; align-items:center; }
+    .email-overlay .email-modal{ min-height:auto; padding:36px 22px 24px; border-radius:var(--radius-lg); }
+  }
+
   .spec-head{ max-width:680px; margin-bottom:40px; }
   .spec-head h2{ font-size:30px; margin-bottom:16px; }
   .spec-lede{ color:var(--ink-soft); font-size:15px; }
@@ -410,7 +428,7 @@
     </nav>
     <div class="header-contacts" aria-label="Контактні дані">
       <a class="header-contact header-phone" href="tel:+380504468800" aria-label="Зателефонувати: +380 50 446 88 00">+380 (50) 446 88 00</a>
-      <a class="header-contact header-email" href="mailto:Intertexbuh@ukr.net">Intertexbuh@ukr.net</a>
+      <a class="header-contact header-email" href="mailto:Intertexbuh@ukr.net" data-email-trigger>Intertexbuh@ukr.net</a>
     </div>
     <div class="nav-actions">
       <div class="lang-switch" role="group" aria-label="Вибір мови" data-i18n-aria-label="language_label">
@@ -862,6 +880,21 @@
   </div>
 </div>
 
+<div class="modal-overlay email-overlay" id="email-modal" aria-hidden="true">
+  <div class="modal email-modal" role="dialog" aria-modal="true" aria-labelledby="email-modal-title" tabindex="-1">
+    <button type="button" class="modal-close" data-close aria-label="Закрити" data-i18n-aria-label="close_modal">✕</button>
+    <h2 id="email-modal-title" data-i18n="email_modal_title">Написати нам</h2>
+    <p data-i18n="email_modal_desc">Оберіть зручний спосіб — адреса одержувача вже заповнена.</p>
+    <div class="email-actions">
+      <a class="email-option" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=Intertexbuh%40ukr.net&amp;su=Запит%20щодо%20продукції%20ACTIPRO" target="_blank" rel="noopener noreferrer" data-email-provider data-i18n="email_gmail">Відкрити Gmail</a>
+      <a class="email-option" href="https://outlook.live.com/mail/0/deeplink/compose?to=Intertexbuh%40ukr.net&amp;subject=Запит%20щодо%20продукції%20ACTIPRO" target="_blank" rel="noopener noreferrer" data-email-provider data-i18n="email_outlook">Відкрити Outlook</a>
+      <a class="email-option" href="mailto:Intertexbuh@ukr.net?subject=Запит%20щодо%20продукції%20ACTIPRO" data-email-provider data-i18n="email_app">Поштова програма на комп’ютері</a>
+      <button class="email-option" type="button" data-copy-email data-i18n="email_copy">Скопіювати адресу</button>
+    </div>
+    <p class="email-copy-status" role="status" aria-live="polite"></p>
+  </div>
+</div>
+
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="contact-inner reveal">
@@ -876,7 +909,7 @@
         </li>
         <li>
           <span class="label" data-i18n="contact_email_label">Пошта</span>
-          <a class="value" href="mailto:Intertexbuh@ukr.net">Intertexbuh@ukr.net</a>
+          <a class="value" href="mailto:Intertexbuh@ukr.net" data-email-trigger>Intertexbuh@ukr.net</a>
         </li>
         
       </ul>
@@ -996,6 +1029,9 @@ const translations = {
 
     contact_title:"Зв'яжіться з нами", contact_desc:"Відповімо протягом дня. Пишіть або телефонуйте — як зручніше.",
     contact_phone_label:"Телефон", contact_email_label:"Пошта", footer_note:"Зроблено з турботою",
+    email_modal_title:"Написати нам", email_modal_desc:"Оберіть зручний спосіб — адреса одержувача вже заповнена.",
+    email_gmail:"Відкрити Gmail", email_outlook:"Відкрити Outlook", email_app:"Поштова програма на комп’ютері",
+    email_copy:"Скопіювати адресу", email_copied:"Адресу скопійовано: Intertexbuh@ukr.net",
 
     amino1: [
       ["Лейцин", "9.1%"], ["Лізин", "8.1%"], ["Валін", "6.3%"], ["Аргінін", "5.6%"],
@@ -1103,6 +1139,9 @@ const translations = {
 
     contact_title:"Get in touch", contact_desc:"We reply within a day. Write or call — whichever suits you.",
     contact_phone_label:"Phone", contact_email_label:"Email", footer_note:"Made with care",
+    email_modal_title:"Email us", email_modal_desc:"Choose the most convenient option — the recipient address is already filled in.",
+    email_gmail:"Open Gmail", email_outlook:"Open Outlook", email_app:"Default email app",
+    email_copy:"Copy email address", email_copied:"Address copied: Intertexbuh@ukr.net",
 
     amino1: [
       ["Leucine", "9.1%"], ["Lysine", "8.1%"], ["Valine", "6.3%"], ["Arginine", "5.6%"],
@@ -1171,6 +1210,42 @@ function applyLang(lang){
 
 document.querySelectorAll('.lang-switch button').forEach(btn=>{
   btn.addEventListener('click', ()=> applyLang(btn.getAttribute('data-lang')));
+});
+
+/* Надійний вибір пошти для Windows: веб-пошта не потребує налаштованого mailto. */
+document.querySelectorAll('[data-email-trigger]').forEach(trigger=>{
+  trigger.addEventListener('click', (event)=>{
+    event.preventDefault();
+    const overlay = document.getElementById('email-modal');
+    modalTrigger = trigger;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    overlay.querySelector('[data-close]').focus();
+  });
+});
+
+document.querySelectorAll('[data-email-provider]').forEach(link=>{
+  link.addEventListener('click', ()=> closeModal(document.getElementById('email-modal')));
+});
+
+document.querySelector('[data-copy-email]').addEventListener('click', async ()=>{
+  const email = 'Intertexbuh@ukr.net';
+  try {
+    await navigator.clipboard.writeText(email);
+  } catch {
+    const field = document.createElement('textarea');
+    field.value = email;
+    field.setAttribute('readonly', '');
+    field.style.position = 'fixed';
+    field.style.opacity = '0';
+    document.body.appendChild(field);
+    field.select();
+    document.execCommand('copy');
+    field.remove();
+  }
+  const lang = document.documentElement.lang === 'en' ? 'en' : 'ua';
+  document.querySelector('.email-copy-status').textContent = translations[lang].email_copied;
 });
 
 /* Модальные окна — срабатывает на любом элементе с data-modal:
