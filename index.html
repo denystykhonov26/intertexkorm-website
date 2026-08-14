@@ -6,7 +6,7 @@
 <meta name="description" content="Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-4TV3bwJcLZxYZHzY9JYCtEdYU1I85TU6e9TKnv7txno='; style-src 'self' 'sha256-rupc5eS4umKHMbse5lRiiYLLODSKK23sdmaVmBLqnm8=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-QqjV1/837v+ystDTpIAA0mprgDv+7Xtr8XtHKBD17Rg='; style-src 'self' 'sha256-XZmRJ2Vn2ZfJrXFcGW8a2IVHB5QJZNkuLL1M71IlQp8=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Плазма крові кормова та гемоглобін крові кормовий | Intertexkorm</title>
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="img/favicon.png" sizes="512x512" type="image/png">
@@ -229,19 +229,20 @@
 
   /* Візуальна композиція hero */
   .hero-visual{
-    position:relative; aspect-ratio:1/1.02; border-radius:var(--radius-lg);
-    overflow:hidden; box-shadow:var(--shadow-lg);
-    background:
-      radial-gradient(circle at 75% 18%, rgba(21,75,61,.35), transparent 55%),
-      radial-gradient(circle at 15% 85%, rgba(185,138,70,.28), transparent 50%),
-      linear-gradient(165deg, #fff 30%, var(--bg-panel) 100%);
+    position:relative; aspect-ratio:4/3; border-radius:var(--radius-lg);
+    overflow:hidden; box-shadow:var(--shadow-lg); background:var(--bg-panel);
   }
-  .hero-visual .grain{ position:absolute; inset:0; opacity:.55; mix-blend-mode:multiply; }
+  .hero-visual::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(12,24,20,.04) 35%, rgba(12,24,20,.48) 100%);
+    pointer-events:none;
+  }
+  .hero-warehouse-photo{ width:100%; height:100%; object-fit:cover; object-position:center; }
   .hero-visual-tag{
     position:absolute; left:24px; bottom:24px; right:24px; max-width:250px;
     background:rgba(255,255,255,0.88); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
     border:1px solid rgba(255,255,255,.6); border-radius:var(--radius-md);
-    padding:18px 20px; box-shadow:var(--shadow-md);
+    padding:18px 20px; box-shadow:var(--shadow-md); z-index:1;
   }
   .hero-visual-tag .hvt-label{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:7px; }
   .hero-visual-tag p{ font-size:13px; color:var(--ink-soft); line-height:1.55; }
@@ -370,6 +371,18 @@
   }
 
   .email-modal{ max-width:560px; padding:42px; }
+  .email-overlay{
+    display:flex; align-items:center; opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .28s ease, visibility 0s linear .28s;
+  }
+  .email-overlay .email-modal{
+    animation:none; opacity:0; transform:translateY(18px) scale(.98);
+    transition:opacity .28s ease, transform .28s cubic-bezier(.2,.7,.2,1);
+  }
+  .email-overlay.open{
+    display:flex; opacity:1; visibility:visible; pointer-events:auto; transition-delay:0s;
+  }
+  .email-overlay.open .email-modal{ opacity:1; transform:translateY(0) scale(1); }
   .email-modal h2{ font-size:30px; margin:0 48px 10px 0; }
   .email-modal > p{ color:var(--ink-soft); margin-bottom:24px; }
   .email-actions{ display:grid; gap:10px; }
@@ -453,7 +466,7 @@
 
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
-    .product-card, .modal, .advantage, .btn{ transition:none; animation:none; }
+    .product-card, .modal, .email-overlay, .advantage, .btn{ transition:none; animation:none; }
   }
 </style>
 </head>
@@ -520,10 +533,10 @@
     </div>
 
     <div class="hero-visual reveal">
-      <div class="grain"></div>
+      <img class="hero-warehouse-photo" src="img/warehouse.jpg" alt="Склад кормових білкових інгредієнтів Intertexkorm" data-i18n-alt="warehouse_image_alt" width="1280" height="720" decoding="async">
       <div class="hero-visual-tag">
-        <span class="hvt-label" data-i18n="hero_visual_label">Гранульована текстура</span>
-        <p data-i18n="hero_visual_text">Дрібнодисперсний порошок — характерна ознака якісного розпилювального сушіння тваринного білка.</p>
+        <span class="hvt-label" data-i18n="hero_visual_label">Склад в Україні</span>
+        <p data-i18n="hero_visual_text">Запас продукції на складі для стабільних оптових постачань клієнтам.</p>
       </div>
     </div>
 
@@ -985,8 +998,9 @@ const translations = {
     hero_desc:"ТОВ Інтертехкорм постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.",
     hero_btn1:"Дивитись товари", hero_btn2:"Написати нам",
     hero_products_label:"У каталозі",
-    hero_visual_label:"Гранульована текстура",
-    hero_visual_text:"Дрібнодисперсний порошок — характерна ознака якісного розпилювального сушіння тваринного білка.",
+    hero_visual_label:"Склад в Україні",
+    hero_visual_text:"Запас продукції на складі для стабільних оптових постачань клієнтам.",
+    warehouse_image_alt:"Склад кормових білкових інгредієнтів Intertexkorm",
 
     about_title:"Хто ми",
     about_p1:"Компанія здійснює активну зовнішньоекономічну діяльність у сфері торгівлі сільськогосподарською продукцією. Основним напрямом діяльності є прямий імпорт із країн Європейського Союзу та оптове постачання високоякісної плазми й гемоглобіну крові великої рогатої худоби, що використовуються у виробництві кормів для тварин. Нашими клієнтами є виробники комбікормів, тваринницькі комплекси та підприємства агропромислового сектору.",
@@ -1096,8 +1110,9 @@ const translations = {
     hero_desc:"Ltd Intertehkorm supplies animal-protein-based feed raw materials. We choose every product ourselves and stay in touch with every client.",
     hero_btn1:"View products", hero_btn2:"Message us",
     hero_products_label:"In the catalog",
-    hero_visual_label:"Granular texture",
-    hero_visual_text:"A fine, free-flowing powder — the hallmark of properly spray-dried animal protein.",
+    hero_visual_label:"Warehouse in Ukraine",
+    hero_visual_text:"Stock held locally to support reliable wholesale deliveries to customers.",
+    warehouse_image_alt:"Intertehkorm warehouse for feed protein ingredients",
 
     about_title:"Who we are",
     about_p1:"Company is actively engaged in international trade within the agricultural sector. Our core business is the direct import of premium bovine blood plasma and blood hemoglobin from the European Union, supplying high-quality protein ingredients for animal feed production. Our customers include feed manufacturers, livestock producers, and companies operating across the agricultural industry.",
