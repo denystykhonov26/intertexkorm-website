@@ -6,7 +6,7 @@
 <meta name="description" content="Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-t8/8DigvVKxWizimNbV31/MpimT6oLYUDeOhfedo+TQ='; style-src 'self' 'sha256-I3SIisG4zXkpNgXV+GL5LUyWRUq3bQCGTslXmkyKRhw=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-+ywLyBFGVhIXPuio2mtQa6nKS0ltRAIr4EAJM3UsCo8='; style-src 'self' 'sha256-vqh37IaHwbvy6x4OABdUoUW/Xp7f6g9Rj4AbRYrEzPA=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Плазма крові кормова та гемоглобін крові кормовий | Intertexkorm</title>
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="img/favicon.png" sizes="512x512" type="image/png">
@@ -134,8 +134,16 @@
     display:flex; flex-direction:column; align-items:flex-end; gap:2px;
     font-size:12px; line-height:1.35; white-space:nowrap;
   }
-  .header-contact{ color:var(--ink-soft); transition:color .2s ease; }
-  .header-contact:hover{ color:var(--accent); }
+  .header-contact{
+    display:inline-flex; align-items:center; gap:5px; padding:2px 6px; border-radius:7px;
+    color:var(--ink-soft); text-decoration:underline; text-decoration-style:dotted;
+    text-decoration-color:var(--accent); text-underline-offset:3px;
+    transition:color .2s ease, background .2s ease, transform .2s ease;
+  }
+  .header-contact::before{ color:var(--accent); font-size:10px; line-height:1; text-decoration:none; }
+  .header-phone::before{ content:"☎"; }
+  .header-email::before{ content:"✉"; }
+  .header-contact:hover{ color:var(--accent-dark); background:var(--accent-soft); transform:translateY(-1px); }
   .header-phone{ color:var(--ink); font-weight:600; }
   .header-email{ font-size:11.5px; }
   .nav-actions{ display:flex; align-items:center; gap:16px; flex-shrink:0; }
@@ -190,6 +198,8 @@
     .nav-actions{ display:none; }
     .lang-switch.mobile-lang-switch{ display:flex; align-self:flex-start; margin:6px 14px 4px; }
     .mobile-lang-switch button{ padding:6px 12px; }
+    .header-phone{ padding:0; }
+    .header-phone::before{ display:none; }
   }
   @media (max-width:360px){
     .nav{ padding-inline:12px; gap:8px; }
@@ -199,7 +209,7 @@
   }
 
   /* ---------- Hero ---------- */
-  .hero{ padding:52px 0 96px; overflow:hidden; }
+  .hero{ padding:52px 0 56px; overflow:hidden; }
   .hero .ruler{ margin-bottom:30px; }
   .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:start; }
   @media (max-width:920px){
@@ -208,7 +218,15 @@
 
   .hero h1{ font-size:clamp(38px, 4.8vw, 58px); margin-bottom:22px; }
   .hero h1 em{ font-style:italic; color:var(--accent); }
-  .hero-copy > p{ max-width:480px; color:var(--ink-soft); font-size:17px; margin-bottom:32px; }
+  .hero-copy > p{ max-width:480px; color:var(--ink-soft); font-size:17px; margin-bottom:16px; }
+  .hero-market-note{
+    display:flex; align-items:center; gap:9px; margin-bottom:28px;
+    color:var(--accent-dark); font-size:13px; font-weight:500;
+  }
+  .hero-market-note::before{
+    content:""; width:8px; height:8px; flex:0 0 8px; border-radius:50%;
+    background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft);
+  }
   .hero-actions{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:34px; }
   .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; letter-spacing:0.01em; border-radius:var(--radius-pill); transition:background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.7,.2,1); }
   .btn-primary{
@@ -257,8 +275,8 @@
   @media (max-width:920px){ .hero-visual{ margin-top:0; } }
 
   /* ---------- Products — головний елемент сайту ---------- */
-  .products{ padding:96px 0; }
-  .products-head{ display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:52px; gap:24px; flex-wrap:wrap; }
+  .products{ padding:56px 0; }
+  .products-head{ display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:40px; gap:24px; flex-wrap:wrap; }
   .products-head h2{ font-size:38px; }
   .products-head p{ color:var(--ink-soft); max-width:360px; font-size:15px; }
   .product-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
@@ -290,6 +308,14 @@
   .product-body{ padding:30px 30px 28px; display:flex; flex-direction:column; gap:16px; flex:1; }
   .product-body h3{ font-size:24px; }
   .product-body > p.product-desc{ color:var(--ink-soft); font-size:14.5px; }
+  .product-availability{
+    display:flex; align-items:center; gap:8px; color:var(--accent-dark);
+    font-size:13px; font-weight:600;
+  }
+  .product-availability::before{
+    content:""; width:8px; height:8px; flex:0 0 8px; border-radius:50%;
+    background:var(--accent); box-shadow:0 0 0 3px var(--accent-soft);
+  }
   .product-chips{ display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 4px; }
   .chip{ font-size:12.5px; color:var(--accent-dark); background:var(--accent-soft); padding:7px 12px; border-radius:var(--radius-pill); }
   .product-price{ display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:20px; margin-top:auto; font-size:14px; }
@@ -317,13 +343,13 @@
     }
     .hero-visual-tag .hvt-label{ font-size:8px; margin-bottom:3px; }
     .hero-visual-tag p{ font-size:10px; line-height:1.35; }
-    .products{ padding:36px 0 72px; }
+    .products{ padding:32px 0 48px; }
     .products-head{ margin-bottom:32px; }
   }
 
   /* ---------- Advantages ---------- */
-  .advantages{ padding:96px 0; background:var(--bg-panel); }
-  .advantages-head{ max-width:520px; margin-bottom:52px; }
+  .advantages{ padding:56px 0; background:var(--bg-panel); }
+  .advantages-head{ max-width:520px; margin-bottom:40px; }
   .advantages-head h2{ font-size:36px; margin-bottom:14px; }
   .advantages-head p{ color:var(--ink-soft); font-size:15px; }
   .advantages-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; }
@@ -339,7 +365,7 @@
   .advantage p{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; }
 
   /* ---------- About ---------- */
-  .about{ padding:88px 0; }
+  .about{ padding:56px 0; }
   .about-grid{ display:grid; grid-template-columns:1fr 1.4fr; gap:64px; }
   .about h2{ font-size:34px; }
   .about-kicker{
@@ -352,7 +378,7 @@
   @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; gap:24px; } }
 
   /* ---------- Certificates ---------- */
-  .certs{ padding:0 0 96px; }
+  .certs{ padding:0 0 56px; }
   .certs-inner{ display:grid; grid-template-columns:1fr 1.6fr; gap:48px; align-items:start; }
   @media (max-width:760px){ .certs-inner{ grid-template-columns:1fr; gap:20px; } }
   .certs h2{ font-size:32px; margin-bottom:12px; }
@@ -471,7 +497,7 @@
   .spec-note{ color:var(--ink-soft); font-size:13px; padding-top:20px; margin-top:20px; border-top:1px solid var(--line); }
 
   /* ---------- Contact ---------- */
-  .contact{ padding:96px 0; }
+  .contact{ padding:56px 0; }
   .contact-inner{
     display:grid; grid-template-columns:1.2fr 1fr; gap:56px;
     background:var(--ink); color:#fff; border-radius:var(--radius-lg); padding:64px; box-shadow:var(--shadow-lg);
@@ -482,6 +508,11 @@
     font-family:var(--font-section); font-weight:800; letter-spacing:-.035em; line-height:1.05;
   }
   .products-head h2, .advantages-head h2, .about h2, .certs h2{ color:var(--accent); }
+  @media (max-width:600px){
+    .advantages, .about, .contact{ padding:48px 0; }
+    .advantages-head{ margin-bottom:34px; }
+    .certs{ padding-bottom:48px; }
+  }
   .contact > .contact-inner > div:first-child p{ color:rgba(255,255,255,.68); max-width:440px; margin-bottom:8px; }
   .contact-list{ list-style:none; display:flex; flex-direction:column; gap:18px; }
   .contact-list li{ display:flex; flex-direction:column; gap:2px; padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,.16); }
@@ -520,8 +551,8 @@
       </div>
     </nav>
     <div class="header-contacts" aria-label="Контактні дані">
-      <a class="header-contact header-phone" href="tel:+380504468800" aria-label="Зателефонувати: +380 50 446 88 00">+380 (50) 446 88 00</a>
-      <a class="header-contact header-email" href="mailto:Intertexbuh@ukr.net" data-email-trigger>Intertexbuh@ukr.net</a>
+      <a class="header-contact header-phone" href="tel:+380504468800" aria-label="Зателефонувати: +380 50 446 88 00" title="Натисніть, щоб зателефонувати" data-i18n-title="phone_click_hint">+380 (50) 446 88 00</a>
+      <a class="header-contact header-email" href="mailto:Intertexbuh@ukr.net" data-email-trigger title="Натисніть, щоб написати повідомлення" data-i18n-title="email_click_hint">Intertexbuh@ukr.net</a>
     </div>
     <div class="nav-actions">
       <div class="lang-switch" role="group" aria-label="Вибір мови" data-i18n-aria-label="language_label">
@@ -544,6 +575,7 @@
     <div class="hero-copy reveal">
       <h1 id="hero-title">Високоякісні<br>білкові інгредієнти<br>для сучасного та<br>ефективного<br><em>тваринництва</em></h1>
       <p data-i18n="hero_desc">ТОВ Інтертехкорм постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.</p>
+      <div class="hero-market-note" data-i18n="hero_market_note">Київ · працюємо на українському ринку</div>
 
       <div class="hero-actions">
         <a href="#products" class="btn btn-primary" data-i18n="hero_btn1">Дивитись товари →</a>
@@ -595,6 +627,7 @@
         <div class="product-body">
           <h3 data-i18n="product1_name">ACTIPRO Plasma — плазма крові кормова</h3>
           <p class="product-desc" data-i18n="product1_desc">Плазма крові кормова у формі порошку — функціональний білковий інгредієнт із гелеутворювальними, водозв’язувальними та емульгувальними властивостями.</p>
+          <p class="product-availability" data-i18n="product_in_stock">Завжди в наявності на складі</p>
           <div class="product-chips">
             <span class="chip" data-i18n="p1_chip1">70% протеїну</span>
             <span class="chip" data-i18n="p1_chip2">Висока засвоюваність</span>
@@ -615,6 +648,7 @@
         <div class="product-body">
           <h3 data-i18n="product2_name">ACTIPRO Hemoglobin — гемоглобін крові кормовий</h3>
           <p class="product-desc" data-i18n="product2_desc">Гемоглобін крові кормовий — концентроване джерело легкозасвоюваного тваринного білка, органічного заліза та незамінних амінокислот.</p>
+          <p class="product-availability" data-i18n="product_in_stock">Завжди в наявності на складі</p>
           <div class="product-chips">
             <span class="chip" data-i18n="p2_chip1">92% протеїну</span>
             <span class="chip" data-i18n="p2_chip2">Низький фосфор</span>
@@ -1029,6 +1063,7 @@ const translations = {
     hero_title_lines:["Високоякісні", "білкові інгредієнти", "для сучасного та", "ефективного"],
     hero_title_em:"тваринництва",
     hero_desc:"ТОВ Інтертехкорм постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.",
+    hero_market_note:"Київ · працюємо на українському ринку",
     hero_btn1:"Дивитись товари →", hero_btn2:"Написати нам",
     hero_products_label:"У каталозі",
     hero_visual_label:"Склад в Україні",
@@ -1050,6 +1085,7 @@ const translations = {
     product2_label:"Товар 02", product2_name:"ACTIPRO Hemoglobin — гемоглобін крові кормовий",
     product2_desc:"Гемоглобін крові кормовий — концентроване джерело легкозасвоюваного тваринного білка, органічного заліза та незамінних амінокислот.",
     product2_image_alt:"ACTIPRO Hemoglobin — гемоглобін крові кормовий у формі порошку",
+    product_in_stock:"Завжди в наявності на складі",
 
     price_default:"Ціна за запитом", learn_more:"Дізнатись більше →", learn_more_short:"Детальніше →",
 
@@ -1113,6 +1149,7 @@ const translations = {
 
     contact_title:"Зв'яжіться з нами", contact_desc:"Відповімо протягом дня. Пишіть або телефонуйте — як зручніше.",
     contact_phone_label:"Телефон", contact_email_label:"Пошта", footer_note:"Зроблено з турботою",
+    phone_click_hint:"Натисніть, щоб зателефонувати", email_click_hint:"Натисніть, щоб написати повідомлення",
     email_modal_title:"Написати нам", email_modal_desc:"Оберіть зручний спосіб — адреса одержувача вже заповнена.",
     email_gmail:"Відкрити Gmail", email_outlook:"Відкрити Outlook", email_app:"Поштова програма на комп’ютері",
     email_copy:"Скопіювати адресу", email_copied:"Адресу скопійовано: Intertexbuh@ukr.net",
@@ -1142,6 +1179,7 @@ const translations = {
     hero_title_lines:["Premium", "Protein Ingredients", "for Modern and", "Efficient"],
     hero_title_em:"Animal Nutrition",
     hero_desc:"Ltd Intertehkorm supplies animal-protein-based feed raw materials. We choose every product ourselves and stay in touch with every client.",
+    hero_market_note:"Kyiv · serving the Ukrainian market",
     hero_btn1:"View products →", hero_btn2:"Message us",
     hero_products_label:"In the catalog",
     hero_visual_label:"Warehouse in Ukraine",
@@ -1163,6 +1201,7 @@ const translations = {
     product2_label:"Product 02", product2_name:"ACTIPRO Hemoglobin — feed-grade blood hemoglobin",
     product2_desc:"Feed-grade blood hemoglobin — a concentrated source of highly digestible animal protein, organic iron and essential amino acids.",
     product2_image_alt:"ACTIPRO Hemoglobin — feed-grade blood hemoglobin powder",
+    product_in_stock:"Always in stock",
 
     price_default:"Price on request", learn_more:"Learn more →", learn_more_short:"Details →",
 
@@ -1226,6 +1265,7 @@ const translations = {
 
     contact_title:"Get in touch", contact_desc:"We reply within a day. Write or call — whichever suits you.",
     contact_phone_label:"Phone", contact_email_label:"Email", footer_note:"Made with care",
+    phone_click_hint:"Click to call", email_click_hint:"Click to send a message",
     email_modal_title:"Email us", email_modal_desc:"Choose the most convenient option — the recipient address is already filled in.",
     email_gmail:"Open Gmail", email_outlook:"Open Outlook", email_app:"Default email app",
     email_copy:"Copy email address", email_copied:"Address copied: Intertexbuh@ukr.net",
@@ -1285,6 +1325,10 @@ function applyLang(lang){
   document.querySelectorAll('[data-i18n-alt]').forEach(el=>{
     const key = el.getAttribute('data-i18n-alt');
     if(typeof dict[key] === 'string') el.setAttribute('alt', dict[key]);
+  });
+  document.querySelectorAll('[data-i18n-title]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-title');
+    if(typeof dict[key] === 'string') el.setAttribute('title', dict[key]);
   });
   renderHeroTitle(dict);
   renderAmino(safeLang, 1);
