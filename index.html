@@ -6,7 +6,7 @@
 <meta name="description" content="Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-WHcyqYOB9+yTPNV8ZORasom+O1BWlRwxbuiXOIMAclQ='; style-src 'self' 'sha256-ugwpF0/EPMIoTS5foeCrHfxO1IgTkD/qkuGjYvDnR8M=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-B4TAvunCej4W7vDJS+a1c4xfHsti7mcjtWErfCsm1lM='; style-src 'self' 'sha256-RI+A1gk55TEHUSysD4X+xu4mp7F5+1oMa+IvMSNQRVY=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Плазма крові кормова та гемоглобін крові кормовий | Intertexkorm</title>
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="img/favicon.png" sizes="512x512" type="image/png">
@@ -198,7 +198,7 @@
   }
 
   /* ---------- Hero ---------- */
-  .hero{ padding:64px 0 96px; overflow:hidden; }
+  .hero{ padding:52px 0 96px; overflow:hidden; }
   .hero .ruler{ margin-bottom:30px; }
   .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center; }
   @media (max-width:920px){ .hero-grid{ grid-template-columns:1fr; gap:48px; } }
@@ -206,27 +206,30 @@
   .hero h1{ font-size:clamp(38px, 4.8vw, 58px); margin-bottom:22px; }
   .hero h1 em{ font-style:italic; color:var(--accent); }
   .hero-copy > p{ max-width:480px; color:var(--ink-soft); font-size:17px; margin-bottom:32px; }
-  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px; }
-  .btn{ display:inline-flex; align-items:center; gap:8px; padding:15px 28px; font-size:14.5px; font-weight:500; letter-spacing:0.01em; border-radius:var(--radius-pill); transition:all .25s cubic-bezier(.2,.7,.2,1); }
-  .btn-primary{ background:var(--accent); color:#fff; box-shadow:var(--shadow-sm); }
-  .btn-primary:hover{ background:var(--accent-dark); transform:translateY(-2px); box-shadow:var(--shadow-md); }
-  .btn-secondary{ border:1px solid var(--line); color:var(--ink); background:#fff; }
+  .hero-actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:38px; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; letter-spacing:0.01em; border-radius:var(--radius-pill); transition:background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.7,.2,1); }
+  .btn-primary{
+    min-width:240px; height:64px; padding:0 30px; font-size:17.5px; font-weight:600;
+    background:var(--accent); color:#fff; box-shadow:0 12px 26px -16px rgba(14,54,44,.55);
+  }
+  .btn-primary:hover{ background:var(--accent-dark); transform:translateY(-2px); box-shadow:0 16px 30px -14px rgba(14,54,44,.5); }
+  .btn-secondary{ min-width:170px; height:54px; padding:0 24px; font-size:15px; font-weight:500; border:1px solid var(--line); color:var(--ink); background:#fff; }
   .btn-secondary:hover{ border-color:var(--ink); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 
   /* Мини-каталог прямо у Hero — товар видно на першому екрані */
-  .hero-products{ border-top:1px solid var(--line); }
-  .hero-products-label{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); padding:18px 0 2px; }
+  .hero-products{ border-top:1px solid var(--accent-soft); }
+  .hero-products-label{ font-family:var(--font-mono); font-size:11.5px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); padding:22px 4px 4px; }
   .hero-product-row{
     display:flex; align-items:center; justify-content:space-between; gap:16px; width:100%;
-    background:none; border:none; border-bottom:1px solid var(--line); padding:17px 4px;
+    background:none; border:none; border-bottom:1px solid var(--line); padding:19px 6px;
     color:var(--ink); font:inherit; -webkit-appearance:none; appearance:none;
-    text-align:left; transition:padding-left .25s ease, color .25s ease; border-radius:var(--radius-sm);
+    text-align:left; transition:padding-left .25s ease, color .25s ease, background .25s ease; border-radius:var(--radius-sm);
   }
-  .hero-product-row:hover{ padding-left:12px; color:var(--accent); background:var(--bg-panel); }
-  .hero-product-row .hpr-name{ display:flex; align-items:baseline; gap:12px; font-family:var(--font-display); font-size:17.5px; color:var(--ink); }
+  .hero-product-row:hover{ padding-left:14px; color:var(--accent); background:var(--bg-panel); }
+  .hero-product-row .hpr-name{ display:flex; align-items:baseline; gap:12px; font-family:var(--font-display); font-size:18.5px; color:var(--ink); }
   .hero-product-row:hover .hpr-name{ color:var(--accent-dark); }
   .hero-product-row .hpr-num{ font-family:var(--font-mono); font-size:11.5px; color:var(--accent); letter-spacing:0.05em; }
-  .hero-product-row .hpr-arrow{ font-size:13.5px; color:var(--ink-soft); transition:transform .25s ease; }
+  .hero-product-row .hpr-arrow{ font-size:13.5px; color:var(--accent); transition:transform .25s ease; }
   .hero-product-row:hover .hpr-arrow{ transform:translateX(4px); color:var(--accent); }
 
   /* Візуальна композиція hero */
@@ -242,9 +245,9 @@
   .hero-warehouse-photo{ width:100%; height:100%; object-fit:cover; object-position:center; }
   .hero-visual-tag{
     position:absolute; left:18px; bottom:18px; right:auto; max-width:190px;
-    background:rgba(255,255,255,0.88); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,.6); border-radius:13px;
-    padding:12px 14px; box-shadow:var(--shadow-md); z-index:1;
+    background:rgba(255,255,255,0.95); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.92); border-radius:13px;
+    padding:12px 14px; box-shadow:0 14px 30px -12px rgba(14,54,44,.32); z-index:1;
   }
   .hero-visual-tag .hvt-label{ font-family:var(--font-mono); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:4px; }
   .hero-visual-tag p{ font-size:11px; color:var(--ink-soft); line-height:1.4; }
@@ -302,7 +305,7 @@
     .product-body{ position:relative; z-index:1; background:#fff; }
   }
   @media (max-width:600px){
-    .hero{ padding:40px 0 28px; }
+    .hero{ padding:32px 0 28px; }
     .hero-grid{ gap:36px; }
     .hero-visual-tag{
       left:12px; right:auto; bottom:12px; max-width:178px;
@@ -530,7 +533,7 @@
       <p data-i18n="hero_desc">ТОВ Інтертехкорм постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.</p>
 
       <div class="hero-actions">
-        <a href="#products" class="btn btn-primary" data-i18n="hero_btn1">Дивитись товари</a>
+        <a href="#products" class="btn btn-primary" data-i18n="hero_btn1">Дивитись товари →</a>
         <a href="#contact" class="btn btn-secondary" data-i18n="hero_btn2">Написати нам</a>
       </div>
 
@@ -1012,7 +1015,7 @@ const translations = {
     hero_title_lines:["Високоякісні", "білкові інгредієнти", "для сучасного"],
     hero_title_em:"тваринництва",
     hero_desc:"ТОВ Інтертехкорм постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.",
-    hero_btn1:"Дивитись товари", hero_btn2:"Написати нам",
+    hero_btn1:"Дивитись товари →", hero_btn2:"Написати нам",
     hero_products_label:"У каталозі",
     hero_visual_label:"Склад в Україні",
     hero_visual_text:"Запас продукції в Україні для стабільних оптових постачань.",
@@ -1124,7 +1127,7 @@ const translations = {
     hero_title_lines:["Premium", "Protein Ingredients", "for Modern"],
     hero_title_em:"Animal Nutrition",
     hero_desc:"Ltd Intertehkorm supplies animal-protein-based feed raw materials. We choose every product ourselves and stay in touch with every client.",
-    hero_btn1:"View products", hero_btn2:"Message us",
+    hero_btn1:"View products →", hero_btn2:"Message us",
     hero_products_label:"In the catalog",
     hero_visual_label:"Warehouse in Ukraine",
     hero_visual_text:"Local stock in Ukraine for reliable wholesale deliveries.",
