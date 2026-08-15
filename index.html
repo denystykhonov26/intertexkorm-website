@@ -6,7 +6,7 @@
 <meta name="description" content="Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-B4TAvunCej4W7vDJS+a1c4xfHsti7mcjtWErfCsm1lM='; style-src 'self' 'sha256-RI+A1gk55TEHUSysD4X+xu4mp7F5+1oMa+IvMSNQRVY=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-B4TAvunCej4W7vDJS+a1c4xfHsti7mcjtWErfCsm1lM='; style-src 'self' 'sha256-iHKPkTvaTptpn16AT3bcU/5MSW+OoYptkU03YLfVQuo=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Плазма крові кормова та гемоглобін крові кормовий | Intertexkorm</title>
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="img/favicon.png" sizes="512x512" type="image/png">
@@ -200,20 +200,22 @@
   /* ---------- Hero ---------- */
   .hero{ padding:52px 0 96px; overflow:hidden; }
   .hero .ruler{ margin-bottom:30px; }
-  .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center; }
-  @media (max-width:920px){ .hero-grid{ grid-template-columns:1fr; gap:48px; } }
+  .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:start; }
+  @media (max-width:920px){
+    .hero-grid{ grid-template-columns:1fr; gap:48px; }
+  }
 
   .hero h1{ font-size:clamp(38px, 4.8vw, 58px); margin-bottom:22px; }
   .hero h1 em{ font-style:italic; color:var(--accent); }
   .hero-copy > p{ max-width:480px; color:var(--ink-soft); font-size:17px; margin-bottom:32px; }
-  .hero-actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:38px; }
+  .hero-actions{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:34px; }
   .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; letter-spacing:0.01em; border-radius:var(--radius-pill); transition:background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.7,.2,1); }
   .btn-primary{
-    min-width:240px; height:64px; padding:0 30px; font-size:17.5px; font-weight:600;
-    background:var(--accent); color:#fff; box-shadow:0 12px 26px -16px rgba(14,54,44,.55);
+    min-width:220px; height:58px; padding:0 26px; font-size:16.5px; font-weight:600;
+    background:var(--accent); color:#fff; box-shadow:0 10px 24px -16px rgba(14,54,44,.5);
   }
-  .btn-primary:hover{ background:var(--accent-dark); transform:translateY(-2px); box-shadow:0 16px 30px -14px rgba(14,54,44,.5); }
-  .btn-secondary{ min-width:170px; height:54px; padding:0 24px; font-size:15px; font-weight:500; border:1px solid var(--line); color:var(--ink); background:#fff; }
+  .btn-primary:hover{ background:var(--accent-dark); transform:translateY(-2px); box-shadow:0 14px 28px -14px rgba(14,54,44,.45); }
+  .btn-secondary{ min-width:154px; height:48px; padding:0 20px; font-size:14px; font-weight:500; border:1px solid var(--line); color:var(--ink-soft); background:transparent; }
   .btn-secondary:hover{ border-color:var(--ink); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 
   /* Мини-каталог прямо у Hero — товар видно на першому екрані */
@@ -235,7 +237,7 @@
   /* Візуальна композиція hero */
   .hero-visual{
     position:relative; aspect-ratio:4/3; border-radius:var(--radius-lg);
-    overflow:hidden; box-shadow:var(--shadow-lg); background:var(--bg-panel);
+    overflow:hidden; box-shadow:var(--shadow-lg); background:var(--bg-panel); margin-top:76px;
   }
   .hero-visual::after{
     content:""; position:absolute; inset:0;
@@ -251,6 +253,7 @@
   }
   .hero-visual-tag .hvt-label{ font-family:var(--font-mono); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:4px; }
   .hero-visual-tag p{ font-size:11px; color:var(--ink-soft); line-height:1.4; }
+  @media (max-width:920px){ .hero-visual{ margin-top:0; } }
 
   /* ---------- Products — головний елемент сайту ---------- */
   .products{ padding:96px 0; }
