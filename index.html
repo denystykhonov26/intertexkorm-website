@@ -6,7 +6,7 @@
 <meta name="description" content="Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-QqjV1/837v+ystDTpIAA0mprgDv+7Xtr8XtHKBD17Rg='; style-src 'self' 'sha256-e36FOmbmKhStqqnH8evOpmOOTke1/8pxkY8FRiamSP0=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-WHcyqYOB9+yTPNV8ZORasom+O1BWlRwxbuiXOIMAclQ='; style-src 'self' 'sha256-zmzGcSYVais5EaHMJwyD2ULAWQASARq0Yw57Ijr44kM=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Плазма крові кормова та гемоглобін крові кормовий | Intertexkorm</title>
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="img/favicon.png" sizes="512x512" type="image/png">
@@ -149,12 +149,14 @@
   .mobile-menu-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
   .lang-switch.mobile-lang-switch{ display:none; }
 
-  .lang-switch{ display:flex; gap:2px; border:1px solid var(--line); border-radius:var(--radius-pill); overflow:hidden; padding:2px; }
+  .lang-switch{ display:flex; gap:2px; border:1px solid var(--line); border-radius:var(--radius-pill); padding:3px; background:rgba(255,255,255,.72); box-shadow:var(--shadow-sm); }
   .lang-switch button{
-    background:var(--accent); border:none; padding:6px 12px; min-width:44px; font-size:12px; font-family:var(--font-mono);
-    letter-spacing:0.03em; color:#fff; border-radius:var(--radius-pill); transition:background .2s, transform .2s;
+    background:transparent; border:none; padding:6px 10px; min-width:38px; font-size:11px; font-family:var(--font-mono);
+    letter-spacing:0.06em; color:var(--ink-soft); border-radius:var(--radius-pill); transition:background .2s, color .2s, box-shadow .2s, transform .2s;
   }
-  .lang-switch button:hover{ background:var(--accent-dark); transform:translateY(-1px); }
+  .lang-switch button:hover{ color:var(--accent); }
+  .lang-switch button[aria-pressed="true"]{ background:var(--accent); color:#fff; box-shadow:0 3px 9px rgba(21,75,61,.22); }
+  .lang-switch button[aria-pressed="true"]:hover{ background:var(--accent-dark); color:#fff; transform:translateY(-1px); }
 
   .nav-cta{
     font-size:13.5px; padding:10px 20px; background:var(--ink); color:#fff; border-radius:var(--radius-pill);
@@ -239,13 +241,13 @@
   }
   .hero-warehouse-photo{ width:100%; height:100%; object-fit:cover; object-position:center; }
   .hero-visual-tag{
-    position:absolute; left:24px; bottom:24px; right:24px; max-width:250px;
+    position:absolute; left:18px; bottom:18px; right:auto; max-width:190px;
     background:rgba(255,255,255,0.88); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,.6); border-radius:var(--radius-md);
-    padding:18px 20px; box-shadow:var(--shadow-md); z-index:1;
+    border:1px solid rgba(255,255,255,.6); border-radius:13px;
+    padding:12px 14px; box-shadow:var(--shadow-md); z-index:1;
   }
-  .hero-visual-tag .hvt-label{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:7px; }
-  .hero-visual-tag p{ font-size:13px; color:var(--ink-soft); line-height:1.55; }
+  .hero-visual-tag .hvt-label{ font-family:var(--font-mono); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:4px; }
+  .hero-visual-tag p{ font-size:11px; color:var(--ink-soft); line-height:1.4; }
 
   /* ---------- Products — головний елемент сайту ---------- */
   .products{ padding:96px 0; }
@@ -303,11 +305,11 @@
     .hero{ padding:40px 0 28px; }
     .hero-grid{ gap:36px; }
     .hero-visual-tag{
-      left:14px; right:auto; bottom:14px; max-width:205px;
-      padding:11px 13px; border-radius:12px;
+      left:12px; right:auto; bottom:12px; max-width:178px;
+      padding:9px 10px; border-radius:10px;
     }
-    .hero-visual-tag .hvt-label{ font-size:9px; margin-bottom:5px; }
-    .hero-visual-tag p{ font-size:11px; line-height:1.4; }
+    .hero-visual-tag .hvt-label{ font-size:8px; margin-bottom:3px; }
+    .hero-visual-tag p{ font-size:10px; line-height:1.35; }
     .products{ padding:36px 0 72px; }
     .products-head{ margin-bottom:32px; }
   }
@@ -497,7 +499,8 @@
       <a href="#about" data-i18n="nav_about">Про нас</a>
       <a href="#contact" data-i18n="nav_contact">Контакти</a>
       <div class="lang-switch mobile-lang-switch" role="group" aria-label="Вибір мови" data-i18n-aria-label="language_label">
-        <button type="button" data-lang-toggle data-lang="en" aria-label="Переключити мову на англійську">EN</button>
+        <button type="button" data-lang-option="ua" aria-pressed="true" aria-label="Українська мова">UA</button>
+        <button type="button" data-lang-option="en" aria-pressed="false" aria-label="English language">EN</button>
       </div>
     </nav>
     <div class="header-contacts" aria-label="Контактні дані">
@@ -506,7 +509,8 @@
     </div>
     <div class="nav-actions">
       <div class="lang-switch" role="group" aria-label="Вибір мови" data-i18n-aria-label="language_label">
-        <button type="button" data-lang-toggle data-lang="en" aria-label="Переключити мову на англійську">EN</button>
+        <button type="button" data-lang-option="ua" aria-pressed="true" aria-label="Українська мова">UA</button>
+        <button type="button" data-lang-option="en" aria-pressed="false" aria-label="English language">EN</button>
       </div>
       <a href="#contact" class="nav-cta" data-i18n="nav_cta">Зв'язатися</a>
     </div>
@@ -548,7 +552,7 @@
       <img class="hero-warehouse-photo" src="img/warehouse.jpg" alt="Склад кормових білкових інгредієнтів Intertexkorm" data-i18n-alt="warehouse_image_alt" width="1280" height="720" decoding="async">
       <div class="hero-visual-tag">
         <span class="hvt-label" data-i18n="hero_visual_label">Склад в Україні</span>
-        <p data-i18n="hero_visual_text">Запас продукції на складі для стабільних оптових постачань клієнтам.</p>
+        <p data-i18n="hero_visual_text">Запас продукції в Україні для стабільних оптових постачань.</p>
       </div>
     </div>
 
@@ -1011,7 +1015,7 @@ const translations = {
     hero_btn1:"Дивитись товари", hero_btn2:"Написати нам",
     hero_products_label:"У каталозі",
     hero_visual_label:"Склад в Україні",
-    hero_visual_text:"Запас продукції на складі для стабільних оптових постачань клієнтам.",
+    hero_visual_text:"Запас продукції в Україні для стабільних оптових постачань.",
     warehouse_image_alt:"Склад кормових білкових інгредієнтів Intertexkorm",
 
     about_title:"Хто ми",
@@ -1123,7 +1127,7 @@ const translations = {
     hero_btn1:"View products", hero_btn2:"Message us",
     hero_products_label:"In the catalog",
     hero_visual_label:"Warehouse in Ukraine",
-    hero_visual_text:"Stock held locally to support reliable wholesale deliveries to customers.",
+    hero_visual_text:"Local stock in Ukraine for reliable wholesale deliveries.",
     warehouse_image_alt:"Intertehkorm warehouse for feed protein ingredients",
 
     about_title:"Who we are",
@@ -1269,11 +1273,11 @@ function applyLang(lang){
   document.documentElement.lang = (safeLang === 'ua') ? 'uk' : safeLang;
   document.title = dict.page_title;
   document.querySelector('meta[name="description"]').setAttribute('content', dict.page_description);
-  document.querySelectorAll('[data-lang-toggle]').forEach(button=>{
-    const nextLang = safeLang === 'ua' ? 'en' : 'ua';
-    button.setAttribute('data-lang', nextLang);
-    button.textContent = nextLang.toUpperCase();
-    button.setAttribute('aria-label', safeLang === 'ua' ? 'Переключити мову на англійську' : 'Switch language to Ukrainian');
+  document.querySelectorAll('[data-lang-option]').forEach(button=>{
+    const buttonLang = button.getAttribute('data-lang-option');
+    const active = buttonLang === safeLang;
+    button.setAttribute('aria-pressed', String(active));
+    button.setAttribute('tabindex', active ? '-1' : '0');
   });
   const menuButton = document.querySelector('.mobile-menu-toggle');
   if(menuButton){
@@ -1282,9 +1286,9 @@ function applyLang(lang){
   }
 }
 
-document.querySelectorAll('[data-lang-toggle]').forEach(btn=>{
+document.querySelectorAll('[data-lang-option]').forEach(btn=>{
   btn.addEventListener('click', ()=>{
-    applyLang(btn.getAttribute('data-lang'));
+    applyLang(btn.getAttribute('data-lang-option'));
     setMobileMenu(false);
   });
 });
