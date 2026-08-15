@@ -6,14 +6,14 @@
 <meta name="description" content="Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-B4TAvunCej4W7vDJS+a1c4xfHsti7mcjtWErfCsm1lM='; style-src 'self' 'sha256-iHKPkTvaTptpn16AT3bcU/5MSW+OoYptkU03YLfVQuo=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-t8/8DigvVKxWizimNbV31/MpimT6oLYUDeOhfedo+TQ='; style-src 'self' 'sha256-I3SIisG4zXkpNgXV+GL5LUyWRUq3bQCGTslXmkyKRhw=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Плазма крові кормова та гемоглобін крові кормовий | Intertexkorm</title>
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="img/favicon.png" sizes="512x512" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Work+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Nunito:wght@800&amp;family=Work+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
 
   /* ============================================================
@@ -45,6 +45,7 @@
     --shadow-lg: 0 30px 60px -24px rgba(20,20,15,.28);
 
     --font-display:'Fraunces', serif;
+    --font-section:'Nunito', sans-serif;
     --font-body:'Work Sans', sans-serif;
     --font-mono:'IBM Plex Mono', monospace;
   }
@@ -258,7 +259,7 @@
   /* ---------- Products — головний елемент сайту ---------- */
   .products{ padding:96px 0; }
   .products-head{ display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:52px; gap:24px; flex-wrap:wrap; }
-  .products-head h2{ font-size:34px; }
+  .products-head h2{ font-size:38px; }
   .products-head p{ color:var(--ink-soft); max-width:360px; font-size:15px; }
   .product-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
   @media (max-width:780px){ .product-grid{ grid-template-columns:1fr; } }
@@ -323,7 +324,7 @@
   /* ---------- Advantages ---------- */
   .advantages{ padding:96px 0; background:var(--bg-panel); }
   .advantages-head{ max-width:520px; margin-bottom:52px; }
-  .advantages-head h2{ font-size:32px; margin-bottom:14px; }
+  .advantages-head h2{ font-size:36px; margin-bottom:14px; }
   .advantages-head p{ color:var(--ink-soft); font-size:15px; }
   .advantages-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; }
   @media (max-width:920px){ .advantages-grid{ grid-template-columns:1fr 1fr; } }
@@ -340,7 +341,12 @@
   /* ---------- About ---------- */
   .about{ padding:88px 0; }
   .about-grid{ display:grid; grid-template-columns:1fr 1.4fr; gap:64px; }
-  .about h2{ font-size:30px; }
+  .about h2{ font-size:34px; }
+  .about-kicker{
+    display:inline-flex; margin-top:16px; padding:6px 11px; border-radius:var(--radius-pill);
+    background:var(--accent-soft); color:var(--accent-dark); font-family:var(--font-mono);
+    font-size:10.5px; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
+  }
   .about-text p{ color:var(--ink-soft); max-width:560px; margin-bottom:16px; font-size:15px; }
   .about-text p:last-child{ margin-bottom:0; }
   @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; gap:24px; } }
@@ -349,7 +355,7 @@
   .certs{ padding:0 0 96px; }
   .certs-inner{ display:grid; grid-template-columns:1fr 1.6fr; gap:48px; align-items:start; }
   @media (max-width:760px){ .certs-inner{ grid-template-columns:1fr; gap:20px; } }
-  .certs h2{ font-size:28px; margin-bottom:12px; }
+  .certs h2{ font-size:32px; margin-bottom:12px; }
   .certs-lede{ color:var(--ink-soft); font-size:14.5px; max-width:320px; }
   .certs-note{
     background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius-md); padding:24px 28px;
@@ -471,7 +477,11 @@
     background:var(--ink); color:#fff; border-radius:var(--radius-lg); padding:64px; box-shadow:var(--shadow-lg);
   }
   @media (max-width:760px){ .contact-inner{ grid-template-columns:1fr; padding:40px 28px; } }
-  .contact h2{ font-size:32px; margin-bottom:16px; color:#fff; }
+  .contact h2{ font-size:36px; margin-bottom:16px; color:#fff; }
+  .products-head h2, .advantages-head h2, .about h2, .certs h2, .contact h2{
+    font-family:var(--font-section); font-weight:800; letter-spacing:-.035em; line-height:1.05;
+  }
+  .products-head h2, .advantages-head h2, .about h2, .certs h2{ color:var(--accent); }
   .contact > .contact-inner > div:first-child p{ color:rgba(255,255,255,.68); max-width:440px; margin-bottom:8px; }
   .contact-list{ list-style:none; display:flex; flex-direction:column; gap:18px; }
   .contact-list li{ display:flex; flex-direction:column; gap:2px; padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,.16); }
@@ -532,7 +542,7 @@
   <div class="wrap hero-grid">
 
     <div class="hero-copy reveal">
-      <h1 id="hero-title">Високоякісні<br>білкові інгредієнти<br>для сучасного<br><em>тваринництва</em></h1>
+      <h1 id="hero-title">Високоякісні<br>білкові інгредієнти<br>для сучасного та<br>ефективного<br><em>тваринництва</em></h1>
       <p data-i18n="hero_desc">ТОВ Інтертехкорм постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.</p>
 
       <div class="hero-actions">
@@ -658,9 +668,10 @@
   <div class="wrap about-grid">
     <div class="reveal">
       <h2 data-i18n="about_title">Хто ми</h2>
+      <p class="about-kicker" data-i18n="about_kicker">Сімейний бізнес</p>
     </div>
     <div class="about-text reveal">
-      <p data-i18n="about_p1">Компанія здійснює активну зовнішньоекономічну діяльність у сфері торгівлі сільськогосподарською продукцією. Основним напрямом діяльності є прямий імпорт із країн Європейського Союзу та оптове постачання високоякісної плазми й гемоглобіну крові великої рогатої худоби, що використовуються у виробництві кормів для тварин. Нашими клієнтами є виробники комбікормів, тваринницькі комплекси та підприємства агропромислового сектору.</p>
+      <p data-i18n="about_p1">Інтертехкорм — сімейний бізнес, що активно працює у сфері зовнішньоекономічної торгівлі сільськогосподарською продукцією. Основним напрямом діяльності є прямий імпорт із країн Європейського Союзу та оптове постачання високоякісної плазми й гемоглобіну крові великої рогатої худоби, що використовуються у виробництві кормів для тварин. Нашими клієнтами є виробники комбікормів, тваринницькі комплекси та підприємства агропромислового сектору.</p>
       <p data-i18n="about_p2">Працюємо напряму з перевіреними європейськими виробниками, контролюємо супровідні документи кожної партії та підтримуємо особистий контакт із клієнтом на всіх етапах постачання.</p>
     </div>
   </div>
@@ -1015,7 +1026,7 @@ const translations = {
     page_title:"Плазма крові кормова та гемоглобін крові кормовий | Intertexkorm",
     page_description:"Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.",
 
-    hero_title_lines:["Високоякісні", "білкові інгредієнти", "для сучасного"],
+    hero_title_lines:["Високоякісні", "білкові інгредієнти", "для сучасного та", "ефективного"],
     hero_title_em:"тваринництва",
     hero_desc:"ТОВ Інтертехкорм постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.",
     hero_btn1:"Дивитись товари →", hero_btn2:"Написати нам",
@@ -1025,7 +1036,8 @@ const translations = {
     warehouse_image_alt:"Склад кормових білкових інгредієнтів Intertexkorm",
 
     about_title:"Хто ми",
-    about_p1:"Компанія здійснює активну зовнішньоекономічну діяльність у сфері торгівлі сільськогосподарською продукцією. Основним напрямом діяльності є прямий імпорт із країн Європейського Союзу та оптове постачання високоякісної плазми й гемоглобіну крові великої рогатої худоби, що використовуються у виробництві кормів для тварин. Нашими клієнтами є виробники комбікормів, тваринницькі комплекси та підприємства агропромислового сектору.",
+    about_kicker:"Сімейний бізнес",
+    about_p1:"Інтертехкорм — сімейний бізнес, що активно працює у сфері зовнішньоекономічної торгівлі сільськогосподарською продукцією. Основним напрямом діяльності є прямий імпорт із країн Європейського Союзу та оптове постачання високоякісної плазми й гемоглобіну крові великої рогатої худоби, що використовуються у виробництві кормів для тварин. Нашими клієнтами є виробники комбікормів, тваринницькі комплекси та підприємства агропромислового сектору.",
     about_p2:"Працюємо напряму з перевіреними європейськими виробниками, контролюємо супровідні документи кожної партії та підтримуємо особистий контакт із клієнтом на всіх етапах постачання.",
 
     products_title:"Наші товари",
@@ -1127,7 +1139,7 @@ const translations = {
     page_title:"Feed-grade blood plasma and hemoglobin | Intertehkorm",
     page_description:"ACTIPRO Plasma feed-grade blood plasma and ACTIPRO Hemoglobin feed-grade blood hemoglobin supplied directly from European Union manufacturers.",
 
-    hero_title_lines:["Premium", "Protein Ingredients", "for Modern"],
+    hero_title_lines:["Premium", "Protein Ingredients", "for Modern and", "Efficient"],
     hero_title_em:"Animal Nutrition",
     hero_desc:"Ltd Intertehkorm supplies animal-protein-based feed raw materials. We choose every product ourselves and stay in touch with every client.",
     hero_btn1:"View products →", hero_btn2:"Message us",
@@ -1137,7 +1149,8 @@ const translations = {
     warehouse_image_alt:"Intertehkorm warehouse for feed protein ingredients",
 
     about_title:"Who we are",
-    about_p1:"Company is actively engaged in international trade within the agricultural sector. Our core business is the direct import of premium bovine blood plasma and blood hemoglobin from the European Union, supplying high-quality protein ingredients for animal feed production. Our customers include feed manufacturers, livestock producers, and companies operating across the agricultural industry.",
+    about_kicker:"Family business",
+    about_p1:"Intertehkorm is a family business active in international agricultural trade. Our core business is the direct import of premium bovine blood plasma and blood hemoglobin from the European Union, supplying high-quality protein ingredients for animal feed production. Our customers include feed manufacturers, livestock producers, and companies operating across the agricultural industry.",
     about_p2:"We work directly with trusted European manufacturers, verify the documentation supplied with every batch, and stay personally involved with each client throughout the delivery process.",
 
     products_title:"Our products",
