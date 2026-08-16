@@ -6,7 +6,7 @@
 <meta name="description" content="Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-2a7NQpRwLuZoVmhM/gO/V0r4uUBXx0a7ics9DjhstSs='; style-src 'self' 'sha256-2Par92lZS5UCVVnWtwkkPEkwnO4KoEtpO9Tayu0NoaU=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-HJphlo+Oflps8enZSjilwggZKQVxZ822MAnmZQUFsMQ='; style-src 'self' 'sha256-6dqbacZjQp4pr9aUSjD1SKQ29ObKU8Qf7P0ylIHqopo=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Плазма крові кормова та гемоглобін крові кормовий | Intertexkorm</title>
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="img/favicon.png" sizes="512x512" type="image/png">
@@ -209,54 +209,22 @@
   }
 
   /* ---------- Hero ---------- */
-  .hero{ padding:34px 0 26px; overflow:hidden; }
+  .hero{ padding:22px 0 14px; overflow:hidden; }
   .hero .ruler{ margin-bottom:30px; }
-  .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:start; }
+  .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:52px; align-items:center; }
   @media (max-width:920px){
     .hero-grid{ grid-template-columns:1fr; gap:28px; }
   }
 
-  .hero h1{ font-size:clamp(38px, 4.8vw, 58px); margin-bottom:18px; }
-  .hero h1 em{ font-style:italic; color:var(--accent); }
-  .hero-copy > p{ max-width:480px; color:var(--ink-soft); font-size:17px; margin-bottom:12px; }
-  .hero-market-note{
-    display:flex; align-items:center; gap:9px; margin-bottom:21px;
-    color:var(--accent-dark); font-size:13px; font-weight:500;
+  .hero h1{
+    font-family:var(--font-section); font-size:clamp(38px, 4.8vw, 58px); font-weight:800;
+    line-height:1.03; letter-spacing:-.04em; color:var(--accent); margin-bottom:0;
   }
-  .hero-market-note::before{
-    content:""; width:8px; height:8px; flex:0 0 8px; border-radius:50%;
-    background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft);
-  }
-  .hero-actions{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:24px; }
-  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; letter-spacing:0.01em; border-radius:var(--radius-pill); transition:background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.7,.2,1); }
-  .btn-primary{
-    min-width:220px; height:58px; padding:0 26px; font-size:16.5px; font-weight:600;
-    background:var(--accent); color:#fff; box-shadow:0 10px 24px -16px rgba(14,54,44,.5);
-  }
-  .btn-primary:hover{ background:var(--accent-dark); transform:translateY(-2px); box-shadow:0 14px 28px -14px rgba(14,54,44,.45); }
-  .btn-secondary{ min-width:154px; height:48px; padding:0 20px; font-size:14px; font-weight:500; border:1px solid var(--line); color:var(--ink-soft); background:transparent; }
-  .btn-secondary:hover{ border-color:var(--ink); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
-
-  /* Мини-каталог прямо у Hero — товар видно на першому екрані */
-  .hero-products{ border-top:1px solid var(--accent-soft); }
-  .hero-products-label{ font-family:var(--font-mono); font-size:11.5px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); padding:15px 4px 2px; }
-  .hero-product-row{
-    display:flex; align-items:center; justify-content:space-between; gap:16px; width:100%;
-    background:none; border:none; border-bottom:1px solid var(--line); padding:14px 6px;
-    color:var(--ink); font:inherit; -webkit-appearance:none; appearance:none;
-    text-align:left; transition:padding-left .25s ease, color .25s ease, background .25s ease; border-radius:var(--radius-sm);
-  }
-  .hero-product-row:hover{ padding-left:14px; color:var(--accent); background:var(--bg-panel); }
-  .hero-product-row .hpr-name{ display:flex; align-items:baseline; gap:12px; font-family:var(--font-display); font-size:18.5px; color:var(--ink); }
-  .hero-product-row:hover .hpr-name{ color:var(--accent-dark); }
-  .hero-product-row .hpr-num{ font-family:var(--font-mono); font-size:11.5px; color:var(--accent); letter-spacing:0.05em; }
-  .hero-product-row .hpr-arrow{ font-size:13.5px; color:var(--accent); transition:transform .25s ease; }
-  .hero-product-row:hover .hpr-arrow{ transform:translateX(4px); color:var(--accent); }
-
+  .hero h1 em{ font-family:inherit; font-style:normal; color:var(--accent); }
   /* Візуальна композиція hero */
   .hero-visual{
     position:relative; aspect-ratio:16/9; border-radius:var(--radius-lg);
-    overflow:hidden; box-shadow:var(--shadow-lg); background:var(--bg-panel); margin-top:56px;
+    overflow:hidden; box-shadow:var(--shadow-lg); background:var(--bg-panel); margin-top:0;
   }
   .hero-visual::after{
     content:""; position:absolute; inset:0;
@@ -275,8 +243,8 @@
   @media (max-width:920px){ .hero-visual{ margin-top:0; } }
 
   /* ---------- Products — головний елемент сайту ---------- */
-  .products{ padding:38px 0 52px; }
-  .products-head{ display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:26px; gap:20px; flex-wrap:wrap; }
+  .products{ padding:22px 0 36px; }
+  .products-head{ display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:18px; gap:18px; flex-wrap:wrap; }
   .products-head h2{ font-size:38px; }
   .products-head p{ color:var(--ink-soft); max-width:360px; font-size:15px; }
   .product-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
@@ -335,21 +303,21 @@
     .product-body{ position:relative; z-index:1; background:#fff; }
   }
   @media (max-width:600px){
-    .hero{ padding:24px 0 18px; }
-    .hero-grid{ gap:22px; }
+    .hero{ padding:18px 0 10px; }
+    .hero-grid{ gap:16px; }
     .hero-visual-tag{
       left:12px; right:auto; bottom:12px; max-width:178px;
       padding:9px 10px; border-radius:10px;
     }
     .hero-visual-tag .hvt-label{ font-size:8px; margin-bottom:3px; }
     .hero-visual-tag p{ font-size:10px; line-height:1.35; }
-    .products{ padding:26px 0 44px; }
-    .products-head{ margin-bottom:22px; gap:10px; }
+    .products{ padding:18px 0 32px; }
+    .products-head{ margin-bottom:16px; gap:8px; }
   }
 
   /* ---------- Advantages ---------- */
-  .advantages{ padding:48px 0; background:var(--bg-panel); }
-  .advantages-head{ max-width:520px; margin-bottom:40px; }
+  .advantages{ padding:36px 0; background:var(--bg-panel); }
+  .advantages-head{ max-width:520px; margin-bottom:24px; }
   .advantages-head h2{ font-size:36px; margin-bottom:14px; }
   .advantages-head p{ color:var(--ink-soft); font-size:15px; }
   .advantages-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
@@ -367,15 +335,9 @@
   .advantage-icon svg{ width:23px; height:23px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
   .advantage h3{ font-size:16.5px; margin-bottom:9px; font-weight:600; font-family:var(--font-body); }
   .advantage p{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; }
-  .quality-statement{
-    display:flex; align-items:center; gap:14px; margin-top:20px; padding:18px 22px;
-    color:var(--accent-dark); background:rgba(216,231,224,.55); border:1px solid var(--accent-soft);
-    border-left:3px solid var(--accent); border-radius:var(--radius-sm); font-size:14.5px; font-weight:500;
-  }
-  .quality-statement svg{ width:21px; height:21px; flex:0 0 21px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
 
   /* ---------- About ---------- */
-  .about{ padding:48px 0; }
+  .about{ padding:36px 0; }
   .about-grid{ display:grid; grid-template-columns:1fr 1.4fr; gap:64px; }
   .about h2{ font-size:34px; }
   .about-text p{ color:var(--ink-soft); max-width:560px; margin-bottom:16px; font-size:15px; }
@@ -383,7 +345,7 @@
   @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; gap:24px; } }
 
   /* ---------- Certificates ---------- */
-  .certs{ padding:0 0 44px; }
+  .certs{ padding:0 0 32px; }
   .certs-inner{ display:grid; grid-template-columns:1fr 1.6fr; gap:48px; align-items:start; }
   @media (max-width:760px){ .certs-inner{ grid-template-columns:1fr; gap:20px; } }
   .certs h2{ font-size:32px; margin-bottom:12px; }
@@ -502,7 +464,7 @@
   .spec-note{ color:var(--ink-soft); font-size:13px; padding-top:20px; margin-top:20px; border-top:1px solid var(--line); }
 
   /* ---------- Contact ---------- */
-  .contact{ padding:44px 0; }
+  .contact{ padding:32px 0; }
   .contact-inner{
     display:grid; grid-template-columns:1fr; gap:30px;
     background:var(--ink); color:#fff; border-radius:var(--radius-lg); padding:64px; box-shadow:var(--shadow-lg);
@@ -514,9 +476,9 @@
   }
   .products-head h2, .advantages-head h2, .about h2, .certs h2{ color:var(--accent); }
   @media (max-width:600px){
-    .advantages, .about, .contact{ padding:40px 0; }
-    .advantages-head{ margin-bottom:34px; }
-    .certs{ padding-bottom:48px; }
+    .advantages, .about, .contact{ padding:30px 0; }
+    .advantages-head{ margin-bottom:22px; }
+    .certs{ padding-bottom:30px; }
   }
   .contact-inner > div:first-child p{ color:rgba(255,255,255,.68); max-width:440px; margin-bottom:8px; }
   .contact-list{ list-style:none; display:grid; grid-template-columns:.8fr 1fr 1.45fr; gap:24px; }
@@ -535,13 +497,12 @@
     .contact-list{ grid-template-columns:1fr; gap:18px; }
   }
   @media (max-width:540px){
-    .quality-statement{ align-items:flex-start; padding:16px 18px; }
     .footer-inner{ flex-direction:column; align-items:flex-start; }
   }
 
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
-    .product-card, .modal, .email-overlay, .advantage, .btn{ transition:none; animation:none; }
+    .product-card, .modal, .email-overlay, .advantage{ transition:none; animation:none; }
   }
 </style>
 </head>
@@ -588,26 +549,6 @@
 
     <div class="hero-copy reveal">
       <h1 id="hero-title">Високоякісні<br>білкові інгредієнти<br>для сучасного та<br>ефективного<br><em>тваринництва</em></h1>
-      <p data-i18n="hero_desc">ТОВ Інтертехкорм постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.</p>
-      <div class="hero-market-note" data-i18n="hero_market_note">Київ · працюємо на українському ринку</div>
-
-      <div class="hero-actions">
-        <a href="#products" class="btn btn-primary" data-i18n="hero_btn1">Дивитись товари →</a>
-        <a href="#contacts" class="btn btn-secondary" data-i18n="hero_btn2">Написати нам</a>
-      </div>
-
-      <div class="hero-products">
-        <div class="hero-products-label" data-i18n="hero_products_label">У каталозі</div>
-
-        <button type="button" class="hero-product-row" data-modal="modal-1" aria-haspopup="dialog" aria-controls="modal-1">
-          <span class="hpr-name"><span class="hpr-num">01</span> <span data-i18n="product1_name">ACTIPRO Plasma — плазма крові кормова</span></span>
-          <span class="hpr-arrow" data-i18n="learn_more">Дізнатись більше →</span>
-        </button>
-        <button type="button" class="hero-product-row" data-modal="modal-2" aria-haspopup="dialog" aria-controls="modal-2">
-          <span class="hpr-name"><span class="hpr-num">02</span> <span data-i18n="product2_name">ACTIPRO Hemoglobin — гемоглобін крові кормовий</span></span>
-          <span class="hpr-arrow" data-i18n="learn_more">Дізнатись більше →</span>
-        </button>
-      </div>
     </div>
 
     <div class="hero-visual reveal">
@@ -690,10 +631,10 @@
     <div class="advantages-grid">
       <div class="advantage reveal">
         <div class="advantage-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 4.6-2.8 7.8-7 10-4.2-2.2-7-5.4-7-10V6l7-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m3 11 9-7 9 7M5.5 10v10h13V10"/><circle cx="9" cy="13" r="1.7"/><circle cx="15" cy="13" r="1.7"/><path d="M7 18c.3-2 1-3 2-3s1.7 1 2 3M13 18c.3-2 1-3 2-3s1.7 1 2 3"/></svg>
         </div>
-        <h3 data-i18n="adv1_title">Стабільна якість</h3>
-        <p data-i18n="adv1_desc">Кожна партія супроводжується показниками вмісту білка, вологості та мікробіологічної безпечності.</p>
+        <h3 data-i18n="adv1_title">Сімейний бізнес</h3>
+        <p data-i18n="adv1_desc">Сімейний бізнес із персональним підходом до партнерів і довгостроковою співпрацею.</p>
       </div>
       <div class="advantage reveal">
         <div class="advantage-icon" aria-hidden="true">
@@ -704,30 +645,11 @@
       </div>
       <div class="advantage reveal">
         <div class="advantage-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M5 19h14M7 19v-5h10v5M9 14V9h6v5M12 3v3"/><path d="M8.5 5.5 7 7M15.5 5.5 17 7M5 10h2M17 10h2"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 4.6-2.8 7.8-7 10-4.2-2.2-7-5.4-7-10V6l7-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>
         </div>
-        <h3 data-i18n="adv3_title">Розпилювальне сушіння</h3>
-        <p data-i18n="adv3_desc">Технологія, що допомагає зберігати амінокислотний профіль і високу засвоюваність продукту.</p>
+        <h3 data-i18n="adv3_title">Ми гарантуємо якість та відповідність продукції</h3>
+        <p data-i18n="adv3_desc">Продукція відповідає заявленим параметрам і показникам безпечності.</p>
       </div>
-      <div class="advantage reveal">
-        <div class="advantage-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v5h4M9.5 14l1.8 1.8 3.7-4"/></svg>
-        </div>
-        <h3 data-i18n="adv4_title">Відповідність регламентам ЄС</h3>
-        <p data-i18n="adv4_desc">Продукція супроводжується документацією відповідно до вимог законодавства ЄС щодо кормової сировини.</p>
-      </div>
-      <div class="advantage reveal">
-        <div class="advantage-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="m3 11 9-7 9 7M5.5 10v10h13V10"/><circle cx="9" cy="13" r="1.7"/><circle cx="15" cy="13" r="1.7"/><path d="M7 18c.3-2 1-3 2-3s1.7 1 2 3M13 18c.3-2 1-3 2-3s1.7 1 2 3"/></svg>
-        </div>
-        <h3 data-i18n="adv5_title">Сімейний бізнес</h3>
-        <p data-i18n="adv5_desc">Сімейний бізнес із персональним підходом до партнерів і довгостроковою співпрацею.</p>
-      </div>
-    </div>
-
-    <div class="quality-statement reveal">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.6 2.6L16.5 9"/></svg>
-      <span data-i18n="quality_statement">Ми гарантуємо якість продукції та її відповідність заявленим параметрам і показникам безпечності.</span>
     </div>
   </div>
 </section>
@@ -738,8 +660,8 @@
       <h2 data-i18n="about_title">Хто ми</h2>
     </div>
     <div class="about-text reveal">
-      <p data-i18n="about_p1">Інтертехкорм — український сімейний бізнес, що базується в Києві, і стабільний постачальник білкових кормових інгредієнтів для тваринництва. Понад 10 років ми постачаємо на український ринок плазму та гемоглобін крові європейського походження.</p>
-      <p data-i18n="about_p2">Ми цінуємо особистий контакт, довгострокове партнерство та супроводжуємо клієнта на кожному етапі співпраці.</p>
+      <p data-i18n="about_p1">Інтертехкорм — український сімейний бізнес із Києва та надійний постачальник білкових кормових інгредієнтів для тваринництва. Понад 10 років постачаємо на український ринок плазму й гемоглобін крові європейського походження.</p>
+      <p data-i18n="about_p2">Цінуємо особистий контакт і довгострокове партнерство, тому супроводжуємо клієнта на кожному етапі співпраці.</p>
     </div>
   </div>
 </section>
@@ -1109,8 +1031,8 @@ const translations = {
 
     about_title:"Хто ми",
     about_kicker:"Сімейний бізнес",
-    about_p1:"Інтертехкорм — український сімейний бізнес, що базується в Києві, і стабільний постачальник білкових кормових інгредієнтів для тваринництва. Понад 10 років ми постачаємо на український ринок плазму та гемоглобін крові європейського походження.",
-    about_p2:"Ми цінуємо особистий контакт, довгострокове партнерство та супроводжуємо клієнта на кожному етапі співпраці.",
+    about_p1:"Інтертехкорм — український сімейний бізнес із Києва та надійний постачальник білкових кормових інгредієнтів для тваринництва. Понад 10 років постачаємо на український ринок плазму й гемоглобін крові європейського походження.",
+    about_p2:"Цінуємо особистий контакт і довгострокове партнерство, тому супроводжуємо клієнта на кожному етапі співпраці.",
 
     products_title:"Наші товари",
     products_desc:"Натисніть на товар, щоб побачити докладний склад і характеристики.",
@@ -1130,12 +1052,9 @@ const translations = {
     p2_chip1:"92% протеїну", p2_chip2:"Низький фосфор", p2_chip3:"Багато заліза",
 
     adv_title:"Чому обирають нас", adv_desc:"Ми цінуємо особистий контакт",
-    adv1_title:"Стабільна якість", adv1_desc:"Кожна партія супроводжується показниками вмісту білка, вологості та мікробіологічної безпечності.",
+    adv1_title:"Сімейний бізнес", adv1_desc:"Сімейний бізнес із персональним підходом до партнерів і довгостроковою співпрацею.",
     adv2_title:"Особистий контакт", adv2_desc:"Підтримуємо прямий контакт із клієнтом на кожному етапі співпраці — без зайвих посередників.",
-    adv3_title:"Розпилювальне сушіння", adv3_desc:"Технологія, що допомагає зберігати амінокислотний профіль і високу засвоюваність продукту.",
-    adv4_title:"Відповідність регламентам ЄС", adv4_desc:"Продукція супроводжується документацією відповідно до вимог законодавства ЄС щодо кормової сировини.",
-    adv5_title:"Сімейний бізнес", adv5_desc:"Сімейний бізнес із персональним підходом до партнерів і довгостроковою співпрацею.",
-    quality_statement:"Ми гарантуємо якість продукції та її відповідність заявленим параметрам і показникам безпечності.",
+    adv3_title:"Ми гарантуємо якість та відповідність продукції", adv3_desc:"Продукція відповідає заявленим параметрам і показникам безпечності.",
 
     certs_title:"Сертифікати та відповідність",
     certs_desc:"Кожна партія продукції перевіряється на відповідність показникам якості та безпечності та супроводжується відповідною технічною документацією.",
@@ -1230,7 +1149,7 @@ const translations = {
     about_title:"Who we are",
     about_kicker:"Family business",
     about_p1:"Intertehkorm is a Ukrainian family business based in Kyiv and a reliable supplier of protein feed ingredients for animal nutrition. For more than 10 years, we have supplied the Ukrainian market with blood plasma and hemoglobin of European origin.",
-    about_p2:"We value personal contact and long-term partnerships, supporting clients at every stage of cooperation.",
+    about_p2:"We value personal contact and long-term partnerships, so we support every client throughout each stage of cooperation.",
 
     products_title:"Our products",
     products_desc:"Click a product to see its full composition and specifications.",
@@ -1250,12 +1169,9 @@ const translations = {
     p2_chip1:"92% protein", p2_chip2:"Low phosphorus", p2_chip3:"Iron-rich",
 
     adv_title:"Why choose us", adv_desc:"We value personal contact",
-    adv1_title:"Consistent quality", adv1_desc:"Each batch is supplied with data on protein content, moisture and microbiological safety.",
+    adv1_title:"Family business", adv1_desc:"A family-owned business focused on personal partnerships and long-term cooperation.",
     adv2_title:"Personal contact", adv2_desc:"We maintain direct contact with clients at every stage of cooperation — without unnecessary intermediaries.",
-    adv3_title:"Spray-drying technology", adv3_desc:"Technology that helps preserve the amino acid profile and high product digestibility.",
-    adv4_title:"EU regulation compliant", adv4_desc:"Products are supplied with documentation in accordance with EU legal requirements for feed materials.",
-    adv5_title:"Family business", adv5_desc:"A family-owned business focused on personal partnerships and long-term cooperation.",
-    quality_statement:"We ensure consistent product quality and compliance with the stated parameters and safety requirements.",
+    adv3_title:"We ensure product quality and compliance", adv3_desc:"Our products meet the stated parameters and safety requirements.",
 
     certs_title:"Certificates & compliance",
     certs_desc:"Each product batch is verified for compliance with quality and safety parameters and supplied with the required technical documentation.",
