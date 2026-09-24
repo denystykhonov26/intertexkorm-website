@@ -6,8 +6,26 @@
 <meta name="description" content="Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-0zWv3HQqjGVhbeq9WqKaGpncSS5XQA3aXu10aFEod8M='; style-src 'self' 'sha256-X9ZksE9sbCWWHDBfna0QlncPuNr6AWgF8zGHKEEnmWY=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Інтертехкорм">
+<meta property="og:title" content="Плазма крові кормова та гемоглобін крові кормовий | Інтертехкорм">
+<meta property="og:description" content="Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.">
+<meta property="og:url" content="https://denystykhonov26.github.io/intertexkorm-website/">
+<meta property="og:image" content="https://denystykhonov26.github.io/intertexkorm-website/img/warehouse.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Плазма крові кормова та гемоглобін крові кормовий | Інтертехкорм">
+<meta name="twitter:description" content="Кормові білкові інгредієнти ACTIPRO Plasma та ACTIPRO Hemoglobin.">
+<meta name="twitter:image" content="https://denystykhonov26.github.io/intertexkorm-website/img/warehouse.jpg">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-gUnGK5TDTVOkn8v2/kKk/cv+JP6R1XwIrHnaZxB1vfQ='; style-src 'self' 'sha256-xzSJNxhlCgxOBvwlSFItXB0P4IugV59qTmOFhfnzDLo=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Плазма крові кормова та гемоглобін крові кормовий | Інтертехкорм</title>
+<link rel="canonical" href="https://denystykhonov26.github.io/intertexkorm-website/">
+<link rel="alternate" hreflang="uk" href="https://denystykhonov26.github.io/intertexkorm-website/?lang=uk">
+<link rel="alternate" hreflang="en" href="https://denystykhonov26.github.io/intertexkorm-website/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://denystykhonov26.github.io/intertexkorm-website/">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="img/favicon.png" sizes="512x512" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
@@ -51,6 +69,7 @@
 
   *{ box-sizing:border-box; margin:0; padding:0; }
   html{ scroll-behavior:smooth; }
+  section[id]{ scroll-margin-top:92px; }
 
   body{
     background:var(--bg);
@@ -132,6 +151,8 @@
   .nav-links a::after{ content:""; position:absolute; left:0; right:100%; bottom:0; height:1px; background:var(--accent); transition:right .25s ease; }
   .nav-links a:hover{ color:var(--ink); }
   .nav-links a:hover::after{ right:0; }
+  .nav-links a.active{ color:var(--accent-dark); font-weight:600; }
+  .nav-links a.active::after{ right:0; }
   .header-contacts{
     display:flex; align-items:center;
     font-size:14px; line-height:1.3; font-weight:500; white-space:nowrap;
@@ -178,6 +199,7 @@
   }
   @media (max-width:860px){
     .mobile-menu-toggle{ display:flex; }
+    .nav-actions{ display:none; }
     .nav-links{
       display:flex; position:absolute; top:calc(100% + 8px); left:20px; right:20px;
       flex-direction:column; gap:2px; padding:10px; background:rgba(250,250,248,.98);
@@ -194,11 +216,17 @@
     .nav{ padding:12px 16px; gap:10px; }
     .logo-img{ height:50px; }
     .header-contacts{ font-size:13px; }
-    .nav-actions{ display:none; }
     .lang-switch.mobile-lang-switch{ display:flex; align-self:flex-start; margin:6px 14px 4px; }
     .mobile-lang-switch button{ padding:6px 12px; }
     .header-phone{ padding:0; }
     .header-phone::before{ display:none; }
+  }
+  @media (max-width:700px){
+    .header-phone{
+      width:42px; height:42px; padding:0; justify-content:center; overflow:hidden;
+      border:1px solid var(--line); border-radius:50%; font-size:0; text-decoration:none;
+    }
+    .header-phone::before{ display:block; content:"☎"; font-size:18px; }
   }
   @media (max-width:360px){
     .nav{ padding-inline:12px; gap:8px; }
@@ -246,6 +274,7 @@
     background:linear-gradient(180deg, rgba(12,24,20,.04) 35%, rgba(12,24,20,.48) 100%);
     pointer-events:none;
   }
+  .hero-picture{ display:block; width:100%; height:100%; }
   .hero-warehouse-photo{ width:100%; height:100%; object-fit:cover; object-position:center 48%; }
   .hero-visual-tag{
     position:absolute; left:18px; bottom:18px; right:auto; max-width:190px;
@@ -292,6 +321,7 @@
   }
   .product-visual .grain{ position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply; transition:transform .6s ease; }
   .product-card:hover .product-visual .grain{ transform:scale(1.06); }
+  .product-picture{ display:block; width:100%; height:100%; }
   .product-photo{ width:100%; height:100%; object-fit:cover; object-position:center; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
   .product-card:hover .product-photo{ transform:scale(1.035); }
   .product-visual .pv-tag{
@@ -330,6 +360,7 @@
       -webkit-backdrop-filter:none; backdrop-filter:none;
     }
     .product-body{ position:relative; z-index:1; background:#fff; }
+    .product-body h3{ min-height:0; }
   }
   @media (max-width:600px){
     .hero{ padding:24px 0 18px; }
@@ -647,7 +678,11 @@
     </div>
 
     <div class="hero-visual reveal">
-      <img class="hero-warehouse-photo" src="img/warehouse.jpg" alt="Склад кормових білкових інгредієнтів Інтертехкорм" data-i18n-alt="warehouse_image_alt" width="1280" height="720" decoding="async">
+      <picture class="hero-picture">
+        <source srcset="img/warehouse.avif" type="image/avif">
+        <source srcset="img/warehouse.webp" type="image/webp">
+        <img class="hero-warehouse-photo" src="img/warehouse.jpg" alt="Склад кормових білкових інгредієнтів Інтертехкорм" data-i18n-alt="warehouse_image_alt" width="1280" height="720" decoding="async" fetchpriority="high">
+      </picture>
       <div class="hero-visual-tag">
         <span class="hvt-label" data-i18n="hero_visual_label">Склад в Україні</span>
         <p data-i18n="hero_visual_text">Запас продукції в Україні для стабільних оптових постачань.</p>
@@ -678,7 +713,11 @@
 
       <article class="product-card reveal">
         <button type="button" class="product-visual" data-modal="modal-1" aria-haspopup="dialog" aria-controls="modal-1" aria-label="Детальніше про ACTIPRO Plasma" data-i18n-aria-label="product1_details_label">
-          <img class="product-photo" src="img/actipro-plasma.jpg" alt="ACTIPRO Plasma — плазма крові кормова у формі порошку" data-i18n-alt="product1_image_alt" width="1200" height="1600" loading="lazy" decoding="async">
+          <picture class="product-picture">
+            <source srcset="img/actipro-plasma.avif" type="image/avif">
+            <source srcset="img/actipro-plasma.webp" type="image/webp">
+            <img class="product-photo" src="img/actipro-plasma.jpg" alt="ACTIPRO Plasma — плазма крові кормова у формі порошку" data-i18n-alt="product1_image_alt" width="1600" height="1200" loading="lazy" decoding="async">
+          </picture>
           <span class="pv-tag" data-i18n="product1_label">Плазма</span>
         </button>
         <div class="product-body">
@@ -702,7 +741,11 @@
 
       <article class="product-card reveal">
         <button type="button" class="product-visual" data-modal="modal-2" aria-haspopup="dialog" aria-controls="modal-2" aria-label="Детальніше про ACTIPRO Hemoglobin" data-i18n-aria-label="product2_details_label">
-          <img class="product-photo" src="img/actipro-hemoglobin.jpg" alt="ACTIPRO Hemoglobin — гемоглобін крові кормовий у формі порошку" data-i18n-alt="product2_image_alt" width="1000" height="667" loading="lazy" decoding="async">
+          <picture class="product-picture">
+            <source srcset="img/actipro-hemoglobin.avif" type="image/avif">
+            <source srcset="img/actipro-hemoglobin.webp" type="image/webp">
+            <img class="product-photo" src="img/actipro-hemoglobin.jpg" alt="ACTIPRO Hemoglobin — гемоглобін крові кормовий у формі порошку" data-i18n-alt="product2_image_alt" width="1000" height="667" loading="lazy" decoding="async">
+          </picture>
           <span class="pv-tag" data-i18n="product2_label">Гемоглобін</span>
         </button>
         <div class="product-body">
@@ -1527,6 +1570,12 @@ function applyLang(lang){
   document.documentElement.lang = (safeLang === 'ua') ? 'uk' : safeLang;
   document.title = dict.page_title;
   document.querySelector('meta[name="description"]').setAttribute('content', dict.page_description);
+  document.querySelector('meta[property="og:title"]').setAttribute('content', dict.page_title);
+  document.querySelector('meta[property="og:description"]').setAttribute('content', dict.page_description);
+  document.querySelector('meta[property="og:locale"]').setAttribute('content', safeLang === 'ua' ? 'uk_UA' : 'en_US');
+  document.querySelector('meta[property="og:site_name"]').setAttribute('content', safeLang === 'ua' ? 'Інтертехкорм' : 'Intertehkorm');
+  document.querySelector('meta[name="twitter:title"]').setAttribute('content', dict.page_title);
+  document.querySelector('meta[name="twitter:description"]').setAttribute('content', dict.page_description);
   document.querySelectorAll('[data-lang-option]').forEach(button=>{
     const buttonLang = button.getAttribute('data-lang-option');
     const active = buttonLang === safeLang;
@@ -1543,7 +1592,12 @@ function applyLang(lang){
 
 document.querySelectorAll('[data-lang-option]').forEach(btn=>{
   btn.addEventListener('click', ()=>{
-    applyLang(btn.getAttribute('data-lang-option'));
+    const selectedLanguage = btn.getAttribute('data-lang-option');
+    applyLang(selectedLanguage);
+    const languageUrl = new URL(location.href);
+    languageUrl.searchParams.set('lang', selectedLanguage === 'en' ? 'en' : 'uk');
+    languageUrl.hash = '';
+    history.replaceState(null, '', languageUrl);
     setMobileMenu(false);
   });
 });
@@ -1670,6 +1724,30 @@ window.addEventListener('scroll', ()=>{
   headerEl.classList.toggle('scrolled', window.scrollY > 8);
 }, { passive:true });
 
+const sectionLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+const navigationSections = sectionLinks
+  .map(link=> document.querySelector(link.getAttribute('href')))
+  .filter(Boolean);
+let navigationFrame = null;
+function updateActiveNavigation(){
+  navigationFrame = null;
+  const offset = headerEl.offsetHeight + 48;
+  let activeId = '';
+  navigationSections.forEach(section=>{
+    if(section.getBoundingClientRect().top <= offset) activeId = section.id;
+  });
+  sectionLinks.forEach(link=>{
+    const active = link.getAttribute('href') === `#${activeId}`;
+    link.classList.toggle('active', active);
+    if(active) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+}
+window.addEventListener('scroll', ()=>{
+  if(!navigationFrame) navigationFrame = requestAnimationFrame(updateActiveNavigation);
+}, { passive:true });
+window.addEventListener('resize', updateActiveNavigation, { passive:true });
+
 /* Scroll-reveal: секції та картки плавно зʼявляються при прокрутці */
 if('IntersectionObserver' in window){
   const io = new IntersectionObserver((entries)=>{
@@ -1793,7 +1871,8 @@ document.querySelectorAll('[data-messenger]').forEach(link=>{
   link.rel = 'noopener noreferrer';
 });
 
-applyLang('ua');
+applyLang(new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'ua');
+updateActiveNavigation();
 </script>
 
 </body>
