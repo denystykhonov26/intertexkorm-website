@@ -20,7 +20,7 @@
 <meta name="twitter:title" content="Плазма крові кормова та гемоглобін крові кормовий | Інтертехкорм">
 <meta name="twitter:description" content="Кормові білкові інгредієнти ACTIPRO Plasma та ACTIPRO Hemoglobin.">
 <meta name="twitter:image" content="https://denystykhonov26.github.io/intertexkorm-website/img/actipro-plasma.jpg">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-rFkglV/pnTnizzcsjyY0XP0H8ksrj6tc1yYaUYCj95o='; style-src 'self' 'sha256-Ne92vLopjmBH6vdX0wkYc/9VRa9nCqKMlgOfNc97FhY=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-TQCBJXpEOQYWnLchSq8/CzpJ54tGO9IGgt1IFuUCEdY='; style-src 'self' 'sha256-Ne92vLopjmBH6vdX0wkYc/9VRa9nCqKMlgOfNc97FhY=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io https://api.web3forms.com; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Плазма крові кормова та гемоглобін крові кормовий | Інтертехкорм</title>
 <link rel="canonical" href="https://denystykhonov26.github.io/intertexkorm-website/">
 <link rel="alternate" hreflang="uk" href="https://denystykhonov26.github.io/intertexkorm-website/?lang=uk">
@@ -1066,6 +1066,7 @@
             <a class="value" href="tel:+380504468800">+380 (50) 446 88 00</a>
             <div class="messenger-links" aria-label="Месенджери" data-i18n-aria-label="messengers_label">
               <a class="messenger-link" href="viber://chat?number=%2B380504468800" target="_blank" rel="noopener">Viber</a>
+              <a class="messenger-link" href="https://t.me/vwgen" target="_blank" rel="noopener" aria-label="Написати в Telegram">Telegram</a>
               <a class="messenger-link" href="https://wa.me/380504468800" target="_blank" rel="noopener">WhatsApp</a>
             </div>
           </li>
@@ -1075,7 +1076,7 @@
           </li>
           <li>
             <span class="label" data-i18n="contact_address_label">Адреса</span>
-            <a class="value" href="https://www.google.com/maps/search/?api=1&amp;query=%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B0%2C%2002121%2C%20%D0%BC.%20%D0%9A%D0%B8%D1%97%D0%B2%2C%20%D0%B2%D1%83%D0%BB.%20%D0%9A%D0%BE%D0%BB%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D0%B0%2C%203%D0%90%2C%20%D0%BE%D1%84.%20308" target="_blank" rel="noopener noreferrer"><address data-i18n="contact_address">Фактична адреса: Україна, 02121, м. Київ,<br>вул. Колекторна, 3А, оф. 308</address></a>
+            <a class="value" href="https://www.google.com/maps/search/?api=1&amp;query=%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B0%2C%2002121%2C%20%D0%BC.%20%D0%9A%D0%B8%D1%97%D0%B2%2C%20%D0%B2%D1%83%D0%BB.%20%D0%9A%D0%BE%D0%BB%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D0%B0%2C%203%D0%90%2C%20%D0%BE%D1%84.%20308" target="_blank" rel="noopener noreferrer"><address data-i18n="contact_address">Україна, 02121, м. Київ,<br>вул. Колекторна, 3А, оф. 308</address></a>
           </li>
           <li>
             <span class="label" data-i18n="contact_requisites_label">Реквізити</span>
@@ -1124,13 +1125,13 @@
 <footer>
   <div class="wrap footer-inner">
     <span data-i18n="footer_copyright">© 2026 Інтертехкорм</span>
-    <span data-i18n="footer_address">Київ, Україна · вул. Колекторна, 3А, оф. 308</span>
+    <span data-i18n="footer_address">Україна, 02121, м. Київ, вул. Колекторна, 3А, оф. 308</span>
     <span data-i18n="footer_note">Зроблено з турботою</span>
   </div>
 </footer>
 
 <script>
-const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+const FORM_ENDPOINT = ''; // TODO: додати endpoint форми.
 
 /* ============================================================
    ПЕРЕВОДЫ — UA / EN
@@ -1242,13 +1243,13 @@ const translations = {
     form_comment:"Коментар", form_comment_placeholder:"Обсяг, фасування, терміни",
     form_submit:"Надіслати запит", form_email_fallback:"Або напишіть на email", form_error_required:"Заповніть це поле.",
     form_error_phone:"Вкажіть коректний номер телефону.", form_sending:"Надсилаємо запит…",
-    form_success:"Дякуємо! Запит надіслано.", form_config_error:"Онлайн-форма ще не підключена. Надішліть готовий запит електронною поштою.",
+    form_success:"Дякуємо! Запит надіслано.", form_mail_opened:"Відкрито поштову програму. Якщо вона не відкрилась, напишіть на Intertexbuh@ukr.net або зателефонуйте.",
     form_send_error:"Не вдалося надіслати форму. Спробуйте email.", form_mail_subject:"Запит щодо ціни ACTIPRO",
     contact_title:"Зв'яжіться з нами", contact_desc:"Залиште контакти та оберіть продукт — ми надішлемо ціну та умови постачання. Відповімо протягом дня.",
     contact_phone_label:"Телефон", contact_email_label:"Пошта", contact_address_label:"Адреса", contact_requisites_label:"Реквізити",
-    contact_address:"Фактична адреса: Україна, 02121, м. Київ,\nвул. Колекторна, 3А, оф. 308",
+    contact_address:"Україна, 02121, м. Київ, вул. Колекторна, 3А, оф. 308",
     contact_requisites:"ТОВ «ІНТЕРТЕХКОРМ»\nЄДРПОУ 42334949\nІПН 423349426515",
-    footer_address:"Київ, Україна · вул. Колекторна, 3А, оф. 308", footer_note:"Зроблено з турботою",
+    footer_address:"Україна, 02121, м. Київ, вул. Колекторна, 3А, оф. 308", footer_note:"Зроблено з турботою",
     phone_click_hint:"Натисніть, щоб зателефонувати", email_click_hint:"Натисніть, щоб написати повідомлення", messengers_label:"Месенджери",
     email_modal_title:"Написати нам", email_modal_desc:"Оберіть зручний спосіб — адреса одержувача вже заповнена.",
     email_gmail:"Відкрити Gmail", email_outlook:"Відкрити Outlook", email_app:"Поштова програма на комп’ютері",
@@ -1367,13 +1368,13 @@ const translations = {
     form_comment:"Comment", form_comment_placeholder:"Volume, packaging, timing",
     form_submit:"Send request", form_email_fallback:"Or write to us by email", form_error_required:"Complete this field.",
     form_error_phone:"Enter a valid phone number.", form_sending:"Sending your request…",
-    form_success:"Thank you! Your request has been sent.", form_config_error:"The online form is not connected yet. Send the prepared request by email.",
+    form_success:"Thank you! Your request has been sent.", form_mail_opened:"Your email app has been opened. If it did not open, email Intertexbuh@ukr.net or call us.",
     form_send_error:"The form could not be sent. Please try email.", form_mail_subject:"ACTIPRO price enquiry",
     contact_title:"Contact us", contact_desc:"Leave your contact details and select a product — we will send you the price and supply terms. We will reply within one day.",
     contact_phone_label:"Phone", contact_email_label:"Email", contact_address_label:"Address", contact_requisites_label:"Company details",
-    contact_address:"Actual address: 3A Kolektorna St, office 308,\nKyiv 02121, Ukraine",
+    contact_address:"Україна, 02121, м. Київ, вул. Колекторна, 3А, оф. 308",
     contact_requisites:"INTERTEHKORM LLC\nEDRPOU 42334949\nTax ID 423349426515",
-    footer_address:"Kyiv, Ukraine · 3A Kolektorna St, office 308", footer_note:"Made with care",
+    footer_address:"Україна, 02121, м. Київ, вул. Колекторна, 3А, оф. 308", footer_note:"Made with care",
     phone_click_hint:"Click to call", email_click_hint:"Click to send a message", messengers_label:"Messengers",
     email_modal_title:"Email us", email_modal_desc:"Choose the most convenient option — the recipient address is already filled in.",
     email_gmail:"Open Gmail", email_outlook:"Open Outlook", email_app:"Default email app",
@@ -1674,10 +1675,11 @@ function updateFallbackEmail(){
   if(!fallback || !form) return;
   const dict = translations[activeLanguage()];
   const values = new FormData(form);
+  const product = form.elements.product.selectedOptions[0]?.textContent || '—';
   const lines = [
     `${dict.form_name}: ${values.get('name') || '—'}`,
     `${dict.form_phone}: ${values.get('phone') || '—'}`,
-    `${dict.form_product}: ${values.get('product') || '—'}`,
+    `${dict.form_product}: ${values.get('product') ? product : '—'}`,
     `${dict.form_comment}: ${values.get('comment') || '—'}`
   ];
   fallback.href = `mailto:Intertexbuh@ukr.net?subject=${encodeURIComponent(dict.form_mail_subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
@@ -1721,17 +1723,18 @@ requestForm.addEventListener('submit', async (event)=>{
   event.preventDefault();
   if(!validateRequestForm()) return;
   const dict = translations[activeLanguage()];
+
+  if(!FORM_ENDPOINT.trim()){
+    const fallback = document.querySelector('[data-form-fallback]');
+    formStatus.dataset.state = '';
+    formStatus.textContent = dict.form_mail_opened;
+    window.location.href = fallback.href;
+    return;
+  }
+
   formStatus.dataset.state = '';
   formStatus.textContent = dict.form_sending;
   formSubmit.disabled = true;
-
-  if(FORM_ENDPOINT.includes('YOUR_FORM_ID')){
-    formStatus.dataset.state = 'error';
-    formStatus.textContent = dict.form_config_error;
-    formSubmit.disabled = false;
-    document.querySelector('[data-form-fallback]').focus();
-    return;
-  }
 
   try {
     const response = await fetch(FORM_ENDPOINT, {
