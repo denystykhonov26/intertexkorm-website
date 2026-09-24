@@ -6,8 +6,8 @@
 <meta name="description" content="Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-2a7NQpRwLuZoVmhM/gO/V0r4uUBXx0a7ics9DjhstSs='; style-src 'self' 'sha256-543RO2LYMchFqb7B11GnRjUC0OP7tYJm3A6YFr8wTeY=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
-<title>Плазма крові кормова та гемоглобін крові кормовий | Intertexkorm</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-R/z89mUg9Hggp4l5S5vRt/7subRdXM2dG/6rRalPL1o='; style-src 'self' 'sha256-21IdGf/OVlaFNzM91RdqA7dcF4WsEWikbLrRY3lavpc=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<title>Плазма крові кормова та гемоглобін крові кормовий | Інтертехкорм</title>
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="img/favicon.png" sizes="512x512" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
@@ -119,19 +119,22 @@
     transition:border-color .3s ease, box-shadow .3s ease;
   }
   header.scrolled{ border-bottom-color:var(--line); box-shadow:0 8px 24px -20px rgba(20,20,15,.3); }
+  header.scrolled .nav{ padding-top:9px; padding-bottom:9px; }
+  header.scrolled .logo-img{ height:52px; }
   .nav{
     display:flex; align-items:center; justify-content:space-between;
-    position:relative; padding:18px 32px; max-width:1180px; margin:0 auto; gap:20px;
+    position:relative; padding:16px 32px; max-width:1180px; margin:0 auto; gap:20px;
+    transition:padding .25s ease;
   }
   .logo{ display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:19px; font-weight:600; letter-spacing:-0.01em; }
-  .logo-img{ height:66px; width:auto; display:block; background:transparent; filter:none; box-shadow:none; }
+  .logo-img{ height:62px; width:auto; display:block; background:transparent; filter:none; box-shadow:none; transition:height .25s ease; }
   .nav-links{ display:flex; gap:30px; font-size:14px; color:var(--ink-soft); }
   .nav-links a{ position:relative; padding-bottom:3px; }
   .nav-links a::after{ content:""; position:absolute; left:0; right:100%; bottom:0; height:1px; background:var(--accent); transition:right .25s ease; }
   .nav-links a:hover{ color:var(--ink); }
   .nav-links a:hover::after{ right:0; }
   .header-contacts{
-    display:flex; flex-direction:column; align-items:flex-end; gap:1px;
+    display:flex; align-items:center;
     font-size:14px; line-height:1.3; font-weight:500; white-space:nowrap;
   }
   .header-contact{
@@ -142,10 +145,8 @@
   }
   .header-contact::before{ color:var(--accent); font-size:11px; line-height:1; text-decoration:none; }
   .header-phone::before{ content:"☎"; }
-  .header-email::before{ content:"✉"; }
   .header-contact:hover{ color:var(--accent-dark); background:var(--accent-soft); transform:translateY(-1px); }
   .header-phone{ color:var(--ink); font-weight:600; }
-  .header-email{ font-size:13.5px; font-weight:500; }
   .nav-actions{ display:flex; align-items:center; gap:16px; flex-shrink:0; }
   .mobile-menu-toggle{
     display:none; width:42px; height:42px; padding:10px; flex-shrink:0;
@@ -175,7 +176,6 @@
 
   @media (max-width:1000px){
     .nav-links{ gap:18px; }
-    .header-email{ display:none; }
   }
   @media (max-width:860px){
     .mobile-menu-toggle{ display:flex; }
@@ -237,26 +237,10 @@
   .btn-secondary{ min-width:154px; height:48px; padding:0 20px; font-size:14px; font-weight:500; border:1px solid var(--line); color:var(--ink-soft); background:transparent; }
   .btn-secondary:hover{ border-color:var(--ink); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
 
-  /* Мини-каталог прямо у Hero — товар видно на першому екрані */
-  .hero-products{ border-top:1px solid var(--accent-soft); }
-  .hero-products-label{ font-family:var(--font-mono); font-size:11.5px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); padding:15px 4px 2px; }
-  .hero-product-row{
-    display:flex; align-items:center; justify-content:space-between; gap:16px; width:100%;
-    background:none; border:none; border-bottom:1px solid var(--line); padding:14px 6px;
-    color:var(--ink); font:inherit; -webkit-appearance:none; appearance:none;
-    text-align:left; transition:padding-left .25s ease, color .25s ease, background .25s ease; border-radius:var(--radius-sm);
-  }
-  .hero-product-row:hover{ padding-left:14px; color:var(--accent); background:var(--bg-panel); }
-  .hero-product-row .hpr-name{ display:flex; align-items:baseline; gap:12px; font-family:var(--font-display); font-size:18.5px; color:var(--ink); }
-  .hero-product-row:hover .hpr-name{ color:var(--accent-dark); }
-  .hero-product-row .hpr-num{ font-family:var(--font-mono); font-size:11.5px; color:var(--accent); letter-spacing:0.05em; }
-  .hero-product-row .hpr-arrow{ font-size:13.5px; color:var(--accent); transition:transform .25s ease; }
-  .hero-product-row:hover .hpr-arrow{ transform:translateX(4px); color:var(--accent); }
-
   /* Візуальна композиція hero */
   .hero-visual{
     position:relative; aspect-ratio:16/9; border-radius:var(--radius-lg);
-    overflow:hidden; box-shadow:var(--shadow-lg); background:var(--bg-panel); margin-top:56px;
+    overflow:hidden; box-shadow:var(--shadow-lg); background:var(--bg-panel); margin-top:34px;
   }
   .hero-visual::after{
     content:""; position:absolute; inset:0;
@@ -273,6 +257,20 @@
   .hero-visual-tag .hvt-label{ font-family:var(--font-mono); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:4px; }
   .hero-visual-tag p{ font-size:11px; color:var(--ink-soft); line-height:1.4; }
   @media (max-width:920px){ .hero-visual{ margin-top:0; } }
+
+  .facts-strip{
+    display:grid; grid-template-columns:repeat(3, 1fr); margin-top:28px;
+    border:1px solid var(--line); border-radius:var(--radius-md); background:#fff; box-shadow:var(--shadow-sm);
+  }
+  .fact{ padding:18px 24px; }
+  .fact + .fact{ border-left:1px solid var(--line); }
+  .fact dt{ color:var(--accent); font-size:18px; font-weight:600; }
+  .fact dd{ color:var(--ink-soft); font-size:13px; }
+  @media (max-width:600px){
+    .facts-strip{ grid-template-columns:1fr; margin-top:20px; }
+    .fact{ padding:14px 18px; }
+    .fact + .fact{ border-left:0; border-top:1px solid var(--line); }
+  }
 
   /* ---------- Products — головний елемент сайту ---------- */
   .products{ padding:38px 0 52px; }
@@ -393,11 +391,14 @@
   @media (max-width:760px){ .certs-inner{ grid-template-columns:1fr; gap:20px; } }
   .certs h2{ font-size:32px; margin-bottom:12px; }
   .certs-lede{ color:var(--ink-soft); font-size:14.5px; max-width:320px; }
-  .certs-note{
-    background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius-md); padding:24px 28px;
-    font-size:13.5px; color:var(--ink-soft); line-height:1.65;
+  .certs-details{ display:grid; gap:16px; }
+  .cert-badges{ display:flex; flex-wrap:wrap; gap:10px; }
+  .cert-badge{
+    display:inline-flex; align-items:center; min-height:40px; padding:8px 14px;
+    border:1px solid var(--accent-soft); border-radius:var(--radius-pill); background:#fff;
+    color:var(--accent-dark); font-size:12.5px; font-weight:600;
   }
-  .certs-note strong{ color:var(--ink); font-family:var(--font-mono); font-weight:500; }
+  .certs-note{ font-size:13.5px; color:var(--ink-soft); line-height:1.65; }
 
   /* ---------- Modal (карточка товара) ---------- */
   .modal-overlay{
@@ -556,7 +557,7 @@
 
 <header>
   <div class="nav">
-    <a class="logo" href="#top" aria-label="Intertexkorm — на початок сторінки" data-i18n-aria-label="logo_home_label">
+    <a class="logo" href="#top" aria-label="Інтертехкорм — на початок сторінки" data-i18n-aria-label="logo_home_label">
       <img src="img/logo.png" alt="Інтертехкорм" class="logo-img" width="223" height="60">
     </a>
     <nav class="nav-links" id="main-navigation" aria-label="Основна навігація" data-i18n-aria-label="main_nav_label">
@@ -571,7 +572,6 @@
     </nav>
     <div class="header-contacts" aria-label="Контактні дані">
       <a class="header-contact header-phone" href="tel:+380504468800" aria-label="Зателефонувати: +380 50 446 88 00" title="Натисніть, щоб зателефонувати" data-i18n-title="phone_click_hint">+380 (50) 446 88 00</a>
-      <a class="header-contact header-email" href="mailto:Intertexbuh@ukr.net" data-email-trigger title="Натисніть, щоб написати повідомлення" data-i18n-title="email_click_hint">Intertexbuh@ukr.net</a>
     </div>
     <div class="nav-actions">
       <div class="lang-switch" role="group" aria-label="Вибір мови" data-i18n-aria-label="language_label">
@@ -593,36 +593,30 @@
 
     <div class="hero-copy reveal">
       <h1 id="hero-title">Високоякісні<br>білкові інгредієнти<br>для сучасного та<br>ефективного<br><em>тваринництва</em></h1>
-      <p data-i18n="hero_desc">ТОВ Інтертехкорм постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.</p>
+      <p data-i18n="hero_desc">ТОВ «Інтертехкорм» постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.</p>
       <div class="hero-market-note" data-i18n="hero_market_note">Київ · працюємо на українському ринку</div>
 
       <div class="hero-actions">
         <a href="#products" class="btn btn-primary" data-i18n="hero_btn1">Дивитись товари →</a>
         <a href="#contacts" class="btn btn-secondary" data-i18n="hero_btn2">Написати нам</a>
       </div>
-
-      <div class="hero-products">
-        <div class="hero-products-label" data-i18n="hero_products_label">У каталозі</div>
-
-        <button type="button" class="hero-product-row" data-modal="modal-1" aria-haspopup="dialog" aria-controls="modal-1">
-          <span class="hpr-name"><span class="hpr-num">01</span> <span data-i18n="product1_name">ACTIPRO Plasma — плазма крові кормова</span></span>
-          <span class="hpr-arrow" data-i18n="learn_more">Дізнатись більше →</span>
-        </button>
-        <button type="button" class="hero-product-row" data-modal="modal-2" aria-haspopup="dialog" aria-controls="modal-2">
-          <span class="hpr-name"><span class="hpr-num">02</span> <span data-i18n="product2_name">ACTIPRO Hemoglobin — гемоглобін крові кормовий</span></span>
-          <span class="hpr-arrow" data-i18n="learn_more">Дізнатись більше →</span>
-        </button>
-      </div>
     </div>
 
     <div class="hero-visual reveal">
-      <img class="hero-warehouse-photo" src="img/warehouse.jpg" alt="Склад кормових білкових інгредієнтів Intertexkorm" data-i18n-alt="warehouse_image_alt" width="1280" height="720" decoding="async">
+      <img class="hero-warehouse-photo" src="img/warehouse.jpg" alt="Склад кормових білкових інгредієнтів Інтертехкорм" data-i18n-alt="warehouse_image_alt" width="1280" height="720" decoding="async">
       <div class="hero-visual-tag">
         <span class="hvt-label" data-i18n="hero_visual_label">Склад в Україні</span>
         <p data-i18n="hero_visual_text">Запас продукції в Україні для стабільних оптових постачань.</p>
       </div>
     </div>
 
+  </div>
+  <div class="wrap reveal">
+    <dl class="facts-strip" aria-label="Ключові факти" data-i18n-aria-label="facts_label">
+      <div class="fact"><dt data-i18n="fact1_value">10+ років</dt><dd data-i18n="fact1_label">на ринку</dd></div>
+      <div class="fact"><dt data-i18n="fact2_value">Європейське</dt><dd data-i18n="fact2_label">походження продукції</dd></div>
+      <div class="fact"><dt data-i18n="fact3_value">В Україні</dt><dd data-i18n="fact3_label">склад із запасом продукції</dd></div>
+    </dl>
   </div>
 </section>
 
@@ -641,7 +635,7 @@
       <button type="button" class="product-card reveal" data-modal="modal-1" aria-haspopup="dialog" aria-controls="modal-1">
         <div class="product-visual">
           <img class="product-photo" src="img/actipro-plasma.jpg" alt="ACTIPRO Plasma — плазма крові кормова у формі порошку" data-i18n-alt="product1_image_alt" width="1200" height="1600" loading="lazy" decoding="async">
-          <span class="pv-tag" data-i18n="product1_label">Товар 01</span>
+          <span class="pv-tag" data-i18n="product1_label">Плазма</span>
         </div>
         <div class="product-body">
           <h3 data-i18n="product1_name">ACTIPRO Plasma — плазма крові кормова</h3>
@@ -662,7 +656,7 @@
       <button type="button" class="product-card reveal" data-modal="modal-2" aria-haspopup="dialog" aria-controls="modal-2">
         <div class="product-visual">
           <img class="product-photo" src="img/actipro-hemoglobin.jpg" alt="ACTIPRO Hemoglobin — гемоглобін крові кормовий у формі порошку" data-i18n-alt="product2_image_alt" width="1000" height="667" loading="lazy" decoding="async">
-          <span class="pv-tag" data-i18n="product2_label">Товар 02</span>
+          <span class="pv-tag" data-i18n="product2_label">Гемоглобін</span>
         </div>
         <div class="product-body">
           <h3 data-i18n="product2_name">ACTIPRO Hemoglobin — гемоглобін крові кормовий</h3>
@@ -756,10 +750,13 @@
       <h2 data-i18n="certs_title">Сертифікати та відповідність</h2>
       <p class="certs-lede" data-i18n="certs_desc">Кожна партія продукції перевіряється на відповідність показникам якості та безпечності та супроводжується відповідною технічною документацією.</p>
     </div>
-    <div class="certs-note" data-i18n="certs_note">
-      ACTIPRO Plasma та ACTIPRO Hemoglobin виробляються відповідно до Регламенту Комісії (ЄС)
-      № 142/2011 і підпадають під правила TSE; номери дозволу — VEOS NV 1435/2-734,
-      VAPRAN FR 22183001. Документація по кожному товару доступна за запитом.
+    <div class="certs-details">
+      <div class="cert-badges" aria-label="Нормативні документи та дозволи" data-i18n-aria-label="cert_badges_label">
+        <span class="cert-badge" data-i18n="cert_regulation">Регламент (ЄС) № 142/2011</span>
+        <span class="cert-badge">VEOS NV 1435/2-734</span>
+        <span class="cert-badge">VAPRAN FR 22183001</span>
+      </div>
+      <p class="certs-note" data-i18n="certs_note">ACTIPRO Plasma та ACTIPRO Hemoglobin підпадають під правила TSE. Документація по кожному товару доступна за запитом.</p>
     </div>
   </div>
 </section>
@@ -1076,7 +1073,7 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <span data-i18n="footer_copyright">© 2026 Intertehkorm</span>
+    <span data-i18n="footer_copyright">© 2026 Інтертехкорм</span>
     <span data-i18n="footer_address">Київ, Україна · вул. Колекторна, 30</span>
     <span data-i18n="footer_note">Зроблено з турботою</span>
   </div>
@@ -1098,19 +1095,22 @@ const translations = {
     nav_about:"Про нас", nav_products:"Товари", nav_advantages:"Переваги", nav_contact:"Контакти", nav_cta:"Зв'язатись",
     skip_content:"Перейти до основного вмісту", main_nav_label:"Основна навігація",
     language_label:"Вибір мови", close_modal:"Закрити", menu_open:"Відкрити меню", menu_close:"Закрити меню",
-    logo_home_label:"Intertexkorm — на початок сторінки", footer_copyright:"© 2026 Intertehkorm",
-    page_title:"Плазма крові кормова та гемоглобін крові кормовий | Intertexkorm",
+    logo_home_label:"Інтертехкорм — на початок сторінки", footer_copyright:"© 2026 Інтертехкорм",
+    page_title:"Плазма крові кормова та гемоглобін крові кормовий | Інтертехкорм",
     page_description:"Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.",
 
     hero_title_lines:["Високоякісні", "білкові інгредієнти", "для сучасного та", "ефективного"],
     hero_title_em:"тваринництва",
-    hero_desc:"ТОВ Інтертехкорм постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.",
+    hero_desc:"ТОВ «Інтертехкорм» постачає кормову сировину на основі тваринного білка. Підбираємо кожен продукт особисто і завжди на зв'язку з клієнтом.",
     hero_market_note:"Київ · працюємо на українському ринку",
     hero_btn1:"Дивитись товари →", hero_btn2:"Написати нам",
-    hero_products_label:"У каталозі",
     hero_visual_label:"Склад в Україні",
     hero_visual_text:"Запас продукції в Україні для стабільних оптових постачань.",
-    warehouse_image_alt:"Склад кормових білкових інгредієнтів Intertexkorm",
+    warehouse_image_alt:"Склад кормових білкових інгредієнтів Інтертехкорм",
+    facts_label:"Ключові факти",
+    fact1_value:"10+ років", fact1_label:"на ринку",
+    fact2_value:"Європейське", fact2_label:"походження продукції",
+    fact3_value:"В Україні", fact3_label:"склад із запасом продукції",
 
     about_title:"Хто ми",
     about_kicker:"Сімейний бізнес",
@@ -1120,11 +1120,11 @@ const translations = {
     products_title:"Наші товари",
     products_desc:"Натисніть на товар, щоб побачити докладний склад і характеристики.",
 
-    product1_label:"Товар 01", product1_name:"ACTIPRO Plasma — плазма крові кормова",
+    product1_label:"Плазма", product1_name:"ACTIPRO Plasma — плазма крові кормова",
     product1_desc:"Плазма крові кормова у формі порошку — функціональний білковий інгредієнт із гелеутворювальними, водозв’язувальними та емульгувальними властивостями.",
     product1_image_alt:"ACTIPRO Plasma — плазма крові кормова у формі порошку",
 
-    product2_label:"Товар 02", product2_name:"ACTIPRO Hemoglobin — гемоглобін крові кормовий",
+    product2_label:"Гемоглобін", product2_name:"ACTIPRO Hemoglobin — гемоглобін крові кормовий",
     product2_desc:"Гемоглобін крові кормовий — концентроване джерело легкозасвоюваного тваринного білка, органічного заліза та незамінних амінокислот.",
     product2_image_alt:"ACTIPRO Hemoglobin — гемоглобін крові кормовий у формі порошку",
     product_in_stock:"Завжди в наявності на складі",
@@ -1144,7 +1144,8 @@ const translations = {
 
     certs_title:"Сертифікати та відповідність",
     certs_desc:"Кожна партія продукції перевіряється на відповідність показникам якості та безпечності та супроводжується відповідною технічною документацією.",
-    certs_note:"ACTIPRO Plasma та ACTIPRO Hemoglobin виробляються відповідно до Регламенту Комісії (ЄС) № 142/2011 і підпадають під правила TSE; номери дозволу — VEOS NV 1435/2-734, VAPRAN FR 22183001. Документація по кожному товару доступна за запитом.",
+    cert_badges_label:"Нормативні документи та дозволи", cert_regulation:"Регламент (ЄС) № 142/2011",
+    certs_note:"ACTIPRO Plasma та ACTIPRO Hemoglobin підпадають під правила TSE. Документація по кожному товару доступна за запитом.",
 
     row_protein:"Сирий протеїн", row_moisture:"Вологість", row_ash:"Сира зола",
     row_fat:"Сирий жир", row_fiber:"Сира клітковина",
@@ -1224,13 +1225,16 @@ const translations = {
 
     hero_title_lines:["Premium", "Protein Ingredients", "for Modern and", "Efficient"],
     hero_title_em:"Animal Nutrition",
-    hero_desc:"Ltd Intertehkorm supplies animal-protein-based feed raw materials. We choose every product ourselves and stay in touch with every client.",
+    hero_desc:"Intertehkorm LLC supplies animal-protein-based feed raw materials. We choose every product ourselves and stay in touch with every client.",
     hero_market_note:"Kyiv · serving the Ukrainian market",
     hero_btn1:"View products →", hero_btn2:"Message us",
-    hero_products_label:"In the catalog",
     hero_visual_label:"Warehouse in Ukraine",
     hero_visual_text:"Local stock in Ukraine for reliable wholesale deliveries.",
     warehouse_image_alt:"Intertehkorm warehouse for feed protein ingredients",
+    facts_label:"Key facts",
+    fact1_value:"10+ years", fact1_label:"on the market",
+    fact2_value:"European", fact2_label:"product origin",
+    fact3_value:"In Ukraine", fact3_label:"warehouse stock available",
 
     about_title:"Who we are",
     about_kicker:"Family business",
@@ -1240,11 +1244,11 @@ const translations = {
     products_title:"Our products",
     products_desc:"Click a product to see its full composition and specifications.",
 
-    product1_label:"Product 01", product1_name:"ACTIPRO Plasma — feed-grade blood plasma",
+    product1_label:"Plasma", product1_name:"ACTIPRO Plasma — feed-grade blood plasma",
     product1_desc:"Feed-grade blood plasma in powder form — a functional protein ingredient with gelling, water-binding and emulsifying properties.",
     product1_image_alt:"ACTIPRO Plasma — feed-grade blood plasma powder",
 
-    product2_label:"Product 02", product2_name:"ACTIPRO Hemoglobin — feed-grade blood hemoglobin",
+    product2_label:"Hemoglobin", product2_name:"ACTIPRO Hemoglobin — feed-grade blood hemoglobin",
     product2_desc:"Feed-grade blood hemoglobin — a concentrated source of highly digestible animal protein, organic iron and essential amino acids.",
     product2_image_alt:"ACTIPRO Hemoglobin — feed-grade blood hemoglobin powder",
     product_in_stock:"Always in stock",
@@ -1264,7 +1268,8 @@ const translations = {
 
     certs_title:"Certificates & compliance",
     certs_desc:"Each product batch is verified for compliance with quality and safety parameters and supplied with the required technical documentation.",
-    certs_note:"ACTIPRO Plasma and ACTIPRO Hemoglobin are produced in accordance with Commission Regulation (EC) No 142/2011 and are subject to TSE rules; approval numbers: VEOS NV 1435/2-734, VAPRAN FR 22183001. Documentation for each product is available on request.",
+    cert_badges_label:"Regulatory documents and approvals", cert_regulation:"Regulation (EC) No 142/2011",
+    certs_note:"ACTIPRO Plasma and ACTIPRO Hemoglobin are subject to TSE rules. Documentation for each product is available on request.",
 
     row_protein:"Crude protein", row_moisture:"Moisture", row_ash:"Crude ash",
     row_fat:"Crude fat", row_fiber:"Crude fiber",
