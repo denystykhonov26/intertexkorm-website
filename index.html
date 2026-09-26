@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#154B3D">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
@@ -14,16 +15,19 @@
 <meta property="og:description" content="Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.">
 <meta property="og:url" content="https://denystykhonov26.github.io/intertexkorm-website/">
 <meta property="og:image" content="https://denystykhonov26.github.io/intertexkorm-website/img/actipro-plasma.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1000">
 <meta property="og:image:height" content="760">
+<meta property="og:image:alt" content="ACTIPRO Plasma — плазма крові кормова у формі порошку">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Плазма крові кормова та гемоглобін крові кормовий | Інтертехкорм">
 <meta name="twitter:description" content="Кормові білкові інгредієнти ACTIPRO Plasma та ACTIPRO Hemoglobin.">
 <meta name="twitter:image" content="https://denystykhonov26.github.io/intertexkorm-website/img/actipro-plasma.jpg">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-TQCBJXpEOQYWnLchSq8/CzpJ54tGO9IGgt1IFuUCEdY='; style-src 'self' 'sha256-Ne92vLopjmBH6vdX0wkYc/9VRa9nCqKMlgOfNc97FhY=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io https://api.web3forms.com; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
+<meta name="twitter:image:alt" content="ACTIPRO Plasma — плазма крові кормова у формі порошку">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-Sp9mBs4v1h8zxJYDZtuQG/Xg629z2voRBBrPuyU5hy8='; style-src 'self' 'sha256-qJJlxfzVOb+56afJUk+8P1pBjccszIc2yKg1vqOgGUc=' https://fonts.googleapis.com; style-src-attr 'none'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io https://api.web3forms.com; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests; block-all-mixed-content">
 <title>Плазма крові кормова та гемоглобін крові кормовий | Інтертехкорм</title>
 <link rel="canonical" href="https://denystykhonov26.github.io/intertexkorm-website/">
-<link rel="alternate" hreflang="uk" href="https://denystykhonov26.github.io/intertexkorm-website/?lang=uk">
+<link rel="alternate" hreflang="uk" href="https://denystykhonov26.github.io/intertexkorm-website/">
 <link rel="alternate" hreflang="en" href="https://denystykhonov26.github.io/intertexkorm-website/?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://denystykhonov26.github.io/intertexkorm-website/">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
@@ -116,12 +120,6 @@
     margin-bottom:16px;
   }
 
-  /* Зернистая текстура — визуальный мотив розпилювального сушіння */
-  .grain{
-    background-image: radial-gradient(circle at 1px 1px, rgba(21,75,61,.35) 1.3px, transparent 0);
-    background-size: 15px 15px;
-  }
-
   /* ---------- Scroll-reveal ---------- */
   .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
   .reveal.in-view{ opacity:1; transform:translateY(0); }
@@ -199,6 +197,7 @@
   @media (max-width:860px){
     .mobile-menu-toggle{ display:flex; }
     .nav-actions{ display:none; }
+    .lang-switch.mobile-lang-switch{ display:flex; align-self:flex-start; margin:6px 14px 4px; }
     .nav-links{
       display:flex; position:absolute; top:calc(100% + 8px); left:20px; right:20px;
       flex-direction:column; gap:2px; padding:10px; background:rgba(250,250,248,.98);
@@ -215,7 +214,6 @@
     .nav{ padding:12px 16px; gap:10px; }
     .logo-img{ height:50px; }
     .header-contacts{ font-size:13px; }
-    .lang-switch.mobile-lang-switch{ display:flex; align-self:flex-start; margin:6px 14px 4px; }
     .mobile-lang-switch button{ padding:6px 12px; }
     .header-phone{ padding:0; }
     .header-phone::before{ display:none; }
@@ -237,13 +235,6 @@
   /* ---------- Hero ---------- */
   .hero{ padding:18px 0 8px; overflow:hidden; }
   .hero h1{ width:100%; font-size:clamp(40px, 5.7vw, 72px); margin:0; }
-  .hero h1 em{ font-style:italic; color:var(--accent); }
-  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; letter-spacing:0.01em; border-radius:var(--radius-pill); transition:background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.7,.2,1); }
-  .btn-primary{
-    min-width:220px; height:58px; padding:0 26px; font-size:16.5px; font-weight:600;
-    background:var(--accent); color:#fff; box-shadow:0 10px 24px -16px rgba(14,54,44,.5);
-  }
-  .btn-primary:hover{ background:var(--accent-dark); transform:translateY(-2px); box-shadow:0 14px 28px -14px rgba(14,54,44,.45); }
   .facts-strip{
     display:grid; grid-template-columns:repeat(3, 1fr); margin-top:26px;
     border:1px solid var(--line); border-radius:var(--radius-md); background:#fff; box-shadow:var(--shadow-sm);
@@ -277,8 +268,6 @@
     display:block; width:100%; aspect-ratio:16/10; position:relative; overflow:hidden; background:#F2F0E9;
     border:0; color:inherit; text-align:left; -webkit-appearance:none; appearance:none;
   }
-  .product-visual .grain{ position:absolute; inset:0; opacity:.5; mix-blend-mode:multiply; transition:transform .6s ease; }
-  .product-card:hover .product-visual .grain{ transform:scale(1.06); }
   .product-picture{ display:block; width:100%; height:100%; }
   .product-photo{ width:100%; height:100%; object-fit:cover; object-position:center; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
   .product-card:hover .product-photo{ transform:scale(1.035); }
@@ -477,9 +466,6 @@
   .spec-footer-label{ display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
   .spec-footer p{ color:var(--ink-soft); font-size:14px; }
 
-  .spec-empty{ color:var(--ink-soft); font-size:14.5px; padding:20px 0 4px; }
-  .spec-note{ color:var(--ink-soft); font-size:13px; padding-top:20px; margin-top:20px; border-top:1px solid var(--line); }
-
   /* ---------- Contact ---------- */
   .contact{ padding:44px 0; }
   .contact-inner{
@@ -587,7 +573,7 @@
 
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
-    .product-card, .modal, .email-overlay, .advantage, .btn{ transition:none; animation:none; }
+    .product-card, .modal, .email-overlay, .advantage{ transition:none; animation:none; }
   }
 </style>
 </head>
@@ -610,7 +596,7 @@
         <button type="button" data-lang-option="en" aria-pressed="false" aria-label="English language">EN</button>
       </div>
     </nav>
-    <div class="header-contacts" aria-label="Контактні дані">
+    <div class="header-contacts">
       <a class="header-contact header-phone" href="tel:+380504468800" aria-label="Зателефонувати: +380 50 446 88 00" title="Натисніть, щоб зателефонувати" data-i18n-title="phone_click_hint">+380 (50) 446 88 00</a>
     </div>
     <div class="nav-actions">
@@ -630,7 +616,7 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="wrap">
-    <h1 id="hero-title">Високоякісні білкові інгредієнти для сучасного та ефективного <em>тваринництва</em></h1>
+    <h1 id="hero-title" data-i18n="hero_title">Високоякісні білкові інгредієнти для продуктивних тварин, хутрових тварин, Pet Food та аквакультури</h1>
   </div>
 </section>
 
@@ -760,7 +746,7 @@
       <p class="certs-lede" data-i18n="certs_desc">Кожна партія продукції перевіряється на відповідність показникам якості та безпеки та супроводжується відповідною технічною документацією.</p>
     </div>
     <div class="certs-details">
-      <div class="cert-badges" aria-label="Нормативні документи та дозволи" data-i18n-aria-label="cert_badges_label">
+      <div class="cert-badges" role="group" aria-label="Нормативні документи та дозволи" data-i18n-aria-label="cert_badges_label">
         <span class="cert-badge" data-i18n="cert_regulation">Регламент (ЄС) № 142/2011</span>
         <span class="cert-badge">VEOS NV 1435/2-734</span>
         <span class="cert-badge">VAPRAN FR 22183001</span>
@@ -1064,7 +1050,7 @@
           <li>
             <span class="label" data-i18n="contact_phone_label">Телефон</span>
             <a class="value" href="tel:+380504468800">+380 (50) 446 88 00</a>
-            <div class="messenger-links" aria-label="Месенджери" data-i18n-aria-label="messengers_label">
+            <div class="messenger-links" role="group" aria-label="Месенджери" data-i18n-aria-label="messengers_label">
               <a class="messenger-link" href="viber://chat?number=%2B380504468800" target="_blank" rel="noopener">Viber</a>
               <a class="messenger-link" href="https://t.me/vwgen" target="_blank" rel="noopener" aria-label="Написати в Telegram">Telegram</a>
               <a class="messenger-link" href="https://wa.me/380504468800" target="_blank" rel="noopener">WhatsApp</a>
@@ -1132,6 +1118,7 @@
 
 <script>
 const FORM_ENDPOINT = ''; // TODO: додати endpoint форми.
+const SITE_URL = 'https://denystykhonov26.github.io/intertexkorm-website/';
 
 /* ============================================================
    ПЕРЕВОДЫ — UA / EN
@@ -1152,8 +1139,7 @@ const translations = {
     page_title:"Плазма крові кормова та гемоглобін крові кормовий | Інтертехкорм",
     page_description:"Плазма крові кормова ACTIPRO Plasma та гемоглобін крові кормовий ACTIPRO Hemoglobin. Прямий імпорт і оптове постачання кормових білкових інгредієнтів із ЄС.",
 
-    hero_title:"Високоякісні білкові інгредієнти для сучасного та ефективного",
-    hero_title_em:"тваринництва",
+    hero_title:"Високоякісні білкові інгредієнти для продуктивних тварин, хутрових тварин, Pet Food та аквакультури",
     facts_label:"Ключові факти",
     fact1_value:"10+ років", fact1_label:"на ринку",
     fact2_value:"Європейське", fact2_label:"походження продукції",
@@ -1277,8 +1263,7 @@ const translations = {
     page_title:"Feed-grade blood plasma and hemoglobin | Intertehkorm",
     page_description:"ACTIPRO Plasma feed-grade blood plasma and ACTIPRO Hemoglobin feed-grade blood hemoglobin supplied directly from European Union manufacturers.",
 
-    hero_title:"Premium protein ingredients for modern and efficient",
-    hero_title_em:"Animal Nutrition",
+    hero_title:"High-quality protein ingredients for production animals, fur-bearing animals, pet food and aquaculture",
     facts_label:"Key facts",
     fact1_value:"10+ years", fact1_label:"on the market",
     fact2_value:"European", fact2_label:"product origin",
@@ -1410,15 +1395,6 @@ function renderAmino(lang, product){
   });
 }
 
-function renderHeroTitle(dict){
-  const title = document.getElementById('hero-title');
-  title.replaceChildren();
-  title.append(document.createTextNode(dict.hero_title + ' '));
-  const emphasis = document.createElement('em');
-  emphasis.textContent = dict.hero_title_em;
-  title.appendChild(emphasis);
-}
-
 function applyLang(lang){
   const safeLang = Object.hasOwn(translations, lang) ? lang : 'ua';
   const dict = translations[safeLang];
@@ -1442,18 +1418,22 @@ function applyLang(lang){
     const key = el.getAttribute('data-i18n-placeholder');
     if(typeof dict[key] === 'string') el.setAttribute('placeholder', dict[key]);
   });
-  renderHeroTitle(dict);
   renderAmino(safeLang, 1);
   renderAmino(safeLang, 2);
   document.documentElement.lang = (safeLang === 'ua') ? 'uk' : safeLang;
   document.title = dict.page_title;
+  const localizedUrl = safeLang === 'en' ? `${SITE_URL}?lang=en` : SITE_URL;
   document.querySelector('meta[name="description"]').setAttribute('content', dict.page_description);
   document.querySelector('meta[property="og:title"]').setAttribute('content', dict.page_title);
   document.querySelector('meta[property="og:description"]').setAttribute('content', dict.page_description);
   document.querySelector('meta[property="og:locale"]').setAttribute('content', safeLang === 'ua' ? 'uk_UA' : 'en_US');
   document.querySelector('meta[property="og:site_name"]').setAttribute('content', safeLang === 'ua' ? 'Інтертехкорм' : 'Intertehkorm');
+  document.querySelector('meta[property="og:url"]').setAttribute('content', localizedUrl);
+  document.querySelector('meta[property="og:image:alt"]').setAttribute('content', dict.product1_image_alt);
+  document.querySelector('link[rel="canonical"]').setAttribute('href', localizedUrl);
   document.querySelector('meta[name="twitter:title"]').setAttribute('content', dict.page_title);
   document.querySelector('meta[name="twitter:description"]').setAttribute('content', dict.page_description);
+  document.querySelector('meta[name="twitter:image:alt"]').setAttribute('content', dict.product1_image_alt);
   document.querySelectorAll('[data-lang-option]').forEach(button=>{
     const buttonLang = button.getAttribute('data-lang-option');
     const active = buttonLang === safeLang;
